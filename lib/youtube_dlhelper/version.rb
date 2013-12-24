@@ -1,7 +1,3 @@
-#module Youtube_dlhelper
-#  VERSION = '0.0.1'
-#end
-
 class Youtube_dlhelper
   module Version
     MAJOR = 0
