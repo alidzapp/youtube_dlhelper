@@ -12,9 +12,6 @@ require 'dir'
 require 'fileutils'
 require 'parseconfig'
 require 'yt_mp3'
-require 'rake'
-require 'rspec'
-require 'jeweler'
 
 # Modules
 
