@@ -7,14 +7,14 @@ group name or interpreters name. Now it creates a Subfolder inside your Musicdir
 | Project                 |  youtube_dlhelper |
 |------------------------ | ----------------- |
 | gem name                |  youtube_dlhelper |
-| license                 |  [http://opensource.org/licenses/GPL-3.0][GPL3]  |
-| version                 |  [![Gem Version](https://badge.fury.io/rb/youtube_dlhelper.png)][http://badge.fury.io/rb/youtube_dlhelper] |
-| continuous integration  |  [![Build Status](https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master)][https://travis-ci.org/saigkill/youtube_dlhelper] |
-| test coverage           |  [![Coverage Status](https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png)][https://coveralls.io/r/saigkill/youtube_dlhelper] |
-| homepage                |  [https://github.com/saigkill/youtube_dlhelper][homepage] |
-| documentation           |  [https://github.com/saigkill/youtube_dlhelper][documentation] |
-| authors blog            |  [http://saigkill.github.io][Blog]
-| code quality            |  [https://codeclimate.com/badge.png][https://codeclimate.com/github/rdoc/rdoc]
+| license                 |  [GPL3](http://opensource.org/licenses/GPL-3.0)  |
+| version                 |  [![Gem Version](https://badge.fury.io/rb/youtube_dlhelper.png)] |
+| continuous integration  |  [![Build Status](https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master)] |
+| test coverage           |  [![Coverage Status](https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png)] |
+| homepage                |  [homepage](https://github.com/saigkill/youtube_dlhelper) |
+| documentation           |  [documentation](https://github.com/saigkill/youtube_dlhelper) |
+| authors blog            |  [Blog](http://saigkill.github.io)
+| code quality            |  [https://codeclimate.com/badge.png](https://codeclimate.com/github/rdoc/rdoc)
 
 ## Installation
 
