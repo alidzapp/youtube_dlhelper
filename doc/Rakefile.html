@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>Rakefile - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="./LICENSE_txt.html">LICENSE</a>
+  
+    <li class="file"><a href="./README_md.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./TODO_md.html">TODO</a>
+  
+    <li class="file"><a href="./VERSION.html">VERSION</a>
+  
+    <li class="file"><a href="./doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="./lib/youtube_dlhelper/youtube_dlhelper_conf.html">youtube_dlhelper.conf</a>
+  
+    <li class="file"><a href="./youtube_dlhelper_gemspec.html">youtube_dlhelper.gemspec</a>
+  
+    <li class="file"><a href="./youtube_dlhelper/Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./youtube_dlhelper/LICENSE_txt.html">LICENSE</a>
+  
+    <li class="file"><a href="./youtube_dlhelper/README_md.html">README</a>
+  
+    <li class="file"><a href="./youtube_dlhelper/Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./youtube_dlhelper/youtube_dlhelper_gemspec.html">youtube_dlhelper.gemspec</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./YoutubeDlhelper.html">YoutubeDlhelper</a>
+  
+    <li><a href="./YoutubeDlhelper.html">YoutubeDlhelper</a>
+  
+    <li><a href="./YoutubeDlhelper/Dir.html">YoutubeDlhelper::Dir</a>
+  
+    <li><a href="./YoutubeDlhelper/YoutubeDlhelperLibs.html">YoutubeDlhelper::YoutubeDlhelperLibs</a>
+  
+    <li><a href="./YoutubeDlhelperLibs.html">YoutubeDlhelperLibs</a>
+  
+    <li><a href="./YoutubeDlhelperLibs/Checker.html">YoutubeDlhelperLibs::Checker</a>
+  
+    <li><a href="./YoutubeDlhelperLibs/Downloader.html">YoutubeDlhelperLibs::Downloader</a>
+  
+    <li><a href="./YoutubeDlhelperLibs/Import.html">YoutubeDlhelperLibs::Import</a>
+  
+    <li><a href="./YoutubeDlhelperLibs/Ripper.html">YoutubeDlhelperLibs::Ripper</a>
+  
+    <li><a href="./YoutubeDlhelperVersion.html">YoutubeDlhelperVersion</a>
+  
+    <li><a href="./YoutubeDlhelperVersion/Version.html">YoutubeDlhelperVersion::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>require &#39;rubygems&#39; require &#39;bundler&#39; require
+File.expand_path(&#39;lib/youtube_dlhelper/version&#39;)</p>
+
+<p>begin</p>
+
+<pre>Bundler.setup(:default, :development)</pre>
+
+<p>rescue Bundler::BundlerError =&gt; e</p>
+
+<pre>$stderr.puts e.message
+$stderr.puts &#39;Run `bundle install` to install missing gems&#39;
+exit e.status_code</pre>
+
+<p>end require &#39;rake&#39;</p>
+
+<p>require &#39;jeweler&#39; Jeweler::Tasks.new do |gem|</p>
+
+<pre># gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
+gem.name        = &#39;youtube_dlhelper&#39;
+gem.version     = YoutubeDlhelperVersion::Version::STRING
+gem.homepage    = &#39;https://github.com/saigkill/youtube_dlhelper&#39;
+gem.license     = &#39;GPL-3&#39;
+gem.summary     = &#39;Youtube Downloadhelper and Ripper&#39;
+gem.description = &#39;This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form&#39;
+gem.email       = &#39;Sascha.Manns@directbox.com&#39;
+gem.authors     =  [&#39;Sascha Manns&#39;]
+gem.date        = &#39;2013-12-24&#39;
+# dependencies defined in Gemfile</pre>
+
+<p>end Jeweler::RubygemsDotOrgTasks.new</p>
+
+<p>require &#39;rake/testtask&#39; Rake::TestTask.new(:test) do |test|</p>
+
+<pre>test.libs &lt;&lt; &#39;lib&#39; &lt;&lt; &#39;test&#39;
+test.pattern = &#39;test   /test_*.rb&#39;
+test.verbose = true</pre>
+
+<p>end</p>
+
+<p>require &#39;rcov/rcovtask&#39; #Rcov::RcovTask.new do |test| #  test.libs
+&lt;&lt; &#39;test&#39; #  test.pattern = &#39;test/   test_*.rb&#39; # 
+test.verbose = true #  test.rcov_opts &lt;&lt; &#39;–exclude “gems  ”&#39;
+end</p>
+
+<p>task :default =&gt; :test</p>
+
+<p>require &#39;rdoc/task&#39; Rake::RDocTask.new do |rdoc|</p>
+
+<pre>version = File.exist?(&#39;VERSION&#39;) ? File.read(&#39;VERSION&#39;) : &quot;&quot;
+
+rdoc.rdoc_dir = &#39;rdoc&#39;
+rdoc.title = &quot;jeweler_test #{version}&quot;
+rdoc.rdoc_files.include(&#39;README*&#39;)
+rdoc.rdoc_files.include(&#39;lib/   *.rb&#39;)</pre>
+
+<p>end</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
