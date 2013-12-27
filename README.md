@@ -14,7 +14,7 @@ group name or interpreters name. Now it creates a Subfolder inside your Musicdir
 | homepage                |  [homepage](https://github.com/saigkill/youtube_dlhelper) |
 | documentation           |  [documentation](https://github.com/saigkill/youtube_dlhelper) |
 | authors blog            |  [Blog](http://saigkill.github.io)
-| code quality            |  [https://codeclimate.com/badge.png](https://codeclimate.com/github/rdoc/rdoc)
+| code quality            |  [![https://codeclimate.com/github/rdoc/rdoc](https://codeclimate.com/badge.png)
 
 ## Installation
 
