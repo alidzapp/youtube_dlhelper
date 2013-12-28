@@ -21,9 +21,10 @@ class YoutubeDlhelper
   scriptversion = "#{YoutubeDlhelperVersion::Version::STRING}"
   my_name = File.basename('youtube_dlhelper.rb')
 
-  # Main
+  #Main
   YoutubeDlhelperLibs::Checker.check_arguments
   YoutubeDlhelperLibs::Import.import_config
+
   puts "Script: #{my_name}"
   puts "Version: #{scriptversion}"
   puts

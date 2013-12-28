@@ -16,4 +16,6 @@ group :development do
   gem 'bundler', '~> 1.0'
   gem 'jeweler', '~> 1.8.7'
   gem 'rspec'
+  gem 'coveralls', require: false
+  gem 'simplecov'
 end

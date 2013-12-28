@@ -1,6 +1,6 @@
 = \youtube_dlhelper
 
-home :: https://github.com/saigkill
+home :: https://github.com/saigkill/youtube_dlhelper
 license :: http://opensource.org/licenses/GPL-3.0
 version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="version">}[http://rubygems.org/gems/youtube_dlhelper]
 continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master" alt="integration state">}[https://travis-ci.org/saigkill/youtube_dlhelper]
@@ -41,7 +41,7 @@ Such dependencies should be solved directly by the gem manager.
 youtube_dlhelper.rb YoutubeURL
 
 Example:
-youtube_dlhelper.rb http://www.youtube.com/watch?v=aHjpOzsQ9YI (should work on all Linux Versions)
+    youtube_dlhelper.rb http://www.youtube.com/watch?v=aHjpOzsQ9YI (should work on all Linux Versions)
 other platforms aren't tested
 
 Before running the program you have to open the youtube_dlhelper.conf and change the Musicdirectory to your one.

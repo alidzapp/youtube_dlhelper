@@ -5,7 +5,7 @@
 # stub: youtube_dlhelper 0.1.0.alpha ruby lib
 
 Gem::Specification.new do |s|
-  s.name = "youtube_dlhelper"
+  s.name = 'youtube_dlhelper'
   s.version = "0.1.0.alpha"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
@@ -13,34 +13,8 @@ Gem::Specification.new do |s|
   s.date = "2013-12-24"
   s.description = "This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form"
   s.email = "Sascha.Manns@directbox.com"
-  s.extra_rdoc_files = [
-    "LICENSE.txt",
-    "README.md"
-  ]
-  s.files = [
-    "Gemfile",
-    "Gemfile.lock",
-    "LICENSE.txt",
-    "README.md",
-    "Rakefile",
-    "TODO.md",
-    "VERSION",
-    "lib/youtube_dlhelper.rb",
-    "lib/youtube_dlhelper/libs.rb",
-    "lib/youtube_dlhelper/version.rb",
-    "lib/youtube_dlhelper/youtube_dlhelper.conf",
-    "youtube_dlhelper-0.1.0.alpha.gem",
-    "youtube_dlhelper.gemspec",
-    "youtube_dlhelper/.gitignore",
-    "youtube_dlhelper/Gemfile",
-    "youtube_dlhelper/LICENSE.txt",
-    "youtube_dlhelper/README.md",
-    "youtube_dlhelper/Rakefile",
-    "youtube_dlhelper/lib/youtube_dlhelper.rb",
-    "youtube_dlhelper/lib/youtube_dlhelper/version.rb",
-    "youtube_dlhelper/youtube_dlhelper.gemspec",
-    "youtube_dlhelper_spec.rb"
-  ]
+  s.extra_rdoc_files = %w(LICENSE.txt README.md)
+  s.files = %w(Gemfile Gemfile.lock LICENSE.txt README.md Rakefile TODO.md VERSION lib/youtube_dlhelper.rb lib/youtube_dlhelper/libs.rb lib/youtube_dlhelper/version.rb lib/youtube_dlhelper/youtube_dlhelper.conf youtube_dlhelper-0.1.0.alpha.gem youtube_dlhelper.gemspec youtube_dlhelper/.gitignore youtube_dlhelper/Gemfile youtube_dlhelper/LICENSE.txt youtube_dlhelper/README.md youtube_dlhelper/Rakefile youtube_dlhelper/lib/youtube_dlhelper.rb youtube_dlhelper/lib/youtube_dlhelper/version.rb youtube_dlhelper/youtube_dlhelper.gemspec youtube_dlhelper_spec.rb)
   s.homepage = "https://github.com/saigkill/youtube_dlhelper"
   s.licenses = ["GPL-3"]
   s.require_paths = ["lib"]

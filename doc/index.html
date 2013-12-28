@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-youtube_dlhelper">youtube_dlhelper</h1>
+<dl class="rdoc-list note-list"><dt>home 
+<dd>
+<p><a href="https://github.com/saigkill">github.com/saigkill</a></p>
+</dd><dt>license 
+<dd>
+<p><a
+href="http://opensource.org/licenses/GPL-3.0">opensource.org/licenses/GPL-3.0</a></p>
+</dd><dt>version 
+<dd>
+<p>src=“<img src="https://badge.fury.io/rb/youtube_dlhelper.png" />”
+alt=“version”&gt;</p>
+</dd><dt>continuous integration 
+<dd>
+<p><a href="https://travis-ci.org/saigkill/youtube_dlhelper"><img
+src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master"
+alt="integration state"></a></p>
+</dd><dt>test coverage 
+<dd>
+<p><a href="https://coveralls.io/repos/saigkill/youtube_dlhelper"><img
+src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png"
+alt="testing coverage"></a></p>
+</dd><dt>code quality 
+<dd>
+<p>{&lt;img src=“<a
+href="https://codeclimate.com/github/saigkill/youtube_dlhelper/badges">codeclimate.com/github/saigkill/youtube_dlhelper/badges</a>”
+alt=“code <a
+href="https://codeclimate.com/github/saigkill/youtube_dlhelper">climate”></a></p>
+</dd><dt>documentation 
+<dd>
+<p><a
+href="https://github.com/saigkill/youtube_dlhelper/tree/master/doc">github.com/saigkill/youtube_dlhelper/tree/master/doc</a></p>
+</dd><dt>bugs 
+<dd>
+<p><a
+href="https://github.com/saigkill/youtube_dlhelper/issues">github.com/saigkill/youtube_dlhelper/issues</a></p>
+</dd><dt>authors blog 
+<dd>
+<p><a href="http://saigkill.github.io">saigkill.github.io</a></p>
+</dd></dl>
+
+<h2 id="label-Description">Description</h2>
+
+<p>The youtube_dlhelper is a short tool for download and manage the downloaded
+files. You are running the program inside the command line with a Youtube
+URL. Then it aska for a group name or interpreters name. Now it creates a
+Subfolder inside your Musicdirectory. Then it makes a MP3 from the
+downloaded file and moves it to the folder.</p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>The installation is very easy.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_youtube_dlhelper'>youtube_dlhelper</span></code></pre>
+
+<h2 id="label-Hard+dependencies">Hard dependencies</h2>
+
+<p>Just a preinstalled ffmpeg.</p>
+
+<h2 id="label-Soft+dependencies">Soft dependencies</h2>
+
+<p>I&#39;m using:</p>
+<ul><li>
+<p>highline</p>
+</li><li>
+<p>dir</p>
+</li><li>
+<p>fileutils</p>
+</li><li>
+<p>parseconfig</p>
+</li><li>
+<p>viddl-rb</p>
+</li><li>
+<p>streamio-ffmpeg</p>
+</li></ul>
+
+<p>Such dependencies should be solved directly by the gem manager.</p>
+
+<h2 id="label-Usage">Usage</h2>
+
+<p>youtube_dlhelper.rb YoutubeURL</p>
+
+<p>Example: youtube_dlhelper.rb <a
+href="http://www.youtube.com/watch?v=aHjpOzsQ9YI">www.youtube.com/watch?v=aHjpOzsQ9YI</a>
+(should work on all Linux Versions) other platforms aren&#39;t tested</p>
+
+<p>Before running the program you have to open the youtube_dlhelper.conf and
+change the Musicdirectory to your one.</p>
+
+<h2 id="label-Feature+Requests+%26+Bug+Reports">Feature Requests &amp; Bug Reports</h2>
+
+<p>You can file Requests and Reports on the Github Repository: <a
+href="https://github.com/saigkill/youtube_dlhelper/issues">github.com/saigkill/youtube_dlhelper/issues</a></p>
+
+<h2 id="label-Contributing">Contributing</h2>
+<ol><li>
+<p>Fork it</p>
+</li><li>
+<p>Create your feature branch (`git checkout -b my-new-feature`)</p>
+</li><li>
+<p>Commit your changes (`git commit -am &#39;Add some feature&#39;`)</p>
+</li><li>
+<p>Push to the branch (`git push origin my-new-feature`)</p>
+</li><li>
+<p>Create new Pull Request</p>
+</li></ol>
+</div></div>
+
+    <div id="footer">
+  Generated on Sat Dec 28 07:22:46 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>
