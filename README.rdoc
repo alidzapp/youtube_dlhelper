@@ -2,10 +2,10 @@
 
 home :: https://github.com/saigkill
 license :: http://opensource.org/licenses/GPL-3.0
-version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="version">}
+version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="version">}[http://rubygems.org/gems/youtube_dlhelper]
 continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master" alt="integration state">}[https://travis-ci.org/saigkill/youtube_dlhelper]
 test coverage :: {<img src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png" alt="testing coverage">}[https://coveralls.io/repos/saigkill/youtube_dlhelper]
-code quality :: {<img src="https://codeclimate.com/badge.png" alt="code climate">[https://codeclimate.com/github/rdoc/rdoc]
+code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhelper/badges" alt="code climate">}[https://codeclimate.com/github/saigkill/youtube_dlhelper]
 documentation :: https://github.com/saigkill/youtube_dlhelper/tree/master/doc
 bugs :: https://github.com/saigkill/youtube_dlhelper/issues
 authors blog :: http://saigkill.github.io
