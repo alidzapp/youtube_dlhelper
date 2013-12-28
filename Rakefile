@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 # Bundler Task
-require 'rubygems'
 require 'bundler'
 require File.expand_path('lib/youtube_dlhelper/version')
 begin
