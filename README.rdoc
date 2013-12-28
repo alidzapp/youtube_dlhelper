@@ -6,9 +6,11 @@ version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="versio
 continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master" alt="integration state">}[https://travis-ci.org/saigkill/youtube_dlhelper]
 test coverage :: {<img src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png" alt="testing coverage">}[https://coveralls.io/repos/saigkill/youtube_dlhelper]
 code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhelper.png" />}[https://codeclimate.com/github/saigkill/youtube_dlhelper]
-documentation :: https://github.com/saigkill/youtube_dlhelper/tree/master/doc
+documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper/master/frames
 bugs :: https://github.com/saigkill/youtube_dlhelper/issues
 authors blog :: http://saigkill.github.io
+ohloh :: https://www.ohloh.net/p/youtube_dlhelper
+openhatch :: http://openhatch.org/projects/youtube_dlhelper
 
 
 == Description
