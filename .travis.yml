@@ -2,7 +2,6 @@ language: ruby
 rvm:
 - 2.0.0
 - 1.9.3
-- 1.9.2
 - jruby-20mode
 - rbx-2
 
@@ -14,6 +13,3 @@ env:
     - "HAS_JOSH_K_SEAL_OF_APPROVAL=true"
     - "LANG=en_US.UTF-8"
     - "LC_ALL=en_US.UTF-8"
-
-before_install:
-          - gem install rmagick -v '2.13.2'
