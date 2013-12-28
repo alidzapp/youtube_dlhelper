@@ -8,3 +8,10 @@ rvm:
 env:
   global:
     - "JRUBY_OPTS=-Xcext.enabled=true"
+
+bundler_args:
+        "--without debug"
+
+.result:
+        configured
+
