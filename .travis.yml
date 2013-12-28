@@ -2,16 +2,12 @@ language: ruby
 rvm:
 - 2.0.0
 - 1.9.3
-- jruby-19mode
+- jruby-20mode
 - rbx-2
 
 env:
   global:
     - "JRUBY_OPTS=-Xcext.enabled=true"
 
-bundler_args:
-        "--without debug"
-
-.result:
-        configured
-
+after_success:
+          - gem install rmagick
