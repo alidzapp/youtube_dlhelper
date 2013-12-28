@@ -80,7 +80,7 @@ GEM
     progressbar (0.21.0)
     rack (1.5.2)
     rake (10.1.1)
-    rdoc (4.0.1)
+    rdoc (4.1.0)
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -129,11 +129,11 @@ DEPENDENCIES
   bundler (~> 1.0)
   coveralls
   dir
-  fileutils
+  fileutils (>= 0.7)
   highline
   jeweler (~> 1.8.7)
   parseconfig
-  rdoc (~> 4.0.1)
+  rdoc (~> 4.1.0)
   rspec
   shoulda
   simplecov
