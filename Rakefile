@@ -24,7 +24,6 @@ Jeweler::Tasks.new do |gem|
   gem.description = 'This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form'
   gem.email       = 'Sascha.Manns@directbox.com'
   gem.authors     =  ['Sascha Manns']
-  #gem.date        = '2013-12-24'
   gem.date        =  ENV['from'] ? Date.parse(ENV['from']) : Date.today
   # dependencies defined in Gemfile
 end

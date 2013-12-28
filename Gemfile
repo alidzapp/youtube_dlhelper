@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # Add dependencies required to use your gem here.
 gem 'highline'
 gem 'dir'
-gem 'fileutils', '>= 0.7'
+gem 'fileutils', '~> 0.7'
 gem 'parseconfig'
 gem 'viddl-rb'
 gem 'streamio-ffmpeg'
@@ -19,3 +19,4 @@ group :development do
   gem 'coveralls', require: false
   gem 'simplecov'
 end
+
