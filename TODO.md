@@ -6,3 +6,4 @@ That i have planned for the future:
 * Create Testing files for Rake
 * Make the Terminaloutput more beautiful
 * Creating a GUI on top of the program
+* Add the targets - jruby-20mode - rbx-2
