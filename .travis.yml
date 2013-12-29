@@ -6,6 +6,7 @@ rvm:
 env:
   - RGV=master
   - RGV=v2.0.2
+
   global:
     - "JRUBY_OPTS=-Xcext.enabled=true"
     - "CI=true"
@@ -14,18 +15,9 @@ env:
     - "LANG=en_US.UTF-8"
     - "LC_ALL=en_US.UTF-8"
 
-script:
-    - coverage run --source=coveralls lib/youtube_dlhelper
-    - coverage report -m
-
 after_success:
     - coveralls --verbose
 
 notifications:
   email:
     - Sascha.Manns@directbox.com
-  irc:
-    on_success: change
-    on_failure: always
-    channels:
-      - "irc.freenode.org#open-slx"
