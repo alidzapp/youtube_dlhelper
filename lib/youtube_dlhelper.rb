@@ -15,6 +15,7 @@ require 'parseconfig'
 require 'viddl-rb'
 require 'streamio-ffmpeg'
 
+#noinspection ALL
 class YoutubeDlhelper
   # Variables
   url = ARGV[0].to_s
@@ -45,33 +46,13 @@ class YoutubeDlhelper
   puts 'You should have received a copy of the GNU General Public License'
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
 
-  @entrygroup = ask 'What kind of entry do you have? (Interpret or Group)'
-
-  case
-  when @entrygroup == 'Interpret' then
-    @firstname = ask 'Whats the first name of your interpret?'
-    @surname = ask 'Whats the surname of your interpret?'
-    folder = "#{@surname}_#{@firstname}/Youtube-Music"
-  when @entrygroup == 'Group' then
-    @group = ask 'Whats the name of the group?'
-    folder = "#{@group}/Youtube-Music"
-    else
-      puts 'Just the entries "Interpret" or "Group" are allowed'
-      abort('Aborted')
-  end
+  YoutubeDlhelperLibs::User.ask_name
 
   puts "Your present Musicfolder is: #{$music_dir}"
   puts 'You can choose another one directly in the configfile.'
-  puts 'Checking now, if your targetdirectory exists...'
-  if Dir.exists?("#{$music_dir}/#{folder}")
-    puts 'Found directory. Im using it.'
-  else
-    puts 'No directory found. Im creating it.'
-    FileUtils.mkdir_p("#{$music_dir}/#{folder}")
-    puts 'Created new directory...'
-  end
+  YoutubeDlhelperLibs::Target.check
 
-  FileUtils.cd("#{$music_dir}/#{folder}") do
+  FileUtils.cd("#{$music_dir}/#{@folder}") do
     YoutubeDlhelperLibs::Downloader.get(url)
     if File.exists?('*.mp4')
       puts 'Remove unneeded tempfile'
@@ -79,7 +60,7 @@ class YoutubeDlhelper
         File.delete(waste)
       end
     else
-        puts 'Temporary file already deleted'
+      puts 'Temporary file already deleted'
     end
 
     file = Dir.entries(Dir::pwd)
@@ -94,7 +75,7 @@ class YoutubeDlhelper
   end
 
 
-  puts "Now you can find your file in #{$music_dir}/#{folder}/#{@filename}.mp3"
+  puts "Now you can find your file in #{$music_dir}/#{@folder}/#{@filename}.mp3"
   puts "Thank you for using #{my_name}"
 
 end

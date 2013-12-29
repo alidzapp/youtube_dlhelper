@@ -33,6 +33,37 @@ class YoutubeDlhelperLibs
     end
   end
 
+  module User
+    def self.ask_name
+      @entrygroup = ask 'What kind of entry do you have? (Interpret or Group)'
+
+      case
+        when @entrygroup == 'Interpret' then
+          @firstname = ask 'Whats the first name of your interpret?'
+          @surname = ask 'Whats the surname of your interpret?'
+          @folder = "#{@surname}_#{@firstname}/Youtube-Music"
+        when @entrygroup == 'Group' then
+          @group = ask 'Whats the name of the group?'
+          @folder = "#{@group}/Youtube-Music"
+        else
+          puts 'Just the entries "Interpret" or "Group" are allowed'
+          abort('Aborted')
+      end
+    end
+  end
+
+  module Target
+    def self.check
+      puts 'Checking now, if your targetdirectory exists...'
+      if Dir.exists?("#{$music_dir}/#{@folder}")
+        puts 'Found directory. Im using it.'
+      else
+        puts 'No directory found. Im creating it.'
+        FileUtils.mkdir_p("#{$music_dir}/#{@folder}")
+        puts 'Created new directory...'
+      end
+    end
+  end
   module Downloader
     def self.get(url1)
       download = `viddl-rb -e #{url1}`
