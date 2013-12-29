@@ -8,6 +8,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
+    appraisal (0.5.2)
+      bundler
+      rake
     atomic (1.1.14)
     builder (3.2.2)
     coveralls (0.7.0)
@@ -126,6 +129,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  appraisal
   bundler (~> 1.0)
   coveralls
   dir

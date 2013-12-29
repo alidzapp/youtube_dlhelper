@@ -1,8 +1,8 @@
 # encoding: utf-8
+require File.expand_path('lib/youtube_dlhelper/version')
 
 # Bundler Task
 require 'bundler'
-require File.expand_path('lib/youtube_dlhelper/version')
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -35,6 +35,7 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
   test.verbose = true
+  test.warning = true
 end
 
 # SimpleCov Formatter Task
@@ -45,6 +46,10 @@ SimpleCov.start do
   add_filter '.yardoc'
 end
 task :default => :test
+
+require 'coveralls/rake/task'
+Coveralls::RakeTask.new
+task :test_with_coveralls => [:spec, :features, 'coveralls:push']
 
 # RDoc Task
 require 'rdoc/task'
@@ -57,11 +62,15 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-# RSpec Core Task
-require 'bundler/gem_tasks'
-require 'rspec/core'
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec) do |spec|
-  spec.pattern = FileList['spec/**/*_spec.rb']
+require 'bundler/setup'
+require 'appraisal'
+Bundler::GemHelper.install_tasks
+
+# See https://github.com/colszowka/simplecov/issues/171
+desc 'Set permissions on all files so they are compatible with both user-local and system-wide installs'
+task :fix_permissions do
+  system 'bash -c "find . -type f -exec chmod 644 {} \; && find . -type d -exec chmod 755 {} \;"'
 end
-task default: :spec
+
+# Enforce proper permissions on each build
+Rake::Task[:build].prerequisites.unshift :fix_permissions

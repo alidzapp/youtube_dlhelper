@@ -18,5 +18,6 @@ group :development do
   gem 'rspec'
   gem 'coveralls', require: false
   gem 'simplecov'
+  gem 'appraisal'
 end
 
