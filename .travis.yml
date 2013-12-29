@@ -3,7 +3,6 @@ rvm:
 - 2.0.0
 - 1.9.3
 
-
 env:
   global:
     - "JRUBY_OPTS=-Xcext.enabled=true"
@@ -12,3 +11,10 @@ env:
     - "HAS_JOSH_K_SEAL_OF_APPROVAL=true"
     - "LANG=en_US.UTF-8"
     - "LC_ALL=en_US.UTF-8"
+
+script:
+    - coverage run --source=coveralls lib/youtube_dlhelper
+    - coverage report -m
+
+after_success:
+    - coveralls --verbose
