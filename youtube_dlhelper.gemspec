@@ -67,7 +67,6 @@ Gem::Specification.new do |s|
     "lib/youtube_dlhelper/libs.rb",
     "lib/youtube_dlhelper/version.rb",
     "lib/youtube_dlhelper/youtube_dlhelper.conf",
-    "pkg/youtube_dlhelper-0.1.2.alpha.gem",
     "spec/spec_helper.rb",
     "test/test_helper.rb",
     "youtube_dlhelper.gemspec",
