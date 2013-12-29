@@ -15,7 +15,6 @@ require 'parseconfig'
 require 'viddl-rb'
 require 'streamio-ffmpeg'
 
-#noinspection ALL
 class YoutubeDlhelper
   # Variables
   url = ARGV[0].to_s
@@ -46,36 +45,31 @@ class YoutubeDlhelper
   puts 'You should have received a copy of the GNU General Public License'
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
 
-  YoutubeDlhelperLibs::User.ask_name
+  YoutubeDlhelperLibs::Checker.check_target
 
-  puts "Your present Musicfolder is: #{$music_dir}"
+  puts "Your present Targetfolder is: #{$music_dir}/#{$folder}"
   puts 'You can choose another one directly in the configfile.'
-  YoutubeDlhelperLibs::Target.check
+  puts 'Checking now, if your targetdirectory exists...'
+  YoutubeDlhelperLibs::Checker.check_dir
 
-  FileUtils.cd("#{$music_dir}/#{@folder}") do
+  FileUtils.cd("#{$music_dir}/#{$folder}") do
     YoutubeDlhelperLibs::Downloader.get(url)
-    if File.exists?('*.mp4')
-      puts 'Remove unneeded tempfile'
-      Dir['*.mp4'].each do |waste|
-        File.delete(waste)
-      end
-    else
-      puts 'Temporary file already deleted'
-    end
+    puts "Now we are switched to directory #{Dir::pwd}"
+    YoutubeDlhelperLibs::Checker.check_tmpfile
 
     file = Dir.entries(Dir::pwd)
     @testfile = file[0]
-    @filename = File.basename @testfile, '.m4a'
+    @filename = File.basename(@testfile,File.extname(@testfile))
 
     YoutubeDlhelperLibs::Ripper.rip(@filename)
+
     puts 'Cleaning up directory'
     File.delete("#{@filename}.mp4")
     File.delete("#{@filename}.m4a")
     puts 'Finished cleaning up'
   end
 
-
-  puts "Now you can find your file in #{$music_dir}/#{@folder}/#{@filename}.mp3"
+  puts "Now you can find your file in #{$music_dir}/#{$folder}/#{@filename}.mp3"
   puts "Thank you for using #{my_name}"
 
 end
