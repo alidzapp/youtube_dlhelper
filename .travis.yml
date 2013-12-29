@@ -4,9 +4,6 @@ rvm:
 - 1.9.3
 
 env:
-  - RGV=master
-  - RGV=v2.0.2
-
   global:
     - "JRUBY_OPTS=-Xcext.enabled=true"
     - "CI=true"
@@ -14,6 +11,8 @@ env:
     - "HAS_JOSH_K_SEAL_OF_APPROVAL=true"
     - "LANG=en_US.UTF-8"
     - "LC_ALL=en_US.UTF-8"
+    - "RGV=master"
+    - "RGV=v2.0.2"
 
 after_success:
     - coveralls --verbose
