@@ -10,7 +10,7 @@ class YoutubeDlhelperVersion
     MAJOR = 0
     MINOR = 1
     PATCH = 2
-    BUILD = ''
+    BUILD = 0
 
     STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join('.')
   end
