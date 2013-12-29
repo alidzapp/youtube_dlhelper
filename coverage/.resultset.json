@@ -1,12 +1,12 @@
 {
-  "Unit Tests": {
-    "coverage": {
+    "Unit Tests": {
+        "coverage": {
+        },
+        "timestamp": 1388284656
     },
-    "timestamp": 1388262267
-  },
-  "RSpec": {
-    "coverage": {
-    },
-    "timestamp": 1388282818
-  }
+    "RSpec": {
+        "coverage": {
+        },
+        "timestamp": 1388284656
+    }
 }

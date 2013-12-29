@@ -4,6 +4,8 @@ rvm:
 - 1.9.3
 
 env:
+  - RGV=master
+  - RGV=v2.0.2
   global:
     - "JRUBY_OPTS=-Xcext.enabled=true"
     - "CI=true"
@@ -18,3 +20,12 @@ script:
 
 after_success:
     - coveralls --verbose
+
+notifications:
+  email:
+    - Sascha.Manns@directbox.com
+  irc:
+    on_success: change
+    on_failure: always
+    channels:
+      - "irc.freenode.org#open-slx"
