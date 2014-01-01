@@ -26,8 +26,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-    fileutils (0.7)
-      rmagick (>= 2.13.1)
+    fileutils2 (0.2.0)
     git (1.2.6)
     github_api (0.10.1)
       addressable
@@ -87,7 +86,6 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rmagick (2.13.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -129,11 +127,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   appraisal
   bundler (~> 1.0)
   coveralls
   dir
-  fileutils (~> 0.7)
+  fileutils2
   highline
   jeweler (~> 1.8.7)
   parseconfig

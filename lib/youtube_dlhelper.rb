@@ -6,27 +6,27 @@
 # Published under: See LICENSE file
 
 # Dependencies
-require File.expand_path('youtube_dlhelper/version')
-require File.expand_path('youtube_dlhelper/libs')
+require File.join(File.dirname(__FILE__), 'youtube_dlhelper/version')
+require File.join(File.dirname(__FILE__), 'youtube_dlhelper/libs')
 require 'highline/import'
 require 'dir'
-require 'fileutils'
+require 'fileutils2'
 require 'parseconfig'
+require 'addressable/uri'
 require 'viddl-rb'
 require 'streamio-ffmpeg'
 
 class YoutubeDlhelper
   # Variables
-  url = ARGV[0].to_s
-  scriptversion = "#{YoutubeDlhelperVersion::Version::STRING}"
-  my_name = File.basename('youtube_dlhelper.rb')
+  $scriptversion = YoutubeDlhelperVersion::Version::STRING
+  $my_name = 'youtube_dlhelper.rb'
 
   #Main
   YoutubeDlhelperLibs::Checker.check_arguments
   YoutubeDlhelperLibs::Import.import_config
 
-  puts "Script: #{my_name}"
-  puts "Version: #{scriptversion}"
+  puts "Script: #{$my_name}"
+  puts "Version: #{$scriptversion}"
   puts
   puts 'Copyright (C) 2013 Sascha Manns <Sascha.Manns@directbox.com>'
   puts 'Description: This script can download music from YouTube'
@@ -53,13 +53,14 @@ class YoutubeDlhelper
   YoutubeDlhelperLibs::Checker.check_dir
 
   FileUtils.cd("#{$music_dir}/#{$folder}") do
-    YoutubeDlhelperLibs::Downloader.get(url)
     puts "Now we are switched to directory #{Dir::pwd}"
+    YoutubeDlhelperLibs::Downloader.get($url)
     YoutubeDlhelperLibs::Checker.check_tmpfile
 
     file = Dir.entries(Dir::pwd)
     @testfile = file[0]
     @filename = File.basename(@testfile,File.extname(@testfile))
+    puts @filename
 
     YoutubeDlhelperLibs::Ripper.rip(@filename)
 
@@ -70,6 +71,6 @@ class YoutubeDlhelper
   end
 
   puts "Now you can find your file in #{$music_dir}/#{$folder}/#{@filename}.mp3"
-  puts "Thank you for using #{my_name}"
+  puts "Thank you for using #{$my_name} #{$scriptversion}"
 
 end

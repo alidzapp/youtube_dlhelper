@@ -3,10 +3,11 @@ source 'http://rubygems.org'
 # Add dependencies required to use your gem here.
 gem 'highline'
 gem 'dir'
-gem 'fileutils', '~> 0.7'
+gem 'fileutils2'
 gem 'parseconfig'
 gem 'viddl-rb'
 gem 'streamio-ffmpeg'
+gem 'addressable'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

@@ -1,5 +1,6 @@
 # encoding: utf-8
-require File.expand_path('lib/youtube_dlhelper/version')
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/version')
 
 # Bundler Task
 require 'bundler'
@@ -30,13 +31,26 @@ end
 Jeweler::RubygemsDotOrgTasks.new
 
 # Rake Test Task
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.warning = true
+#require 'rake/testtask'
+#Rake::TestTask.new(:test) do |test|
+#  test.libs << 'lib' << 'test'
+#  test.pattern = 'test/**/test_*.rb'
+#  test.verbose = true
+#  test.warning = true
+#end
+
+# RSpec Task
+require 'rspec/core'
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.pattern = FileList['spec/**/*_spec.rb']
 end
+
+#RSpec::Core::RakeTask.new(:rcov) do |spec|
+#  spec.pattern = 'spec/**/*_spec.rb'
+#  spec.SimpleCov = true
+#end
+task :default => :spec
 
 # SimpleCov Formatter Task
 require 'simplecov'
@@ -54,7 +68,7 @@ task :test_with_coveralls => [:spec, :features, 'coveralls:push']
 # RDoc Task
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  version = File.exist?('VERSION') ? File.read('VERSION') : ''
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "jeweler_test #{version}"
@@ -62,10 +76,21 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
+# Appraisal Task
 require 'bundler/setup'
 require 'appraisal'
 Bundler::GemHelper.install_tasks
 
+#task :my_release do
+#  `gem bump --version minor`
+#  `rake rdoc`
+#  `git add . && git commit -a -m "Next release" && git push`
+#  `rake gemspec:generate`
+#  `rake git:release`
+#  `rake build`
+#end
+
+# Set permissions Task
 desc 'Set permissions on all files so they are compatible with both user-local and system-wide installs'
 task :fix_permissions do
   system 'bash -c "find . -type f -exec chmod 644 {} \; && find . -type d -exec chmod 755 {} \;"'
