@@ -50,7 +50,7 @@ end
 #  spec.pattern = 'spec/**/*_spec.rb'
 #  spec.SimpleCov = true
 #end
-task :default => :spec
+#task :default => :spec
 
 # SimpleCov Formatter Task
 require 'simplecov'
@@ -59,11 +59,11 @@ SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start do
   add_filter '.yardoc'
 end
-task :default => :test
+task :default => :spec
 
 require 'coveralls/rake/task'
 Coveralls::RakeTask.new
-task :test_with_coveralls => [:spec, :features, 'coveralls:push']
+task :test_with_coveralls => [:spec, 'coveralls:push']
 
 # RDoc Task
 require 'rdoc/task'
