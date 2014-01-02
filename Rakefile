@@ -53,7 +53,6 @@ desc 'Run yarddoc for the source'
 YARD::Rake::YardocTask.new do |t|
   t.files   = %w(lib/**/*.rb ChangeLog.md LICENSE.rdoc TODO.md) # optional
 end
-task :default => :development
 
 # Set permissions Task
 desc 'Set permissions on all files so they are compatible with both user-local and system-wide installs'
