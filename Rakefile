@@ -3,9 +3,9 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/version')
 
 # Bundler Task
-require 'bundler'
+require 'bundler/gem_tasks'
 begin
-  Bundler.setup(:default, :development)
+  Bundler.setup(:development)
 rescue Bundler::BundlerError => e
   $stderr.puts e.message
   $stderr.puts 'Run `bundle install` to install missing gems'
