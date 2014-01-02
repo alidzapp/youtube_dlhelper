@@ -38,14 +38,10 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 task :default => :spec
 
+# Coveralls Task
 require 'coveralls/rake/task'
 Coveralls::RakeTask.new
 task :test_with_coveralls => [:spec, 'coveralls:push']
-
-# Appraisal Task
-require 'bundler/setup'
-require 'appraisal'
-Bundler::GemHelper.install_tasks
 
 # Yard Task
 require 'yard'
@@ -53,12 +49,3 @@ desc 'Run yarddoc for the source'
 YARD::Rake::YardocTask.new do |t|
   t.files   = %w(lib/**/*.rb ChangeLog.md LICENSE.rdoc TODO.md) # optional
 end
-
-# Set permissions Task
-desc 'Set permissions on all files so they are compatible with both user-local and system-wide installs'
-task :fix_permissions do
-  system 'bash -c "find . -type f -exec chmod 644 {} \; && find . -type d -exec chmod 755 {} \;"'
-end
-
-# Enforce proper permissions on each build
-Rake::Task[:build].prerequisites.unshift :fix_permissions

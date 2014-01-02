@@ -5,14 +5,13 @@ rvm:
 
 env:
   global:
-    - "JRUBY_OPTS=-Xcext.enabled=true"
-    - "CI=true"
-    - "TRAVIS=true"
-    - "HAS_JOSH_K_SEAL_OF_APPROVAL=true"
-    - "LANG=en_US.UTF-8"
-    - "LC_ALL=en_US.UTF-8"
-    - "RGV=master"
-    - "RGV=v2.0.2"
+    - JRUBY_OPTS=-Xcext.enabled=true
+    - CI=true
+    - TRAVIS=true
+    - LANG=en_US.UTF-8
+    - LC_ALL=en_US.UTF-8
+    - RGV=master
+    - RGV=v2.0.2
 
 after_success:
     - coveralls --verbose
