@@ -16,15 +16,16 @@ require 'addressable/uri'
 require 'viddl-rb'
 require 'streamio-ffmpeg'
 
+# The main class YoutubeDlhelper
 class YoutubeDlhelper
   # Variables
   $scriptversion = YoutubeDlhelperVersion::Version::STRING
   $my_name = 'youtube_dlhelper.rb'
 
-  #Main
   YoutubeDlhelperLibs::Checker.check_arguments
   YoutubeDlhelperLibs::Import.import_config
 
+  # Introscreen
   puts "Script: #{$my_name}"
   puts "Version: #{$scriptversion}"
   puts
@@ -47,30 +48,30 @@ class YoutubeDlhelper
 
   YoutubeDlhelperLibs::Checker.check_target
 
+  # Reflects what targetfolder are used now
   puts "Your present Targetfolder is: #{$music_dir}/#{$folder}"
   puts 'You can choose another one directly in the configfile.'
   puts 'Checking now, if your targetdirectory exists...'
   YoutubeDlhelperLibs::Checker.check_dir
 
+  # Using FileUtils to enter the generated directory
   FileUtils.cd("#{$music_dir}/#{$folder}") do
     puts "Now we are switched to directory #{Dir::pwd}"
     YoutubeDlhelperLibs::Downloader.get($url)
-    YoutubeDlhelperLibs::Checker.check_tmpfile
 
-    file = Dir.entries(Dir::pwd)
-    @testfile = file[0]
-    @filename = File.basename(@testfile,File.extname(@testfile))
-    puts @filename
-
-    YoutubeDlhelperLibs::Ripper.rip(@filename)
+    YoutubeDlhelperLibs::FileHelper.get_filename
+    puts Dir::pwd
+    puts $filename
+    YoutubeDlhelperLibs::Ripper.rip($filename)
 
     puts 'Cleaning up directory'
-    File.delete("#{@filename}.mp4")
-    File.delete("#{@filename}.m4a")
+    # Cleaning up unneeded files
+    File.delete("#{$filename}.mp4")
+    File.delete("#{$filename}.m4a")
     puts 'Finished cleaning up'
   end
 
-  puts "Now you can find your file in #{$music_dir}/#{$folder}/#{@filename}.mp3"
+  puts "Now you can find your file in #{$music_dir}/#{$folder}/#{$filename}.mp3"
   puts "Thank you for using #{$my_name} #{$scriptversion}"
 
 end

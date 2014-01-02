@@ -33,7 +33,7 @@ I'm using:
 
 * highline
 * dir
-* fileutils
+* fileutils2
 * parseconfig
 * viddl-rb
 * streamio-ffmpeg

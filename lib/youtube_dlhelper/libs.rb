@@ -5,24 +5,24 @@
 # Work: This file contains some standard methods for YoutubeDlhelper
 # Published under: See LICENSE file
 
+# Library Class for supporting YoutubeDlhelper
 class YoutubeDlhelperLibs
+  # The Checker module contains different methods to check anything
   module Checker
+    # This method checks if a url is valid
     def self.valid_url?(url)
       require 'addressable/uri'
-      #schemes = %w{http https}
-      #parsed == (Addressable::URI.parse(url)) or return false
-      #schemes.include?(parsed.scheme)
       uri = Addressable::URI.parse(url)
       uri.scheme
-        puts 'Your URL looks valid'
+      puts 'Your URL looks valid'
     rescue Addressable::URI::InvalidURIError
       false
       puts 'Sorry. The URL dont looks valid'
       abort('Aborted')
     end
 
+    # This method checks how many Commandline Parameters are given and does a reaction
     def self.check_arguments
-      puts ARGV.length #debug
       case ARGV.length
         when 0
           YoutubeDlhelperLibs::Usage.print_usage
@@ -43,26 +43,32 @@ class YoutubeDlhelperLibs
       end #end of case
     end #end of def
 
+    # Ask for names, creates the folders and puts all into a $folder variable
     def self.check_target
-      @entrygroup = ask 'What kind of entry do you have? (Interpret or Group)'
 
-      case @entrygroup
-        when 'Interpret' then
-          @firstname = ask 'Whats the first name of your interpret?'
-          @surname = ask 'Whats the surname of your interpret?'
-          $folder = "#{@surname}_#{@firstname}/Youtube-Music"
-        when 'Group' then
-          @group = ask 'Whats the name of the group?'
-          $folder = "#{@group}/Youtube-Music"
-        else
-          puts 'Just the entries "Interpret" or "Group" are allowed'
-          abort('Aborted')
-          puts 'Breakpoint'
-      end
+      entry = ask 'What kind of entry do you have? (Interpret or Group)'
+
+      subdir = case entry
+                 when 'Interpret'
+                   [
+                       ask('Whats the first name of your interpret?'),
+                       ask('Whats the surname of your interpret?')
+                   ].join('_')
+
+                 when 'Group'
+                   ask 'Whats the name of the group?'
+
+                 else
+                   puts 'Just the entries "Interpret" or "Group" are allowed'
+                   puts 'Breakpoint'
+                   abort('Aborted')
+               end
+
+      $folder = "#{ subdir }/Youtube-Music"
     end
 
+    # Checks if the targetdirectory are present. If not, it creates one
     def self.check_dir
-      #require 'fileutils'
       require 'fileutils2'
       require 'dir'
       if Dir.exists?("#{$music_dir}/#{$folder}")
@@ -73,22 +79,12 @@ class YoutubeDlhelperLibs
         puts 'Created new directory...'
       end
     end
-
-    def self.check_tmpfile
-      require 'fileutils2'
-      require 'dir'
-      if File.exists?('*.mp4')
-        puts 'Remove unneeded tempfile'
-        Dir['*.mp4'].each do |waste|
-          File.delete(waste)
-        end
-      else
-        puts 'Temporary file already deleted'
-      end
-    end #end of def
   end #end of module
 
+
+  # Module for Importing Informations
   module Import
+    # This Module parses the youtube_dlhelper.conf and gives the information to a $music_dir variable
     def self.import_config
       if $testing.equal? true
         $music_dir = '.'
@@ -100,7 +96,9 @@ class YoutubeDlhelperLibs
     end
   end
 
+  # Module for all Downloading things
   module Downloader
+    # Accessing the get(url) method from the Downloader module
     def self.get(url1)
       require 'viddl-rb'
       download = `viddl-rb -e #{url1}`
@@ -108,6 +106,7 @@ class YoutubeDlhelperLibs
   end
 
   module Ripper
+    # Methode for transcoding the *.m4a file to *.mp3. Output should be a valid MP3 file.
     def self.rip(filename)
       require 'streamio-ffmpeg'
       puts 'Initializing the file'
@@ -120,7 +119,20 @@ class YoutubeDlhelperLibs
     end
   end
 
+  # Module for FileHelper tools
+  module FileHelper
+    # Method to get the filename of the downloaded file end excludes the extension
+    def self.get_filename
+      require 'dir'
+      file = Dir.glob('*.m*')
+      @testfile = file[0]
+      $filename = File.basename(@testfile,File.extname(@testfile))
+    end
+  end
+
+  # Module for the Usages
   module Usage
+    # Method for print out the user usage information
     def self.print_usage
       puts "Script: #{$my_name} Version: #{$scriptversion}"
       puts 'Copyright (C) 2013 Sascha Manns <Sascha.Manns@directbox.com>'

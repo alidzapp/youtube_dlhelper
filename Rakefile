@@ -30,34 +30,11 @@ Jeweler::Tasks.new do |gem|
 end
 Jeweler::RubygemsDotOrgTasks.new
 
-# Rake Test Task
-#require 'rake/testtask'
-#Rake::TestTask.new(:test) do |test|
-#  test.libs << 'lib' << 'test'
-#  test.pattern = 'test/**/test_*.rb'
-#  test.verbose = true
-#  test.warning = true
-#end
-
 # RSpec Task
 require 'rspec/core'
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
-end
-
-#RSpec::Core::RakeTask.new(:rcov) do |spec|
-#  spec.pattern = 'spec/**/*_spec.rb'
-#  spec.SimpleCov = true
-#end
-#task :default => :spec
-
-# SimpleCov Formatter Task
-require 'simplecov'
-require 'coveralls'
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start do
-  add_filter '.yardoc'
 end
 task :default => :spec
 
@@ -65,30 +42,18 @@ require 'coveralls/rake/task'
 Coveralls::RakeTask.new
 task :test_with_coveralls => [:spec, 'coveralls:push']
 
-# RDoc Task
-require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ''
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "jeweler_test #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
-
 # Appraisal Task
 require 'bundler/setup'
 require 'appraisal'
 Bundler::GemHelper.install_tasks
 
-#task :my_release do
-#  `gem bump --version minor`
-#  `rake rdoc`
-#  `git add . && git commit -a -m "Next release" && git push`
-#  `rake gemspec:generate`
-#  `rake git:release`
-#  `rake build`
-#end
+# Yard Task
+require 'yard'
+desc 'Run yarddoc for the source'
+YARD::Rake::YardocTask.new do |t|
+  t.files   = %w(lib/**/*.rb ChangeLog.md LICENSE.rdoc TODO.md) # optional
+end
+task :default => :development
 
 # Set permissions Task
 desc 'Set permissions on all files so they are compatible with both user-local and system-wide installs'

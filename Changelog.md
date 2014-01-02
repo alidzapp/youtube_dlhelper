@@ -1,7 +1,11 @@
 # Changelog for youtube_dlhelper
 
 ## 0.1.4 - 2014-01-01
-Changed dependency from fileutils to fileutils2 for security reasons.
+* [!]Changed dependency from fileutils to fileutils2 for security reasons.
+* regenerated docfiles
+* changed the lines for finding the filename to File.glob
+* added some tests inside the spec/ folder
+* changed LICENSE.txt to LICENSE.rdoc
 
 ## 0.1.3 - 2013-12-29
 Same as 0.1.2.alpha
