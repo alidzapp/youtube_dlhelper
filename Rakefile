@@ -1,21 +1,26 @@
 # encoding: utf-8
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/version')
+
+task :default do
+  puts 'Using the default task'
+end
 
 # Bundler Task
-require 'bundler/gem_tasks'
+require 'bundler'
 begin
-  Bundler.setup(:development)
+  Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
   $stderr.puts e.message
   $stderr.puts 'Run `bundle install` to install missing gems'
   exit e.status_code
 end
+require 'rake'
 
 # Jeweler Task
 require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
+  require File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/version')
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name        = 'youtube_dlhelper'
   gem.version     = YoutubeDlhelperVersion::Version::STRING
