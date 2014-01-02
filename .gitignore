@@ -1,4 +1,5 @@
 .idea/
-
+.autotest
+spec/
 # Gemnasium gem configuration file
 config/gemnasium.yml
