@@ -38,7 +38,7 @@ describe 'Transcoding Checker' do
   it 'should converts a file from Youtube' do
     puts 'Entering Test: Transcoding Checker'
     tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    YoutubeDlhelperLibs::Ripper.rip(tempfile)
+    YoutubeDlhelperLibs::Ripper.rip("#{tempfile}")
     testfile = Dir.glob('*.mp3')
     testfile.equal? "#{tempfile}.mp3"
     puts 'Test passed...'
