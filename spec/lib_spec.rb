@@ -15,6 +15,13 @@ describe 'Valid URL Checker' do
   end
 end
 
+describe 'Valid URL Checker Fail' do
+  it 'should fail by using wrong entrys'
+  puts 'Entering Check: Valid URL Checker Fail'
+  YoutubeDlhelperLibs::Checker.valid_url?('heroin.doc')
+  puts 'Test passed...'
+end
+
 describe 'Config Import Checker' do
   it 'should fill musicdir to $music_dir' do
     puts 'Entering Check: Config Import Checker'
