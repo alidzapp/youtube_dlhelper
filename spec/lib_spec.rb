@@ -1,11 +1,10 @@
 require 'rspec'
 require 'dir'
 require 'fileutils2'
+require File.dirname(__FILE__) + '/spec_helper'
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'youtube_dlhelper/libs'
 @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-
-#set :environment, :test
 
 describe 'Valid URL Checker' do
   it 'should get an url, test it and five back a true' do
@@ -13,13 +12,6 @@ describe 'Valid URL Checker' do
     YoutubeDlhelperLibs::Checker.valid_url?('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
     puts 'Test passed...'
   end
-end
-
-describe 'Valid URL Checker Fail' do
-  it 'should fail by using wrong entrys'
-  puts 'Entering Check: Valid URL Checker Fail'
-  YoutubeDlhelperLibs::Checker.valid_url?('heroin.doc')
-  puts 'Test passed...'
 end
 
 describe 'Config Import Checker' do
