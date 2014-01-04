@@ -86,6 +86,7 @@ class YoutubeDlhelperLibs
   module Import
     # This Module parses the youtube_dlhelper.conf and gives the information to a $music_dir variable
     def self.import_config
+      require 'parseconfig'
       if $testing.equal? true
         $music_dir = '.'
       else
