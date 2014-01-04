@@ -27,11 +27,9 @@ describe 'Download Checker' do
   it 'shoud download a file from Youtube' do
       puts 'Entering Check: Download Checker'
       YoutubeDlhelperLibs::Downloader.get('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
-      require 'dir'
-      @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-      file = Dir.glob('*.mp4')
-      @testfile = file[0]
-      @testfile.equal? "#{@tempfile}.mp4"
+      tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
+      testfile = Dir.glob('*.mp4')
+      testfile.equal? "#{tempfile}.mp4"
       puts 'Test passed'
   end
 end
@@ -39,12 +37,10 @@ end
 describe 'Transcoding Checker' do
   it 'should converts a file from Youtube' do
     puts 'Entering Test: Transcoding Checker'
-    @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    YoutubeDlhelperLibs::Ripper.rip(@tempfile)
-    require 'dir'
-    file = Dir.glob('*.mp3')
-    @testfile = file[0]
-    @testfile.equal? "#{@tempfile}.mp3"
+    tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
+    YoutubeDlhelperLibs::Ripper.rip(tempfile)
+    testfile = Dir.glob('*.mp3')
+    testfile.equal? "#{tempfile}.mp3"
     puts 'Test passed...'
   end
 end
@@ -52,9 +48,9 @@ end
 describe 'Cleanup Routine' do
   it 'Should cleanup all downloaded and generated files' do
     require 'fileutils2'
-    @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    File.delete("#{@tempfile}.mp4")
-    File.delete("#{@tempfile}.m4a")
-    File.delete("#{@tempfile}.mp3")
+    tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
+    File.delete("#{tempfile}.mp4")
+    File.delete("#{tempfile}.m4a")
+    File.delete("#{tempfile}.mp3")
   end
 end
