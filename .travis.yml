@@ -14,7 +14,7 @@ env:
     - RGV=v2.0.2
 
 after_success:
-    - coveralls --verbose
+    - CI=true TRAVIS=true coveralls --verbose
 
 notifications:
   email:
