@@ -19,8 +19,9 @@ require 'rake'
 # Jeweler Task
 require 'rake'
 require 'jeweler'
+require File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/version')
+
 Jeweler::Tasks.new do |gem|
-  require File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/version')
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name        = 'youtube_dlhelper'
   gem.version     = YoutubeDlhelperVersion::Version::STRING
