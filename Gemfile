@@ -9,6 +9,7 @@ gem 'parseconfig'
 gem 'viddl-rb'
 gem 'streamio-ffmpeg'
 gem 'addressable'
+gem 'rainbow'
 end
 
 # Add dependencies to develop your gem here.

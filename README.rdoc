@@ -7,7 +7,7 @@ continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtu
 test coverage :: {<img src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/saigkill/youtube_dlhelper?branch=master]
 code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhelper.png" />}[https://codeclimate.com/github/saigkill/youtube_dlhelper]
 dependency check :: {<img src="https://gemnasium.com/saigkill/youtube_dlhelper.png" alt="Dependency Status" />}[https://gemnasium.com/saigkill/youtube_dlhelper]
-still maintained :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Maintaining Status" /}[http://stillmaintained.com/saigkill/youtube_dlhelper]
+still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Maintaining Status" /}[http://stillmaintained.com/saigkill/youtube_dlhelper]
 documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper/master/frames
 bugs :: https://github.com/saigkill/youtube_dlhelper/issues
 authors blog :: http://saigkill.github.io
@@ -38,14 +38,14 @@ I'm using:
 * viddl-rb
 * streamio-ffmpeg
 
-Such dependencies should be solved directly by the gem manager.
+All needed Soft dependencies are delivered with a vendor directory.
 
 == Usage
 youtube_dlhelper.rb YoutubeURL
 
 Example:
 
-    youtube_dlhelper.rb http://www.youtube.com/watch?v=aHjpOzsQ9YI (should work on all Linux Versions)
+    youtube_dlhelper.rb http://www.youtube.com/watch?v=aHjpOzsQ9YI
 
 Before running the program you have to open the youtube_dlhelper.conf and change the Musicdirectory to your one.
 

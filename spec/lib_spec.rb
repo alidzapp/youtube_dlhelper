@@ -101,5 +101,8 @@ describe 'Cleanup Routine' do
     File.delete("#{@tempfile}.m4a")
     File.delete("#{@tempfile}.mp3")
     puts 'Test passed...'
+    puts
+    puts
+    puts
   end
 end

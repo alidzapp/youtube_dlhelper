@@ -15,6 +15,7 @@ require 'parseconfig'
 require 'addressable/uri'
 require 'viddl-rb'
 require 'streamio-ffmpeg'
+require 'rainbow/ext/string'
 
 # The main class YoutubeDlhelper
 class YoutubeDlhelper
@@ -26,8 +27,8 @@ class YoutubeDlhelper
   YoutubeDlhelperLibs::Import.import_config
 
   # Introscreen
-  puts "Script: #{$my_name}"
-  puts "Version: #{$scriptversion}"
+  puts "Script: #{$my_name}".color(:yellow)
+  puts "Version: #{$scriptversion}".color(:yellow)
   puts
   puts 'Copyright (C) 2013 Sascha Manns <Sascha.Manns@directbox.com>'
   puts 'Description: This script can download music from YouTube'
@@ -56,7 +57,7 @@ class YoutubeDlhelper
 
   # Using FileUtils to enter the generated directory
   FileUtils.cd("#{$music_dir}/#{$folder}") do
-    puts "Now we are switched to directory #{Dir::pwd}"
+    puts "Now we are switched to directory #{Dir::pwd}".color(:red)
     YoutubeDlhelperLibs::Downloader.get($url)
 
     YoutubeDlhelperLibs::FileHelper.get_filename
@@ -71,7 +72,7 @@ class YoutubeDlhelper
     puts 'Finished cleaning up'
   end
 
-  puts "Now you can find your file in #{$music_dir}/#{$folder}/#{$filename}.mp3"
-  puts "Thank you for using #{$my_name} #{$scriptversion}"
+  puts "Now you can find your file in #{$music_dir}/#{$folder}/#{$filename}.mp3".color(:yellow)
+  puts "Thank you for using #{$my_name} #{$scriptversion}".color(:yellow)
 
 end

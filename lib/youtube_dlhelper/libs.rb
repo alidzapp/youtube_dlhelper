@@ -14,10 +14,10 @@ class YoutubeDlhelperLibs
       require 'addressable/uri'
       uri = Addressable::URI.parse(url)
       uri.scheme
-      puts 'Your URL looks valid'
+      puts 'Your URL looks valid'.color(:green)
     rescue Addressable::URI::InvalidURIError
       false
-      puts 'Sorry. The URL dont looks valid'
+      puts 'Sorry. The URL dont looks valid'.color(:red)
       abort('Aborted')
     end
 
@@ -59,8 +59,7 @@ class YoutubeDlhelperLibs
                    ask 'Whats the name of the group?'
 
                  else
-                   puts 'Just the entries "Interpret" or "Group" are allowed'
-                   puts 'Breakpoint'
+                   puts 'Just the entries "Interpret" or "Group" are allowed'.color(:red)
                    abort('Aborted')
                end
 

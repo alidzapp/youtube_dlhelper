@@ -17,6 +17,7 @@ end
 require 'rake'
 
 # Jeweler Task
+begin
 require 'rake'
 require 'jeweler'
 require File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/version')
@@ -35,6 +36,9 @@ Jeweler::Tasks.new do |gem|
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
+rescue LoadError
+	puts 'Jeweler (or dependency not available.'
+end
 
 # RSpec Task
 require 'rspec/core'

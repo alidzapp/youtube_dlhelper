@@ -82,6 +82,7 @@ GEM
     parseconfig (1.0.4)
     progressbar (0.21.0)
     rack (1.5.2)
+    rainbow (1.99.1)
     rake (10.1.1)
     rdoc (4.1.0)
       json (~> 1.4)
@@ -139,6 +140,7 @@ DEPENDENCIES
   highline
   jeweler (~> 2.0.0)
   parseconfig
+  rainbow
   rdoc (~> 4.1.0)
   rspec
   shoulda
