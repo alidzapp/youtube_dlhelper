@@ -1,7 +1,7 @@
 language: ruby
 rvm:
-- 2.0.0
-- 1.9.3
+  - 2.0.0
+  - 1.9.3
 
 env:
   global:
@@ -19,3 +19,10 @@ after_success:
 notifications:
   email:
     - Sascha.Manns@directbox.com
+
+  notifications:
+     irc:
+       channels:
+         - "chat.freenode.net#open-slx"
+       on_success: [never] # default: always
+       on_failure: [always] # default: always

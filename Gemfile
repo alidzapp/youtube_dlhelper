@@ -16,7 +16,7 @@ end
 group :development do
   gem 'rdoc', '~> 4.1.0'
   gem 'bundler', '~> 1.0'
-  gem 'jeweler', '~> 1.8.7'
+  gem 'jeweler', '~> 2.0.0'
   gem 'yard'
 end
 
