@@ -1,0 +1,49 @@
+PATH
+  remote: .
+  specs:
+    viddl-rb (0.84)
+      mechanize
+      multi_json
+      nokogiri (~> 1.5.0)
+      progressbar
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    domain_name (0.5.13)
+      unf (>= 0.0.5, < 1.0.0)
+    http-cookie (1.0.1)
+      domain_name (~> 0.5)
+    mechanize (2.7.2)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0.0)
+      mime-types (~> 1.17, >= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.4)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
+    mime-types (1.24)
+    minitest (5.0.6)
+    multi_json (1.8.0)
+    net-http-digest_auth (1.4)
+    net-http-persistent (2.9)
+    nokogiri (1.5.10)
+    ntlm-http (0.1.1)
+    progressbar (0.20.0)
+    rake (10.1.0)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    unf (0.1.2)
+      unf_ext
+    unf_ext (0.0.6)
+    webrobots (0.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest
+  rake
+  rest-client
+  viddl-rb!

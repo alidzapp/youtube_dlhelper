@@ -12,7 +12,6 @@ documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper/master/fra
 bugs :: https://github.com/saigkill/youtube_dlhelper/issues
 authors blog :: http://saigkill.github.io
 ohloh :: https://www.ohloh.net/p/youtube_dlhelper
-ohloh2 :: {<script type="text/javascript" src="http://www.ohloh.net/p/712620/widgets/project_thin_badge.js"></script>}[https://www.ohloh.net/p/youtube_dlhelper]
 openhatch :: http://openhatch.org/projects/youtube_dlhelper
 
 == Description
@@ -60,5 +59,3 @@ You can file Requests and Reports on the Github Repository: https://github.com/s
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-{<script type="text/javascript" src="http://www.ohloh.net/p/712620/widgets/project_users.js?style=green"></script>}[https://www.ohloh.net/p/youtube_dlhelper]
