@@ -1,27 +1,14 @@
 #!/usr/bin/env ruby
 require 'gli'
-begin # XXX: Remove this begin/rescue before distributing your app
-require 'test'
-rescue LoadError
-  STDERR.puts "In development, you need to use `bundle exec bin/test` to run your app"
-  STDERR.puts "At install-time, RubyGems will make sure lib, etc. are in the load path"
-  STDERR.puts "Feel free to remove this message from bin/test now"
-  exit 64
-end
-
+require File.join(File.dirname(__FILE__), '../lib/youtube_dlhelper/version')
 include GLI::App
 
-program_desc 'Describe your application here'
+program_desc 'Youtube Downloadhelper and Ripper'
 
-version Test::VERSION
+version "#{YoutubeDlhelperVersion::Version::STRING}"
 
-desc 'Describe some switch here'
-switch [:s,:switch]
-
-desc 'Describe some flag here'
-default_value 'the default'
-arg_name 'The name of the argument'
-flag [:f,:flagname]
+desc 'Use the testing environment'
+switch [:test]
 
 pre do |global,command,options,args|
   # Pre logic here

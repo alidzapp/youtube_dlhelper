@@ -10,6 +10,7 @@ gem 'viddl-rb'
 gem 'streamio-ffmpeg'
 gem 'addressable'
 gem 'rainbow'
+gem 'gli'
 end
 
 # Add dependencies to develop your gem here.

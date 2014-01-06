@@ -37,6 +37,7 @@ I'm using:
 * parseconfig
 * viddl-rb
 * streamio-ffmpeg
+* rainbow
 
 All needed Soft dependencies are delivered with a vendor directory.
 
