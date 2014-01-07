@@ -20,10 +20,6 @@ group :development do
   gem 'jeweler', '~> 2.0.0'
   gem 'yard'
   gem 'gem-release'
-  gem 'shoulda', '>= 0'
-  gem 'rspec'
-  gem 'coveralls', require: false
-  gem 'simplecov'
 end
 
 group :test do
