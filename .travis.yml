@@ -14,7 +14,8 @@ env:
     - RGV=v2.0.2
 
 install:
-  - sudo apt-get install ubuntu-restricted-extras
+  - sudo apt-get install ubuntu-restricted-extras ffmpeg
+
 after_success:
     - CI=true TRAVIS=true coveralls --verbose
 
