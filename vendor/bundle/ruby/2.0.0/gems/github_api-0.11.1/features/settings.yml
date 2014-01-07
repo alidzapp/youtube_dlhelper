@@ -1,0 +1,4 @@
+---
+oauth_token: token
+basic_auth: Murek:Testing123
+user: murek
