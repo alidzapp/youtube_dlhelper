@@ -1,5 +1,10 @@
 # Changelog for youtube_dlhelper
 
+## 0.1.5 - 2014-01-07
+* using system() for viddl-rb
+* rebuild docs
+* rebuild vendor
+
 ## 0.1.4 - 2014-01-06
 * [!] Changed dependency from fileutils to fileutils2 for security reasons.
 * [!] Changed dependency from jeweler to 2.0.0

@@ -27,8 +27,6 @@ end
 describe 'Download Checker' do
   it 'shoud download a file from Youtube' do
     Downloader.get('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
-    files = Dir.glob('*.m*')
-    puts files
     @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
       File.exists?("#{@tempfile}.m4a").should be_true
       File.exists?("#{@tempfile}.mp4").should be_true
@@ -41,8 +39,6 @@ describe 'Transcoding Checker' do
     @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
     File.exists?("#{@tempfile}.m4a").should be_true
     Ripper.rip("#{@tempfile}")
-    files = Dir.glob('*.m*')
-    puts files
     File.exists?("#{@tempfile}.mp3").should be_true
   end
 end

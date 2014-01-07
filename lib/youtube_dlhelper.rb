@@ -67,8 +67,6 @@ class YoutubeDlhelper
     Downloader.get($url)
 
     FileHelper.get_filename
-    puts Dir::pwd
-    puts $filename
     Ripper.rip($filename)
 
     puts 'Cleaning up directory'
