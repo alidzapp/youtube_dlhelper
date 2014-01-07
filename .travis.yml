@@ -9,8 +9,6 @@ env:
     - TRAVIS=true
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
-    - RGV=master
-    - RGV=v2.0.2
 
 install:
   - gem install i18n
@@ -23,10 +21,3 @@ after_success:
 notifications:
   email:
     - Sascha.Manns@directbox.com
-
-  notifications:
-     irc:
-       channels:
-         - "irc.freenode.net#open-slx"
-       on_success: [never] # default: always
-       on_failure: [always] # default: always
