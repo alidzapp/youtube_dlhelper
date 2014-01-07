@@ -13,8 +13,9 @@ env:
     - RGV=v2.0.2
 
 install:
-  - sudo apt-get install ubuntu-restricted-extras ffmpeg
   - gem install i18n
+  - gem install minitest
+  - sudo apt-get install ubuntu-restricted-extras ffmpeg
 
 after_success:
     - CI=true TRAVIS=true coveralls --verbose
@@ -26,6 +27,6 @@ notifications:
   notifications:
      irc:
        channels:
-         - "chat.freenode.net#open-slx"
+         - "irc.freenode.net#open-slx"
        on_success: [never] # default: always
        on_failure: [always] # default: always
