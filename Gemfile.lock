@@ -138,7 +138,9 @@ DEPENDENCIES
   gem-release
   gli
   highline
+  i18n
   jeweler (~> 2.0.0)
+  minitest (= 4.7.5)
   parseconfig
   rainbow
   rdoc (~> 4.1.0)

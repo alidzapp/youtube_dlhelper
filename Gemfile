@@ -10,6 +10,8 @@ gem 'viddl-rb'
 gem 'streamio-ffmpeg'
 gem 'rainbow'
 gem 'gli'
+gem 'i18n'
+gem 'minitest', '4.7.5'
 end
 
 # Add dependencies to develop your gem here.

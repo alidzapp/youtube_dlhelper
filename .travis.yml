@@ -11,8 +11,6 @@ env:
     - LC_ALL=en_US.UTF-8
 
 install:
-  - gem install i18n
-  - gem install minitest
   - sudo apt-get install ubuntu-restricted-extras ffmpeg
 
 after_success:
