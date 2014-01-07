@@ -7,7 +7,11 @@
 
 # Dependencies
 require File.join(File.dirname(__FILE__), 'youtube_dlhelper/version')
-require File.join(File.dirname(__FILE__), 'youtube_dlhelper/libs')
+require File.join(File.dirname(__FILE__), 'youtube_dlhelper/checker')
+require File.join(File.dirname(__FILE__), 'youtube_dlhelper/downloader')
+require File.join(File.dirname(__FILE__), 'youtube_dlhelper/filehelper')
+require File.join(File.dirname(__FILE__), 'youtube_dlhelper/import_config')
+require File.join(File.dirname(__FILE__), 'youtube_dlhelper/ripper')
 require 'highline/import'
 require 'dir'
 require 'fileutils2'
@@ -17,20 +21,21 @@ require 'viddl-rb'
 require 'streamio-ffmpeg'
 require 'rainbow/ext/string'
 
+# Variables
+SCRIPTVERSION = YoutubeDlhelperVersion::Version::STRING
+MY_NAME = 'youtube_dlhelper.rb'
+
 # The main class YoutubeDlhelper
 class YoutubeDlhelper
-  # Variables
-  $scriptversion = YoutubeDlhelperVersion::Version::STRING
-  $my_name = 'youtube_dlhelper.rb'
 
-  YoutubeDlhelperLibs::Checker.check_arguments
-  YoutubeDlhelperLibs::Import.import_config
+  Checker.check_arguments
+  Import.import_config
 
   # Introscreen
-  puts "Script: #{$my_name}".color(:yellow)
-  puts "Version: #{$scriptversion}".color(:yellow)
+  puts "Script: #{MY_NAME}".color(:yellow)
+  puts "Version: #{SCRIPTVERSION}".color(:yellow)
   puts
-  puts 'Copyright (C) 2013 Sascha Manns <Sascha.Manns@directbox.com>'
+  puts 'Copyright (C) 2014 Sascha Manns <Sascha.Manns@directbox.com>'
   puts 'Description: This script can download music from YouTube'
   puts "converts it to MP3 and places it in #{$music_dir}."
   puts 'License: See LICENSE file'
@@ -47,23 +52,23 @@ class YoutubeDlhelper
   puts 'You should have received a copy of the GNU General Public License'
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
 
-  YoutubeDlhelperLibs::Checker.check_target
+  Checker.check_target
 
   # Reflects what targetfolder are used now
   puts "Your present Targetfolder is: #{$music_dir}/#{$folder}"
   puts 'You can choose another one directly in the configfile.'
   puts 'Checking now, if your targetdirectory exists...'
-  YoutubeDlhelperLibs::Checker.check_dir
+  Checker.check_dir
 
   # Using FileUtils to enter the generated directory
   FileUtils.cd("#{$music_dir}/#{$folder}") do
     puts "Now we are switched to directory #{Dir::pwd}".color(:red)
-    YoutubeDlhelperLibs::Downloader.get($url)
+    Downloader.get($url)
 
-    YoutubeDlhelperLibs::FileHelper.get_filename
+    FileHelper.get_filename
     puts Dir::pwd
     puts $filename
-    YoutubeDlhelperLibs::Ripper.rip($filename)
+    Ripper.rip($filename)
 
     puts 'Cleaning up directory'
     # Cleaning up unneeded files
@@ -73,6 +78,6 @@ class YoutubeDlhelper
   end
 
   puts "Now you can find your file in #{$music_dir}/#{$folder}/#{$filename}.mp3".color(:yellow)
-  puts "Thank you for using #{$my_name} #{$scriptversion}".color(:yellow)
+  puts "Thank you for using #{MY_NAME} #{SCRIPTVERSION}".color(:yellow)
 
 end

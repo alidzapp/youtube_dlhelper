@@ -16,6 +16,7 @@ pre do |global,command,options,args|
   # chosen command
   # Use skips_pre before a command to skip this block
   # on that command only
+  # This method checks how many Commandline Parameters are given and does a reaction
   true
 end
 

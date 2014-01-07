@@ -8,7 +8,6 @@ gem 'fileutils2'
 gem 'parseconfig'
 gem 'viddl-rb'
 gem 'streamio-ffmpeg'
-gem 'addressable'
 gem 'rainbow'
 gem 'gli'
 end
@@ -28,6 +27,5 @@ group :test do
   gem 'rspec'
   gem 'coveralls', require: false
   gem 'simplecov'
-  gem 'appraisal'
 end
 
