@@ -25,6 +25,7 @@ require 'rainbow/ext/string'
 SCRIPTVERSION = YoutubeDlhelperVersion::Version::STRING
 MY_NAME = 'youtube_dlhelper.rb'
 
+
 # The main class YoutubeDlhelper
 class YoutubeDlhelper
 

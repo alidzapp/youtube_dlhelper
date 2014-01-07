@@ -12,6 +12,6 @@ require 'viddl-rb'
 module Downloader
   # Accessing the get(url) method from the Downloader module
   def self.get(url1)
-    download = `viddl-rb -e #{url1}`
+    system('viddl-rb', '-e', "#{url1}")
   end
 end
