@@ -1,0 +1,15 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    Europe/Berlin # Set the timezone
+
+  # Version of ruby to use
+  ruby:
+    version:
+      2.0.0-p353
+
+## Customize dependencies
+dependencies:
+  pre:
+    - sudo apt-get install ubuntu-restricted-extras ffmpeg
