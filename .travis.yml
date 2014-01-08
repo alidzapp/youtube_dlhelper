@@ -10,7 +10,7 @@ env:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
 
-install:
+before_install:
   - sudo apt-get install ubuntu-restricted-extras ffmpeg
 
 after_success:
