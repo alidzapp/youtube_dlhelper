@@ -12,4 +12,4 @@ machine:
 ## Customize dependencies
 dependencies:
   pre:
-    - sudo apt-get install ubuntu-restricted-extras ffmpeg
+    - apt-get install ubuntu-restricted-extras ffmpeg
