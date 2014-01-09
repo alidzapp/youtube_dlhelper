@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Sascha Manns"]
-  s.date = "2014-01-07"
+  s.date = "2014-01-09"
   s.description = "This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form"
   s.email = "Sascha.Manns@directbox.com"
   s.executables = ["youtube_dlhelper"]
@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
     "TODO.md",
     "VERSION",
     "bin/youtube_dlhelper",
+    "circle.yml",
     "coverage/.last_run.json",
     "coverage/.resultset.json",
     "doc/.yardoc/checksums",
@@ -82,7 +83,6 @@ Gem::Specification.new do |s|
     "lib/youtube_dlhelper/downloader.rb",
     "lib/youtube_dlhelper/filehelper.rb",
     "lib/youtube_dlhelper/import_config.rb",
-    "lib/youtube_dlhelper/libs.rb",
     "lib/youtube_dlhelper/ripper.rb",
     "lib/youtube_dlhelper/version.rb",
     "lib/youtube_dlhelper/youtube_dlhelper.conf",
@@ -116,7 +116,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<viddl-rb>, [">= 0"])
       s.add_runtime_dependency(%q<streamio-ffmpeg>, [">= 0"])
       s.add_runtime_dependency(%q<rainbow>, [">= 0"])
-      s.add_runtime_dependency(%q<gli>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 4.1.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 2.0.0"])
@@ -130,7 +129,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<viddl-rb>, [">= 0"])
       s.add_dependency(%q<streamio-ffmpeg>, [">= 0"])
       s.add_dependency(%q<rainbow>, [">= 0"])
-      s.add_dependency(%q<gli>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 4.1.0"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, ["~> 2.0.0"])
@@ -145,7 +143,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<viddl-rb>, [">= 0"])
     s.add_dependency(%q<streamio-ffmpeg>, [">= 0"])
     s.add_dependency(%q<rainbow>, [">= 0"])
-    s.add_dependency(%q<gli>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 4.1.0"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 2.0.0"])

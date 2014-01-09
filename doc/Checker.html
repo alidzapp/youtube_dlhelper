@@ -138,7 +138,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>This method checks how many Commandline Parameters are given and does a
+<p>This method checks the Commandline Parameters are given and does a
 reaction.</p>
 </div></span>
   
@@ -238,8 +238,7 @@ reaction.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>This method checks how many Commandline Parameters are given and does a
-reaction</p>
+<p>This method checks the Commandline Parameters are given and does a reaction</p>
 
 
   </div>
@@ -256,26 +255,14 @@ reaction</p>
 26
 27
 28
-29
-30
-31
-32
-33
-34
-35</pre>
+29</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/youtube_dlhelper/checker.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_check_arguments'>check_arguments</span>
-  <span class='kw'>case</span> <span class='const'>ARGV</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
-    <span class='kw'>when</span> <span class='int'>1</span>
       <span class='gvar'>$url</span> <span class='op'>=</span> <span class='const'>ARGV</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-      <span class='comment'>#Checker.valid_url?($url)
-</span>      <span class='const'>Checker</span><span class='period'>.</span><span class='id identifier rubyid_external_url_is_valid?'>external_url_is_valid?</span><span class='lparen'>(</span><span class='gvar'>$url</span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
-      <span class='const'>Usage</span><span class='period'>.</span><span class='id identifier rubyid_print_usage'>print_usage</span>
-  <span class='kw'>end</span>
+      <span class='const'>Checker</span><span class='period'>.</span><span class='id identifier rubyid_external_url_is_valid?'>external_url_is_valid?</span><span class='lparen'>(</span><span class='gvar'>$url</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -308,18 +295,18 @@ reaction</p>
       <pre class="lines">
 
 
+54
+55
+56
+57
+58
+59
 60
 61
-62
-63
-64
-65
-66
-67
-68</pre>
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/youtube_dlhelper/checker.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/youtube_dlhelper/checker.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_check_dir'>check_dir</span>
   <span class='kw'>if</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='gvar'>$music_dir</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='gvar'>$folder</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -361,6 +348,12 @@ reaction</p>
       <pre class="lines">
 
 
+32
+33
+34
+35
+36
+37
 38
 39
 40
@@ -374,16 +367,10 @@ reaction</p>
 48
 49
 50
-51
-52
-53
-54
-55
-56
-57</pre>
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/youtube_dlhelper/checker.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/youtube_dlhelper/checker.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_check_target'>check_target</span>
   <span class='id identifier rubyid_entry'>entry</span> <span class='op'>=</span> <span class='id identifier rubyid_ask'>ask</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>What kind of entry do you have? (Interpret or Group)</span><span class='tstring_end'>&#39;</span></span>
@@ -475,7 +462,7 @@ reaction</p>
 </div>
 
     <div id="footer">
-  Generated on Tue Jan  7 10:57:40 2014 by
+  Generated on Thu Jan  9 03:13:37 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.3 (ruby-2.0.0).
 </div>

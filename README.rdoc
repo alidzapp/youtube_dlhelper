@@ -42,11 +42,14 @@ I'm using:
 All needed Soft dependencies are delivered with a vendor directory.
 
 == Usage
-youtube_dlhelper.rb YoutubeURL
+youtube_dlhelper.rb YoutubeURL or
+bin/youtube_dlhelper YoutubeURL
+
 
 Example:
 
     youtube_dlhelper.rb http://www.youtube.com/watch?v=aHjpOzsQ9YI
+    youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI
 
 Before running the program you have to open the youtube_dlhelper.conf and change the Musicdirectory to your one.
 
