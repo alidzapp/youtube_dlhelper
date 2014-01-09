@@ -22,16 +22,10 @@ module Checker
     response.is_a?(Net::HTTPSuccess) || response.is_a?(Net::HTTPRedirection)
   end
 
-  # This method checks how many Commandline Parameters are given and does a reaction
+  # This method checks the Commandline Parameters are given and does a reaction
   def self.check_arguments
-    case ARGV.length
-      when 1
         $url = ARGV[0].to_s
-        #Checker.valid_url?($url)
         Checker.external_url_is_valid?($url)
-      else
-        Usage.print_usage
-    end
   end
 
   # Ask for names, creates the folders and puts all into a $folder variable

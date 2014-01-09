@@ -1,35 +1,25 @@
 #!/usr/bin/env ruby
-require 'gli'
-require File.join(File.dirname(__FILE__), '../lib/youtube_dlhelper/version')
-include GLI::App
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'youtube_dlhelper'
+NAME = 'youtube_dlhelper'
+SCRIPTVER = YoutubeDlhelperVersion::Version::STRING
 
-program_desc 'Youtube Downloadhelper and Ripper'
-
-version "#{YoutubeDlhelperVersion::Version::STRING}"
-
-desc 'Use the testing environment'
-switch [:test]
-
-pre do |global,command,options,args|
-  # Pre logic here
-  # Return true to proceed; false to abort and not call the
-  # chosen command
-  # Use skips_pre before a command to skip this block
-  # on that command only
-  # This method checks how many Commandline Parameters are given and does a reaction
-  true
+case ARGV.length
+  when 1
+    puts 'Launching youtube_dlhelper'
+  else
+    puts "Script: #{NAME} Version: #{SCRIPTVER}"
+    puts 'Copyright (C) 2014 Sascha Manns <Sascha.Manns@directbox.com>'
+    puts 'Description: This script can download music from YouTube'
+    puts 'converts it to MP3 and places it in your music directory.'
+    puts 'License: See LICENSE file'
+    puts '************************************************************'
+    puts 'Usage:'
+    puts "#{NAME} YourURL"
+    puts 'Example:'
+    puts "#{NAME} http://www.youtube.com/watch?v=aHjpOzsQ9YI"
+    abort('Syntax Error: Please check if you have given a URL')
 end
 
-post do |global,command,options,args|
-  # Post logic here
-  # Use skips_post before a command to skip this
-  # block on that command only
-end
 
-on_error do |exception|
-  # Error logic here
-  # return false to skip default error handling
-  true
-end
-
-exit run(ARGV)
+exit YoutubeDlhelper.run!(*ARGV)
