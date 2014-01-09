@@ -5,4 +5,3 @@ lib/youtube_dlhelper/checker.rb 710c2a316a245ad35113fb64e1f99c698dcf94f7
 lib/youtube_dlhelper/downloader.rb 9840eec5391f67fefe2a5e74a193696cfb8b42f8
 lib/youtube_dlhelper/filehelper.rb 1d9aac9e728ad3d2821ee33659faa6e7e6e0d4f3
 lib/youtube_dlhelper/import_config.rb 04458434b16a9e01b1bf096c08446343424aa468
-TODO.md fea1032809ec6d7e43e65d1e77a13a5e9b86a112
