@@ -9,7 +9,3 @@ machine:
     version:
       2.0.0-p353
 
-## Customize dependencies
-dependencies:
-  pre:
-    - apt-get install ubuntu-restricted-extras ffmpeg
