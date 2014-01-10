@@ -42,6 +42,7 @@ I'm using:
 All needed Soft dependencies are delivered with a vendor directory.
 
 == Usage
+
 youtube_dlhelper.rb YoutubeURL or
 bin/youtube_dlhelper YoutubeURL
 

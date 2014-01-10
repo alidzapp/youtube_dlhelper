@@ -3,7 +3,6 @@
 ## 0.1.5 - 2014-01-07
 * using system() for viddl-rb
 * rebuild docs
-* rebuild vendor
 
 ## 0.1.4 - 2014-01-06
 * [!] Changed dependency from fileutils to fileutils2 for security reasons.
@@ -11,7 +10,7 @@
 * regenerated docfiles
 * changed the lines for finding the filename to File.glob
 * added some tests inside the spec/ folder
-* changed LICENSE.txt to LICENSE.rdoc
+* changed LICENSE.txt to LICENSE.md
 
 ## 0.1.3 - 2013-12-29
 Same as 0.1.2.alpha
