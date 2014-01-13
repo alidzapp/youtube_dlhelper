@@ -74,7 +74,6 @@ Gem::Specification.new do |s|
     "lib/youtube_dlhelper/script_structure.rb",
     "lib/youtube_dlhelper/version.rb",
     "lib/youtube_dlhelper/youtube_dlhelper.conf",
-    "pkg/youtube_dlhelper-0.1.5.gem",
     "spec/coverage/.last_run.json",
     "spec/coverage/.resultset.json",
     "spec/lib_spec.rb",
