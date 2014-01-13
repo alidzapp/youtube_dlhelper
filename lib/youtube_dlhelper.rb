@@ -12,6 +12,7 @@ require File.join(File.dirname(__FILE__), 'youtube_dlhelper/downloader')
 require File.join(File.dirname(__FILE__), 'youtube_dlhelper/filehelper')
 require File.join(File.dirname(__FILE__), 'youtube_dlhelper/import_config')
 require File.join(File.dirname(__FILE__), 'youtube_dlhelper/ripper')
+require File.join(File.dirname(__FILE__), 'youtube_dlhelper/script_structure')
 require 'highline/import'
 require 'dir'
 require 'fileutils2'
@@ -32,6 +33,7 @@ class YoutubeDlhelper
   Checker.check_arguments
   Import.import_config
 
+  Style.box_full
   # Introscreen
   puts "Script: #{MY_NAME}".color(:yellow)
   puts "Version: #{SCRIPTVERSION}".color(:yellow)
@@ -52,21 +54,45 @@ class YoutubeDlhelper
   puts 'GNU General Public License for more details.'
   puts 'You should have received a copy of the GNU General Public License'
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
+  Style.box_full
 
+  puts
+  puts
   Checker.check_target
 
   # Reflects what targetfolder are used now
+  puts
+  Style.box_full
+  puts'SEARCHING FOR TARGETDIR'
+  Style.box_full
   puts "Your present Targetfolder is: #{$music_dir}/#{$folder}"
   puts 'You can choose another one directly in the configfile.'
   puts 'Checking now, if your targetdirectory exists...'
   Checker.check_dir
+  puts
+  puts
 
   # Using FileUtils to enter the generated directory
+  Style.box_full
+  puts 'SWITCHING TO TARGETDIR'
+  Style.box_full
+  puts
   FileUtils.cd("#{$music_dir}/#{$folder}") do
     puts "Now we are switched to directory #{Dir::pwd}".color(:red)
-    Downloader.get($url)
+    puts
+    Style.box_full
+    puts 'DOWNLOADING YOUR VIDEO'
+    Style.box_full
 
+    Downloader.get($url)
+    Style.box_full
+    puts
     FileHelper.get_filename
+
+    Style.box_full
+    puts 'TRANSCODING TO MP3'
+    Style.box_full
+    puts
     Ripper.rip($filename)
 
     puts 'Cleaning up directory'
@@ -76,7 +102,9 @@ class YoutubeDlhelper
     puts 'Finished cleaning up'
   end
 
+  Style.box_full
   puts "Now you can find your file in #{$music_dir}/#{$folder}/#{$filename}.mp3".color(:yellow)
   puts "Thank you for using #{MY_NAME} #{SCRIPTVERSION}".color(:yellow)
+  Style.box_full
 
 end
