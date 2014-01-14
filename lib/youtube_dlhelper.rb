@@ -34,7 +34,6 @@ class YoutubeDlhelper
   Import.import_config
 
   Style.box_full
-  # Introscreen
   puts "Script: #{MY_NAME}".color(:yellow)
   puts "Version: #{SCRIPTVERSION}".color(:yellow)
   puts
@@ -56,12 +55,13 @@ class YoutubeDlhelper
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
   Style.box_full
 
-  puts
-  puts
+  Style.box_full
+  puts 'CHECKING TARGET'
+  Style.box_full
   Checker.check_target
+  Style.box_full
 
   # Reflects what targetfolder are used now
-  puts
   Style.box_full
   puts'SEARCHING FOR TARGETDIR'
   Style.box_full
@@ -69,8 +69,7 @@ class YoutubeDlhelper
   puts 'You can choose another one directly in the configfile.'
   puts 'Checking now, if your targetdirectory exists...'
   Checker.check_dir
-  puts
-  puts
+  Style.box_full
 
   # Using FileUtils to enter the generated directory
   Style.box_full
@@ -86,7 +85,7 @@ class YoutubeDlhelper
 
     Downloader.get($url)
     Style.box_full
-    puts
+
     FileHelper.get_filename
 
     Style.box_full

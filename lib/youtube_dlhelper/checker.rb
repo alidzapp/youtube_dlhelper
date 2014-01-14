@@ -31,9 +31,7 @@ module Checker
 
   # Ask for names, creates the folders and puts all into a $folder variable
   def self.check_target
-    Style.box_full
-    puts 'CHECKING TARGET'
-    Style.box_full
+
     entry = ask 'What kind of entry do you have? (Interpret or Group)'
 
     subdir = case entry
@@ -50,8 +48,6 @@ module Checker
                  puts 'Just the entries "Interpret" or "Group" are allowed'.color(:red)
                  abort('Aborted')
              end
-    Style.box_full
-    puts
     $folder = "#{ subdir }/Youtube-Music"
   end
 
@@ -64,7 +60,6 @@ module Checker
       FileUtils.mkdir_p("#{$music_dir}/#{$folder}")
       puts 'Created new directory...'
     end
-    Style.box_full
   end
 
   module Usage
