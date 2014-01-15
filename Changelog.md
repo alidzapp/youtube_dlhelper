@@ -1,5 +1,8 @@
 # Changelog for youtube_dlhelper
 
+## 0.1.7
+* If youtube outputs a webm file, viddl-rb produces a ogg file. So no mp3 is needed.
+
 ## 0.1.6 - 2014-01-13
 * [!] Changed dependency for multi-json to 1.8.4 for security reasons
 * added structure elements for terminal output

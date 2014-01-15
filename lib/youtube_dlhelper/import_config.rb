@@ -14,5 +14,6 @@ module Import
   def self.import_config
     config = ParseConfig.new(File.join(File.dirname(__FILE__), 'youtube_dlhelper.conf'))
     $music_dir = config['musicdir'].to_s
+    $ogg_file_accept = config['ogg_file_accept'].to_s
   end
 end

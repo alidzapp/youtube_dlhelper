@@ -88,16 +88,27 @@ class YoutubeDlhelper
 
     FileHelper.get_filename
 
-    Style.box_full
-    puts 'TRANSCODING TO MP3'
-    Style.box_full
-    puts
-    Ripper.rip($filename)
+    if $ogg_file_accept.equal? false
+      Style.box_full
+      puts 'TRANSCODING TO MP3'
+      Style.box_full
+      puts
+      Ripper.rip($filename)
+    else
+      puts 'No transcoding needed. OGG available...'
+    end
 
     puts 'Cleaning up directory'
     # Cleaning up unneeded files
-    File.delete("#{$filename}.mp4")
-    File.delete("#{$filename}.m4a")
+    if File.exists?("#{$filename}.mp4")
+      File.delete("#{$filename}.mp4")
+    end
+    if File.exists?("#{$filename}.m4a")
+      File.delete("#{$filename}.m4a")
+    end
+    if File.exists?("#{$filename}.webm")
+      File.delete("#{$filename}.webm")
+    end
     puts 'Finished cleaning up'
   end
 

@@ -12,8 +12,15 @@ require 'dir'
 module FileHelper
   # Method to get the filename of the downloaded file end excludes the extension
   def self.get_filename
-    file = Dir.glob('*.m*')
-    @testfile = file[0]
-    $filename = File.basename(@testfile,File.extname(@testfile))
+    if File.exists?('*.ogg')
+      file = Dir.glob('*.ogg')
+      @testfile = file[0]
+      $filename = File.basename(@testfile,File.extname(@testfile))
+    end
+    if File.exists?('*.m4a')
+      file = Dir.glob('*.m4a')
+      @testfile = file[0]
+      $filename = File.basename(@testfile,File.extname(@testfile))
+    end
   end
 end

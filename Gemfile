@@ -2,13 +2,16 @@ source 'http://rubygems.org'
 # Gemfile for youtube_dlhelper
 # Add dependencies required to use your gem here.
 group :default do
-gem 'highline'
-gem 'dir'
-gem 'fileutils2'
-gem 'parseconfig'
-gem 'viddl-rb'
-gem 'streamio-ffmpeg'
-gem 'rainbow'
+  gem 'highline'
+  gem 'dir'
+  gem 'fileutils2'
+  gem 'parseconfig'
+  gem 'viddl-rb'
+  gem 'streamio-ffmpeg'
+  gem 'rainbow'
+  gem 'ncurses'
+  gem 'logger'
+  gem 'rbcurse-core'
 end
 
 # Add dependencies to develop your gem here.
