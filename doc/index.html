@@ -158,19 +158,37 @@ downloaded file and moves it to the folder.</p>
 <p>rainbow</p>
 </li></ul>
 
-<p>All needed Soft dependencies are delivered with a vendor directory.</p>
+<p>Bundler should solve the dependencies by itself.</p>
+
+<h2 id="label-Configuration">Configuration</h2>
+
+<p>There are two important settings for you to set. Look into the
+lib/youtube_dlhelper.conf.</p>
+
+<h3 id="label-musicdir">musicdir</h3>
+
+<p>The musicdir actually points to my place: musicdir =
+&#39;/home/sascha/Musik&#39; So you have to replace it with your once.</p>
+
+<h3 id="label-ogg_file_accept">ogg_file_accept</h3>
+
+<p>In many cases Youtube gives out a *.mp4 file and then viddl extracts the
+audio to a *.m4a file. The ripper transcodes them to MP3. In some cases
+Yotube delivers a *.webm file and the extracted audio comes into a .ogg
+file. If you accepts that, youtube_dlhelper exits. If you change the
+setting from true to false youtube_dlhelper starts the ripper to transcode
+it to MP3.</p>
 
 <h2 id="label-Usage">Usage</h2>
 
-<p>youtube_dlhelper.rb YoutubeURL or bin/youtube_dlhelper YoutubeURL</p>
+<pre class="code ruby"><code class="ruby">bin/youtube_dlhelper YoutubeURL</code></pre>
 
 <p>Example:</p>
 
-<pre class="code ruby"><code class="ruby">youtube_dlhelper.rb http://www.youtube.com/watch?v=aHjpOzsQ9YI
-youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI</code></pre>
+<pre class="code ruby"><code class="ruby">youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI</code></pre>
 
 <p>Before running the program you have to open the youtube_dlhelper.conf and
-change the Musicdirectory to your one.</p>
+change the settings (See Configuration).</p>
 
 <h2 id="label-Feature+Requests+%26+Bug+Reports">Feature Requests &amp; Bug Reports</h2>
 
@@ -192,7 +210,7 @@ href="https://github.com/saigkill/youtube_dlhelper/issues">github.com/saigkill/y
 </div></div>
 
     <div id="footer">
-  Generated on Thu Jan  9 08:31:50 2014 by
+  Generated on Sat Jan 18 14:36:36 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.3 (ruby-2.0.0).
 </div>

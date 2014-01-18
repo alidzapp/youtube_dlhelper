@@ -21,6 +21,7 @@ require 'addressable/uri'
 require 'viddl-rb'
 require 'streamio-ffmpeg'
 require 'rainbow/ext/string'
+require 'yaml'
 
 # Variables
 SCRIPTVERSION = YoutubeDlhelperVersion::Version::STRING
@@ -61,7 +62,7 @@ class YoutubeDlhelper
   Checker.check_target
   Style.box_full
 
-  # Reflects what targetfolder are used now
+  # Prints out which targetfolder is choosen.
   Style.box_full
   puts'SEARCHING FOR TARGETDIR'
   Style.box_full
@@ -71,7 +72,7 @@ class YoutubeDlhelper
   Checker.check_dir
   Style.box_full
 
-  # Using FileUtils to enter the generated directory
+  # Using FileUtils2 to enter the generated directory
   Style.box_full
   puts 'SWITCHING TO TARGETDIR'
   Style.box_full
@@ -88,32 +89,16 @@ class YoutubeDlhelper
 
     FileHelper.get_filename
 
-    if $ogg_file_accept.equal? false
-      Style.box_full
-      puts 'TRANSCODING TO MP3'
-      Style.box_full
-      puts
-      Ripper.rip($filename)
-    else
-      puts 'No transcoding needed. OGG available...'
-    end
+    Ripper.rip_prepare
 
-    puts 'Cleaning up directory'
-    # Cleaning up unneeded files
-    if File.exists?("#{$filename}.mp4")
-      File.delete("#{$filename}.mp4")
-    end
-    if File.exists?("#{$filename}.m4a")
-      File.delete("#{$filename}.m4a")
-    end
-    if File.exists?("#{$filename}.webm")
-      File.delete("#{$filename}.webm")
-    end
-    puts 'Finished cleaning up'
+    Checker.cleanup
+
+    FileHelper.get_final_file
   end
 
+
   Style.box_full
-  puts "Now you can find your file in #{$music_dir}/#{$folder}/#{$filename}.mp3".color(:yellow)
+  puts "Now you can find your file in #{$music_dir}/#{$folder}/#{$filename}.#{$extension}".color(:yellow)
   puts "Thank you for using #{MY_NAME} #{SCRIPTVERSION}".color(:yellow)
   Style.box_full
 

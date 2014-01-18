@@ -7,20 +7,30 @@
 
 # Dependencies
 require 'dir'
+require 'fileutils2'
 
 # Module for FileHelper tools
 module FileHelper
-  # Method to get the filename of the downloaded file end excludes the extension
+  # Method to get the filename without extension. Method saves the filename in $filename.
   def self.get_filename
-    if File.exists?('*.ogg')
-      file = Dir.glob('*.ogg')
-      @testfile = file[0]
+    # Submethod for searching for *.ogg files
+    Dir.glob('*.ogg') do |ogg_file|
+      @testfile = ogg_file
       $filename = File.basename(@testfile,File.extname(@testfile))
     end
-    if File.exists?('*.m4a')
-      file = Dir.glob('*.m4a')
-      @testfile = file[0]
+    # Submethod for searching for *.m4a files
+    Dir.glob('*.m4a') do |m4a_file|
+      @testfile = m4a_file
       $filename = File.basename(@testfile,File.extname(@testfile))
+    end
+  end
+
+  def self.get_final_file
+    if File.exists?("#{$filename}.mp3")
+      $extension = 'mp3'
+    end
+    if File.exists?("#{$filename}.ogg")
+      $extension = 'ogg'
     end
   end
 end

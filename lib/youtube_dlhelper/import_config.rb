@@ -10,10 +10,12 @@ require 'parseconfig'
 
 # Module for Importing Informations
 module Import
-  # This Module parses the youtube_dlhelper.conf and gives the information to a $music_dir variable
+  # This Module parses the youtube_dlhelper.conf and saves the Information in $music_dir and $ogg_file_accept
   def self.import_config
     config = ParseConfig.new(File.join(File.dirname(__FILE__), 'youtube_dlhelper.conf'))
+    # saving the variable musiddir in $music_dir
     $music_dir = config['musicdir'].to_s
+    # saving the variable ogg_file_accept in $ogg_file_accept
     $ogg_file_accept = config['ogg_file_accept'].to_s
   end
 end

@@ -1,0 +1,83 @@
+# Each release can have new features and bug fixes. Each of which
+# must have a title and can optionally have linked tickets and a description.
+# In addition they can have a type field which defaults to minor, but should be major
+# for important features/bug fixes.
+# Also, each release can have new and improved recipes.
+
+# - version: ?.?.?
+#   date: 2014-??-??
+#
+#   new features:
+#     - title:
+#
+#   bug fixes:
+#     - title:
+#
+#   improved recipes:
+#     -
+#
+#   new recipes:
+#     - title:
+
+- version: 0.1.7
+  date: 2014-01-18
+
+  new features:
+    - title: "New parameter in conf: ogg_file_accept"
+    - description: "If youtube outputs a webm file, viddl-rb produces a ogg file. If you accept this so no mp3 is needed."
+    - title: "Terminal Output: The Results file now shows the right extension (mp3 or ogg)"
+
+- version: 0.1.6
+  date: 2014-01-13
+
+  new features:
+    - title: "added structure elements for terminal output"
+
+  improved recipes:
+    - Changed dependency for multi-json to 1.8.4 for security reasons
+
+- version: 0.1.5
+  date: 2014-01-07
+
+  improved recipes:
+    - using system() for viddl-rb
+    - rebuild docs
+
+- version: 0.1.4
+  date: 2014-01-06
+
+  improved recipes:
+    - Changed dependency from fileutils to fileutils2 for security reasons.
+    - Changed dependency from jeweler to 2.0.0
+    - regenerated docfiles
+    - changed the lines for finding the filename to File.glob
+    - added some tests inside the spec/ folder
+    - changed LICENSE.txt to LICENSE.md
+
+- version: 0.1.3
+  date: 2013-12-29
+
+  improved recipes:
+    - Same as 0.1.2.alpha
+
+- version: 0.1.2
+  date: 2013-12-28
+
+  improved recipes:
+    - Nothing special happend. Just for experiment with the commandline release tools.
+
+- version: 0.1.1
+  date: 2013-12-24
+
+  improved recipes:
+    - Updated two requires because of security reasons found by the dependency checker
+
+- version: 0.1.0
+  date: 2013-12-24
+
+  new features:
+    - title: "You give the program a URL and starts it with this as parameter"
+    - title: "The gem downloads the Video"
+    - title: "The gem extracts the audio"
+    - title: "Then it transcodes the file to mp3"
+    - title: "It asks for a Group or Interprets name and it creates the right directories inside your configured Musicfolder"

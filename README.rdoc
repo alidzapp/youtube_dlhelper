@@ -4,7 +4,6 @@ home :: https://github.com/saigkill/youtube_dlhelper
 license :: http://opensource.org/licenses/GPL-3.0
 version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="version">}[http://rubygems.org/gems/youtube_dlhelper]
 continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master" alt="integration state">}[https://travis-ci.org/saigkill/youtube_dlhelper]
-continuous integration :: {<img src="https://circleci.com/gh/saigkill/youtube_dlhelper.png?circle-token=5d0ce016b9fd108e0641daf7c717f891c028eaa4" alt="integration state">}[https://circleci.com/gh/saigkill/youtube_dlhelper]
 test coverage :: {<img src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/saigkill/youtube_dlhelper?branch=master]
 code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhelper.png" />}[https://codeclimate.com/github/saigkill/youtube_dlhelper]
 dependency check :: {<img src="https://gemnasium.com/saigkill/youtube_dlhelper.png" alt="Dependency Status" />}[https://gemnasium.com/saigkill/youtube_dlhelper]
@@ -40,20 +39,27 @@ I'm using:
 * streamio-ffmpeg
 * rainbow
 
-All needed Soft dependencies are delivered with a vendor directory.
+Bundler should solve the dependencies by itself.
+
+== Configuration
+There are two important settings for you to set. Look into the lib/youtube_dlhelper.conf.
+
+=== musicdir
+The musicdir actually points to my place: musicdir = '/home/sascha/Musik' So you have to replace it with your once.
+
+=== ogg_file_accept
+In many cases Youtube gives out a *.mp4 file and then viddl extracts the audio to a *.m4a file. The ripper transcodes them to MP3. In some cases Yotube delivers a *.webm file and the extracted audio comes into a .ogg file. If you accepts that, youtube_dlhelper exits. If you change the setting from true to false youtube_dlhelper starts the ripper to transcode it to MP3.
 
 == Usage
 
-youtube_dlhelper.rb YoutubeURL or
-bin/youtube_dlhelper YoutubeURL
+    bin/youtube_dlhelper YoutubeURL
 
 
 Example:
 
-    youtube_dlhelper.rb http://www.youtube.com/watch?v=aHjpOzsQ9YI
     youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI
 
-Before running the program you have to open the youtube_dlhelper.conf and change the Musicdirectory to your one.
+Before running the program you have to open the youtube_dlhelper.conf and change the settings (See Configuration).
 
 == Feature Requests & Bug Reports
 You can file Requests and Reports on the Github Repository: https://github.com/saigkill/youtube_dlhelper/issues
