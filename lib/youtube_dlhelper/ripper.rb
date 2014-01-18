@@ -26,9 +26,10 @@ module Ripper
   # Method for transcoding the *.m4a file to *.mp3. Output should be a valid MP3 file.
   def self.rip(filename)
     puts 'Initializing the file'
-    if File.exists?("#{$filename}.m4a")
+    if File.exists?("#{filename}.m4a")
       ext = 'm4a'
-    else File.exists?("#{$filename}.ogg")
+    end
+    if File.exists?("#{filename}.ogg")
       ext = 'ogg'
     end
 

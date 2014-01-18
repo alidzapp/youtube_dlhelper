@@ -28,18 +28,15 @@ describe 'Download Checker' do
   it 'shoud download a file from Youtube' do
     Downloader.get('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
     @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-      File.exists?("#{@tempfile}.m4a").should be_true
-      File.exists?("#{@tempfile}.mp4").should be_true
-
+    File.exists?("#{@tempfile}.ogg") or File.exists?("#{@tempfile}.m4a")
   end
 end
 
 describe 'Transcoding Checker' do
   it 'should converts a file from Youtube' do
     @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    File.exists?("#{@tempfile}.m4a").should be_true
     Ripper.rip("#{@tempfile}")
-    File.exists?("#{@tempfile}.mp3").should be_true
+    File.exists?("#{@tempfile}.mp3")
   end
 end
 
@@ -53,8 +50,14 @@ end
 describe 'Cleanup Routine' do
   it 'Should cleanup all downloaded and generated files' do
     @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    File.delete("#{@tempfile}.mp4")
-    File.delete("#{@tempfile}.m4a")
-    File.delete("#{@tempfile}.mp3")
+    Checker.cleanup
+    File.exists?("#{@tempfile}.mp4").should_not be_true
+    File.exists?("#{@tempfile}.m4a").should_not be_true
+    if File.exists?("#{@tempfile}.mp3")
+      File.delete("#{@tempfile}.mp3")
+    end
+    if File.exists?("#{@tempfile}.ogg")
+      File.delete("#{@tempfile}.ogg")
+    end
   end
 end
