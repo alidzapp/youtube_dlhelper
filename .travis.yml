@@ -13,6 +13,7 @@ env:
 
 before_install:
   - sudo apt-get install ubuntu-restricted-extras ffmpeg
+  - sudo apt-get install flashplugin-installer
 
 after_success:
     - CI=true TRAVIS=true coveralls --verbose
