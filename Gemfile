@@ -9,9 +9,6 @@ group :default do
   gem 'viddl-rb'
   gem 'streamio-ffmpeg'
   gem 'rainbow'
-  gem 'ncurses'
-  gem 'logger'
-  gem 'rbcurse-core'
 end
 
 # Add dependencies to develop your gem here.

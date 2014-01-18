@@ -24,12 +24,6 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     faraday (0.8.9)
       multipart-post (~> 1.2.0)
-    ffi (1.9.3)
-    ffi-locale (1.0.1)
-      ffi (>= 1.0.9)
-    ffi-ncurses (0.4.0)
-      ffi (>= 1.0.9)
-      ffi-locale (>= 1.0.0)
     fileutils2 (0.2.0)
     gem-release (0.7.1)
     git (1.2.6)
@@ -59,7 +53,6 @@ GEM
     json (1.8.1)
     jwt (0.1.10)
       multi_json (>= 1.5)
-    logger (1.2.8)
     mechanize (2.7.3)
       domain_name (~> 0.5, >= 0.5.1)
       http-cookie (~> 1.0)
@@ -75,7 +68,6 @@ GEM
     multi_json (1.8.4)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
-    ncurses (0.9.1)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9)
     nokogiri (1.6.1)
@@ -93,8 +85,6 @@ GEM
     rack (1.5.2)
     rainbow (1.99.1)
     rake (10.1.1)
-    rbcurse-core (0.0.14)
-      ffi-ncurses (>= 0.4.0)
     rdoc (4.1.1)
       json (~> 1.4)
     rest-client (1.6.7)
@@ -147,11 +137,8 @@ DEPENDENCIES
   gem-release
   highline
   jeweler (~> 2.0.0)
-  logger
-  ncurses
   parseconfig
   rainbow
-  rbcurse-core
   rdoc (~> 4.1.0)
   rspec
   shoulda
