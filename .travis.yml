@@ -12,8 +12,7 @@ env:
     - LC_ALL=en_US.UTF-8
 
 before_install:
-  - sudo apt-get install flashplugin-installer --fix-missing
-  - sudo apt-get install ubuntu-restricted-extras ffmpeg --fix-missing
+  - sudo apt-get install ffmpeg
 
 after_success:
     - CI=true TRAVIS=true coveralls --verbose
