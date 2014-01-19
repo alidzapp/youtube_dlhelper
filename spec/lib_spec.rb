@@ -9,6 +9,7 @@ require 'youtube_dlhelper/downloader'
 require 'youtube_dlhelper/filehelper'
 require 'youtube_dlhelper/import_config'
 require 'youtube_dlhelper/ripper'
+require 'youtube_dlhelper/usage'
 @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
 
 describe 'Valid URL Checker' do
@@ -35,8 +36,16 @@ end
 describe 'Transcoding Checker' do
   it 'should converts a file from Youtube' do
     @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    Ripper.rip("#{@tempfile}")
+    #Ripper.rip("#{@tempfile}")
+    Ripper.rip_prepare
     File.exists?("#{@tempfile}.mp3")
+  end
+end
+
+describe 'Get final filename' do
+  it 'should get the name of the final file' do
+    FileHelper.get_final_file
+    puts $extension
   end
 end
 
@@ -59,5 +68,13 @@ describe 'Cleanup Routine' do
     if File.exists?("#{@tempfile}.ogg")
       File.delete("#{@tempfile}.ogg")
     end
+  end
+end
+
+describe 'Print Usage Info' do
+  it 'Should print out the Usage Info for Users' do
+    SCRIPTVERSION = YoutubeDlhelperVersion::Version::STRING
+    MY_NAME = 'youtube_dlhelper.rb'
+    Usage.print_usage
   end
 end

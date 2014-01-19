@@ -25,6 +25,7 @@ module FileHelper
     end
   end
 
+  # Checks what resulting file is present
   def self.get_final_file
     if File.exists?("#{$filename}.mp3")
       $extension = 'mp3'

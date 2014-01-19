@@ -11,7 +11,6 @@ require 'fileutils2'
 require 'dir'
 require 'net/http'
 require 'uri'
-require File.join(File.dirname(__FILE__), 'script_structure')
 
 # The Checker module contains different methods to check anything
 module Checker
@@ -60,12 +59,13 @@ module Checker
       puts 'No directory found. Im creating it.'
       # Creates the new directory in $music_dir/$folder
       FileUtils.mkdir_p("#{$music_dir}/#{$folder}")
+      if Dir.exists?("#{$music_dir}/#{$folder}")
+        raise('Cant create directory')
+      else
       puts 'Created new directory...'
+      end
     end
   end
-
-  # Checks what resulting file is present
-
 
   # Cleaner method for unneeded files
   def self.cleanup
@@ -81,23 +81,5 @@ module Checker
       File.delete("#{$filename}.webm")
     end
     puts 'Finished cleaning up'
-  end
-
-
-  module Usage
-    # Method for print out the user usage information
-    def self.print_usage
-      puts "Script: #{MY_NAME} Version: #{SCRIPTVERSION}"
-      puts 'Copyright (C) 2014 Sascha Manns <Sascha.Manns@directbox.com>'
-      puts 'Description: This script can download music from YouTube'
-      puts 'converts it to MP3 and places it in your music directory.'
-      puts 'License: See LICENSE file'
-      puts '************************************************************'
-      puts 'Usage:'
-      puts "#{MY_NAME} YourURL"
-      puts 'Example:'
-      puts "#{MY_NAME} http://www.youtube.com/watch?v=aHjpOzsQ9YI"
-      abort('Syntax Error: Please check if you have given a URL')
-    end
   end
 end

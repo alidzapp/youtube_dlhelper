@@ -13,10 +13,7 @@ module Ripper
   def self.rip_prepare
     # Checks if a *.m4a file is present. Then it routes to Ripper.rip
     if File.exists?("#{$filename}.m4a") || File.exists?("#{$filename}.ogg") && $ogg_file_accept == 'false'
-      Style.box_full
       puts 'TRANSCODING TO MP3'
-      Style.box_full
-      puts
       Ripper.rip($filename)
     else
       puts 'No transcoding needed'

@@ -26,6 +26,7 @@
     - title: "New parameter in conf: ogg_file_accept"
     - description: "If youtube outputs a webm file, viddl-rb produces a ogg file. If you accept this so no mp3 is needed."
     - title: "Terminal Output: The Results file now shows the right extension (mp3 or ogg)"
+    - title: "Added some raise options"
 
 - version: 0.1.6
   date: 2014-01-13

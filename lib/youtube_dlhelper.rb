@@ -12,7 +12,6 @@ require File.join(File.dirname(__FILE__), 'youtube_dlhelper/downloader')
 require File.join(File.dirname(__FILE__), 'youtube_dlhelper/filehelper')
 require File.join(File.dirname(__FILE__), 'youtube_dlhelper/import_config')
 require File.join(File.dirname(__FILE__), 'youtube_dlhelper/ripper')
-require File.join(File.dirname(__FILE__), 'youtube_dlhelper/script_structure')
 require 'highline/import'
 require 'dir'
 require 'fileutils2'
@@ -23,9 +22,10 @@ require 'streamio-ffmpeg'
 require 'rainbow/ext/string'
 require 'yaml'
 
-# Variables
-SCRIPTVERSION = YoutubeDlhelperVersion::Version::STRING
-MY_NAME = 'youtube_dlhelper.rb'
+# Version variable
+$version = YoutubeDlhelperVersion::Version::STRING
+# Name of the App
+$my_name = 'youtube_dlhelper.rb'
 
 
 # The main class YoutubeDlhelper
@@ -34,8 +34,8 @@ class YoutubeDlhelper
   Checker.check_arguments
   Import.import_config
 
-  puts "Script: #{MY_NAME}".color(:yellow)
-  puts "Version: #{SCRIPTVERSION}".color(:yellow)
+  puts "Script: #{$my_name}".color(:yellow)
+  puts "Version: #{$version}".color(:yellow)
   puts
   puts 'Copyright (C) 2014 Sascha Manns <Sascha.Manns@directbox.com>'
   puts 'Description: This script can download music from YouTube'
@@ -82,5 +82,5 @@ class YoutubeDlhelper
   end
 
   puts "Now you can find your file in #{$music_dir}/#{$folder}/#{$filename}.#{$extension}".color(:yellow)
-  puts "Thank you for using #{MY_NAME} #{SCRIPTVERSION}".color(:yellow)
+  puts "Thank you for using #{$my_name} #{$version}".color(:yellow)
 end
