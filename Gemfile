@@ -25,7 +25,6 @@ end
 group :test do
   gem 'shoulda', '>= 0'
   gem 'rspec', '~> 3.2.0'
-  gem 'coveralls', require: false
   gem 'simplecov', '~> 0.9.2'
 end
 
