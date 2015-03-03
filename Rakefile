@@ -30,7 +30,7 @@ Jeweler::Tasks.new do |gem|
   gem.license     = 'GPL-3'
   gem.summary     = 'Youtube Downloadhelper and Ripper'
   gem.description = 'This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form'
-  gem.email       = 'Sascha.Manns@directbox.com'
+  gem.email       = 'Sascha.Manns@bdvb.de'
   gem.authors     =  ['Sascha Manns']
   gem.date        =  ENV['from'] ? Date.parse(ENV['from']) : Date.today
   # dependencies defined in Gemfile

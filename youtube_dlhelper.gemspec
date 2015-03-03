@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = "youtube_dlhelper"
-  s.version = "0.1.6"
+  s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sascha Manns"]
-  s.date = "2014-01-13"
+  s.date = "2015-03-03"
   s.description = "This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form"
-  s.email = "Sascha.Manns@directbox.com"
+  s.email = "Sascha.Manns@bdvb.de"
   s.executables = ["youtube_dlhelper"]
   s.extra_rdoc_files = [
     "LICENSE.md",
@@ -105,7 +105,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<viddl-rb>, [">= 0"])
       s.add_runtime_dependency(%q<streamio-ffmpeg>, [">= 0"])
       s.add_runtime_dependency(%q<rainbow>, [">= 0"])
-      s.add_development_dependency(%q<rdoc>, ["~> 4.1.0"])
+      s.add_development_dependency(%q<rdoc>, ["~> 4.2.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 2.0.0"])
       s.add_development_dependency(%q<yard>, [">= 0"])
@@ -118,7 +118,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<viddl-rb>, [">= 0"])
       s.add_dependency(%q<streamio-ffmpeg>, [">= 0"])
       s.add_dependency(%q<rainbow>, [">= 0"])
-      s.add_dependency(%q<rdoc>, ["~> 4.1.0"])
+      s.add_dependency(%q<rdoc>, ["~> 4.2.0"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, ["~> 2.0.0"])
       s.add_dependency(%q<yard>, [">= 0"])
@@ -132,7 +132,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<viddl-rb>, [">= 0"])
     s.add_dependency(%q<streamio-ffmpeg>, [">= 0"])
     s.add_dependency(%q<rainbow>, [">= 0"])
-    s.add_dependency(%q<rdoc>, ["~> 4.1.0"])
+    s.add_dependency(%q<rdoc>, ["~> 4.2.0"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 2.0.0"])
     s.add_dependency(%q<yard>, [">= 0"])

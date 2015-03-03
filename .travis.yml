@@ -19,4 +19,4 @@ after_success:
 
 notifications:
   email:
-    - Sascha.Manns@directbox.com
+    - Sascha.Manns@bdvb.de
