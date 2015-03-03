@@ -29,6 +29,8 @@ Gem::Specification.new do |s|
     ".yardoc/objects/root.dat",
     ".yardoc/proxy_types",
     ".yardopts",
+    "youtube_dlhelper.gemspec",
+    ".gitignore",
     "Changelog.md",
     "Gemfile",
     "Gemfile.lock",
@@ -78,15 +80,6 @@ Gem::Specification.new do |s|
     "spec/coverage/.resultset.json",
     "spec/lib_spec.rb",
     "spec/spec_helper.rb",
-    "youtube_dlhelper.gemspec",
-    "youtube_dlhelper/.gitignore",
-    "youtube_dlhelper/Gemfile",
-    "youtube_dlhelper/LICENSE.txt",
-    "youtube_dlhelper/README.md",
-    "youtube_dlhelper/Rakefile",
-    "youtube_dlhelper/lib/youtube_dlhelper.rb",
-    "youtube_dlhelper/lib/youtube_dlhelper/version.rb",
-    "youtube_dlhelper/youtube_dlhelper.gemspec"
   ]
   s.homepage = "https://github.com/saigkill/youtube_dlhelper"
   s.licenses = ["GPL-3"]
