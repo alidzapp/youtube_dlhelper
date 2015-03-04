@@ -60,12 +60,12 @@ describe 'Cleanup Routine' do
   it 'Should cleanup all downloaded and generated files' do
     @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
     Checker.cleanup
-    File.exists?("#{@tempfile}.mp4").should_not be_true
-    File.exists?("#{@tempfile}.m4a").should_not be_true
-    if File.exists?("#{@tempfile}.mp3")
+    File.exist?("#{@tempfile}.mp4").should_not == true
+    File.exist?("#{@tempfile}.m4a").should_not == true
+    if File.exist?("#{@tempfile}.mp3")
       File.delete("#{@tempfile}.mp3")
     end
-    if File.exists?("#{@tempfile}.ogg")
+    if File.exist?("#{@tempfile}.ogg")
       File.delete("#{@tempfile}.ogg")
     end
   end
@@ -73,8 +73,6 @@ end
 
 describe 'Print Usage Info' do
   it 'Should print out the Usage Info for Users' do
-    SCRIPTVERSION = YoutubeDlhelperVersion::Version::STRING
-    MY_NAME = 'youtube_dlhelper.rb'
     Usage.print_usage
   end
 end

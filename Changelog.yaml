@@ -24,6 +24,8 @@
 
   improved recipes:
   - Updated Dependency to rdoc 4.2.0
+  - removed double setting of MYNAME and VERSION
+  - updated usage of File.exists? in rspec
 
 - version: 0.1.7
   date: 2014-01-18

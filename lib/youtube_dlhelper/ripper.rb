@@ -1,6 +1,6 @@
 # Youtube Converter for Ruby
 # Description: Downloads a file from a YT URL transcodes them to MP3 and places it into a choosen folder
-# Written by: Sascha Manns <Sascha.Manns@directbox.com>
+# Written by: Sascha Manns <Sascha.Manns@bdvb.de>
 # Module: Ripper
 # Work: Checks if is a valid *.m4a file, then transcodes to *.mp3
 # Published under: See LICENSE file
