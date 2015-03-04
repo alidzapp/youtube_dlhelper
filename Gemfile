@@ -7,7 +7,7 @@ group :default do
   gem 'fileutils2', '~> 0'
   gem 'parseconfig', '~> 1.0', '>= 1.0.6'
   gem 'viddl-rb', '~> 1.1', '>= 1.1.1'
-  gem 'streamio-ffmpeg', '~> 0'
+  gem 'streamio-ffmpeg', '~> 1.0', '>= 1.0.0'
   gem 'rainbow', '~> 2.0', '>= 2.0.0'
 end
 
