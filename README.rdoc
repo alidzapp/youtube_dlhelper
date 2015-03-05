@@ -58,6 +58,7 @@ In many cases Youtube gives out a *.mp4 file and then viddl extracts the audio t
 Example:
 
     youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI
+    If a http:// URL doesn't work use http:// instead
 
 Before running the program you have to open the youtube_dlhelper.conf and change the settings (See Configuration).
 
