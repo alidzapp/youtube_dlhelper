@@ -19,6 +19,12 @@
 #   new recipes:
 #     - title:
 
+- version: 0.1.9
+  date: 2015-03-05
+
+  improved recipes:
+  - changed all File.exists? to File.exist?
+
 - version: 0.1.8
   date: 2015-03-03
 

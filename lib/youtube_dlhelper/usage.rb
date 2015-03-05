@@ -9,7 +9,7 @@ module Usage
   # Method for print out the user usage information
   def self.print_usage
     puts "Script: #{$my_name} Version: #{$version}"
-    puts 'Copyright (C) 2014 Sascha Manns <Sascha.Manns@directbox.com>'
+    puts 'Copyright (C) 2014 Sascha Manns <Sascha.Manns@bdvb.de>'
     puts 'Description: This script can download music from YouTube'
     puts 'converts it to MP3 and places it in your music directory.'
     puts 'License: See LICENSE file'

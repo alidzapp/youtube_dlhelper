@@ -27,10 +27,10 @@ module FileHelper
 
   # Checks what resulting file is present
   def self.get_final_file
-    if File.exists?("#{$filename}.mp3")
+    if File.exist?("#{$filename}.mp3")
       $extension = 'mp3'
     end
-    if File.exists?("#{$filename}.ogg")
+    if File.exist?("#{$filename}.ogg")
       $extension = 'ogg'
     end
   end

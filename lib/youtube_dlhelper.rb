@@ -54,12 +54,12 @@ class YoutubeDlhelper
   puts 'You should have received a copy of the GNU General Public License'
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
 
-  puts 'CHECKING TARGET'
+  puts 'CHECKING TARGET'.color(:yellow)
   Checker.check_target
 
   # Prints out which targetfolder is choosen.
   puts'SEARCHING FOR TARGETDIR'
-  puts "Your present Targetfolder is: #{$music_dir}/#{$folder}"
+  puts "Your present Targetfolder is: #{$music_dir}/#{$folder}".color(:yellow)
   puts 'You can choose another one directly in the configfile.'
   puts 'Checking now, if your targetdirectory exists...'
   Checker.check_dir

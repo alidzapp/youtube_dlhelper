@@ -53,13 +53,13 @@ module Checker
   # Checks if the targetdirectory are present. If not, it creates one
   def self.check_dir
     # Checking if musicdir exists
-    if Dir.exists?("#{$music_dir}/#{$folder}")
+    if Dir.exist?("#{$music_dir}/#{$folder}")
       puts 'Found directory. Im using it.'
     else
       puts 'No directory found. Im creating it.'
       # Creates the new directory in $music_dir/$folder
       FileUtils.mkdir_p("#{$music_dir}/#{$folder}")
-      if Dir.exists?("#{$music_dir}/#{$folder}")
+      if Dir.exist?("#{$music_dir}/#{$folder}")
         raise('Cant create directory')
       else
       puts 'Created new directory...'
@@ -71,13 +71,13 @@ module Checker
   def self.cleanup
     puts 'Cleaning up directory'
     # Cleanup the temp files
-    if File.exists?("#{$filename}.mp4")
+    if File.exist?("#{$filename}.mp4")
       File.delete("#{$filename}.mp4")
     end
-    if File.exists?("#{$filename}.m4a")
+    if File.exist?("#{$filename}.m4a")
       File.delete("#{$filename}.m4a")
     end
-    if File.exists?("#{$filename}.webm")
+    if File.exist?("#{$filename}.webm")
       File.delete("#{$filename}.webm")
     end
     puts 'Finished cleaning up'

@@ -9,7 +9,7 @@ class YoutubeDlhelperVersion
   module Version
     MAJOR = 0
     MINOR = 1
-    PATCH = 8
+    PATCH = 9
     BUILD = 1
 
     STRING = [MAJOR, MINOR, PATCH].compact.join('.')
