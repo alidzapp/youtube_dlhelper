@@ -1,78 +1,74 @@
 require 'rspec'
 require 'dir'
-require 'fileutils2'
-require File.dirname(__FILE__) + '/spec_helper'
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'youtube_dlhelper/checker'
-require 'youtube_dlhelper/version'
-require 'youtube_dlhelper/downloader'
-require 'youtube_dlhelper/filehelper'
-require 'youtube_dlhelper/import_config'
-require 'youtube_dlhelper/ripper'
-require 'youtube_dlhelper/usage'
-@tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
+require 'spec_helper'
 
-describe 'Valid URL Checker' do
-  it 'should get an url, test it and five back a true' do
-    Checker.external_url_is_valid?('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
-  end
-end
+require File.dirname(__FILE__) + '..' + '/youtube_dlhelper/checker'
+require File.dirname(__FILE__) + '..' + '/youtube_dlhelper/version'
+require File.dirname(__FILE__) + '..' + '/youtube_dlhelper/downloader'
+require File.dirname(__FILE__) + '..' + '/youtube_dlhelper/import_config'
+require File.dirname(__FILE__) + '..' + '/youtube_dlhelper/ripper'
 
-describe 'Config Import Checker' do
-  it 'should fill musicdir to $music_dir' do
-    Import.import_config
-    $music_dir.equal? '/home/sascha/Musik'
-  end
-end
+tempfile = 'Crystallize_-_Lindsey_Stirling_Dubstep_Violin_Original_Song'
+ffmpeg_binary = '/usr/local/bin/ffmpeg'
 
-describe 'Download Checker' do
-  it 'shoud download a file from Youtube' do
-    Downloader.get('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
-    @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    File.exists?("#{@tempfile}.ogg") or File.exists?("#{@tempfile}.m4a")
-  end
-end
-
-describe 'Transcoding Checker' do
-  it 'should converts a file from Youtube' do
-    @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    #Ripper.rip("#{@tempfile}")
-    Ripper.rip_prepare
-    File.exists?("#{@tempfile}.mp3")
-  end
-end
-
-describe 'Get final filename' do
-  it 'should get the name of the final file' do
-    FileHelper.get_final_file
-    puts $extension
-  end
-end
-
-describe 'Get Filename Checker' do
-  it 'should print out the filename without extension' do
-    FileHelper.get_filename
-    $filename.should.equal? @tempfile
-  end
-end
-
-describe 'Cleanup Routine' do
-  it 'Should cleanup all downloaded and generated files' do
-    @tempfile = 'Crystallize___Lindsey_Stirling__Dubstep_Violin_Original_Song_'
-    Checker.cleanup
-    File.exist?("#{@tempfile}.mp4").should_not == true
-    File.exist?("#{@tempfile}.m4a").should_not == true
-    if File.exist?("#{@tempfile}.mp3")
-      File.delete("#{@tempfile}.mp3")
-    end
-    if File.exist?("#{@tempfile}.ogg")
-      File.delete("#{@tempfile}.ogg")
+describe 'Checker' do
+  describe '.external_url_is_valid?' do
+    it 'get an url, test it and give back when valid' do
+      # rubocop:disable Metrics/LineLength
+      url = Checker.external_url_is_valid?('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
+      expect(url).equal? 'true'
     end
   end
 end
 
-describe 'Print Usage Info' do
-  it 'Should print out the Usage Info for Users' do
-    Usage.print_usage
+describe 'Import' do
+  describe '.import_config' do
+    it 'reads in some variables and fill them localy' do
+      music_dir, ogg_file_accept, ffmpeg_binary = Import.import_config
+      expect(music_dir).equal? 'Musik'
+      expect(ogg_file_accept).equal? 'true'
+      expect(ffmpeg_binary).equal? '/usr/local/bin/ffmpeg'
+    end
+  end
+end
+
+describe 'Downoader' do
+  describe '.get' do
+    it 'downloads a file to youtube' do
+      Downloader.get('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
+      expect(File.exists?("#{tempfile}.m4a")).equal? 'true'
+    end
+  end
+end
+
+describe 'Ripper' do
+  describe '.rip_prepare' do
+    context 'With ogg_file_accept' do
+      ogg_file_accept = 'true'
+      it 'should not convert a file from youtube' do
+        Ripper.rip_prepare(tempfile, ogg_file_accept, ffmpeg_binary)
+        expect(File.exists?("#{tempfile}.ogg")).equal? 'true'
+      end
+    end
+
+    context 'Without ogg_file_accept' do
+      ogg_file_accept = 'true'
+      it 'should convert a file from youtube' do
+        Ripper.rip_prepare(tempfile, ogg_file_accept, ffmpeg_binary)
+        expect(File.exists?("#{tempfile}.mp3")).equal? 'true'
+      end
+    end
+  end
+end
+
+describe 'Checker' do
+  describe '.cleanup' do
+    it 'Cleansup all downloaded and generated files' do
+      Checker.cleanup(tempfile)
+      expect(File.exist?("#{tempfile}.mp4")).equal? 'false'
+      expect(File.exist?("#{tempfile}.m4a")).equal? 'false'
+      File.delete("#{tempfile}.mp3") if File.exist?("#{tempfile}.mp3")
+      File.delete("#{tempfile}.ogg") if File.exist?("#{tempfile}.ogg")
+    end
   end
 end

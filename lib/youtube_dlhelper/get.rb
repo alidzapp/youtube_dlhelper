@@ -1,8 +1,3 @@
-# Youtube Converter for Ruby
-# Description: Downloads a file from a YT URL transcodes them to MP3 and places it into a choosen folder
-# Class: youtube_dlhelper
-# Work: This file contains a semantic version number
-#
 # Copyright (C) 2013-2015  Sascha Manns <Sascha-Manns@web.de>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -18,21 +13,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Class for versioning
-class YoutubeDlhelperVersion
-  # Module for versioning
-  module Version
-    # Major version
-    MAJOR = 0
-    # Minor version
-    MINOR = 1
-    # Patch version
-    PATCH = 9
-    # Build version
-    BUILD = 2
+# Class for methods who getting informations
+class YoutubeDlhelperGet
 
-    #combined string with the full version
-    STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join('.')
+  # Method for getting the url
+  # @return [String] urlchecked
+  def self.url
+    # @note Put the yad input
+    urlinput = `yad --entry --button="Go" --title="URL" --text="Place your URL:"`
+    puts urlinput
+    return urlinput
+  end
+
+  # Method for getting the type of the musicans
+  def self.type
+    # @note Put the yad input
+    type = `yad --title="Create documentation" --center --on-top --text="Is it a group or a single interpret" --button="Group" --button="Interpret"`
+    puts type
+
   end
 end
-

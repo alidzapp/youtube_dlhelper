@@ -1,3 +1,6 @@
-.idea/
-# Gemnasium gem configuration file
-config/gemnasium.yml
+/.yardoc
+/coverage
+/doc
+/pkg
+/spec/coverage
+/Gemfile.lock

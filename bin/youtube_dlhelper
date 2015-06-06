@@ -1,16 +1,24 @@
 #!/usr/bin/env ruby
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'youtube_dlhelper'
-require 'youtube_dlhelper/usage.rb'
-$my_name = 'youtube_dlhelper'
-$version = YoutubeDlhelperVersion::Version::STRING
+
+my_name = 'youtube_dlhelper'
+version = YoutubeDlhelperVersion::Version::STRING
 
 case ARGV.length
-  when 1
-    puts 'Launching youtube_dlhelper'
-  else
-    Usage.print_usage
-    abort('Syntax Error: Please check if you have given a URL')
+when 1
+  puts 'Launching youtube_dlhelper'
+else
+  puts "Script: #{my_name} Version: #{version}"
+  puts 'Copyright (C) 2014 Sascha Manns <Sascha.Manns@bdvb.de>'
+  puts 'Description: This script can download music from YouTube'
+  puts 'converts it to MP3 and places it in your music directory.'
+  puts 'License: See LICENSE file'
+  puts '************************************************************'
+  puts 'Usage:'
+  puts "#{my_name} YourURL"
+  puts 'Example:'
+  puts "#{my_name} http://www.youtube.com/watch?v=aHjpOzsQ9YI"
+  abort('Syntax Error: Please check if you have given a URL')
 end
 
 
