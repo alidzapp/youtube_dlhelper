@@ -105,7 +105,7 @@ class YoutubeDlhelper
   puts 'SWITCHING TO TARGETDIR'.color(:yellow)
 
   FileUtils.cd("#{music_dir}/#{folder}") do
-    puts "Now we are switched to directory #{Dir::pwd}".color(:red)
+    puts "Now we are switched to directory #{Dir.pwd}".color(:yellow)
     puts 'DOWNLOADING YOUR VIDEO'
 
     # @param [String] url Is the given URL to the Youtube file

@@ -66,7 +66,7 @@
     - Changed dependency from jeweler to 2.0.0
     - regenerated docfiles
     - changed the lines for finding the filename to File.glob
-    - added some tests inside the spec/ folder
+    - added some tests inside the test/ folder
     - changed LICENSE.txt to LICENSE.md
 
 - version: 0.1.3

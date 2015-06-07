@@ -1,5 +1,6 @@
 # Youtube Converter for Ruby
-# Description: Downloads a file from a YT URL transcodes them to MP3 and places it into a choosen folder
+# Description: Downloads a file from a YT URL transcodes them to MP3 and places
+# it into a choosen folder
 # Module: Ripper
 # Work: Checks if is a valid *.m4a file, then transcodes to *.mp3
 #
@@ -24,29 +25,30 @@ require 'streamio-ffmpeg'
 
 # Module for all ripping methods
 module Ripper
+  # rubocop:disable Metrics/AbcSize
   # Checking which fileformat is present
   # @param [String] filename The filename
   # @param [String] ogg_file_accept OGG file as end file accepted? (true/false)
   # @param [String] ffmpeg_binary Path to the ffmpeg binary
   def self.rip_prepare(filename, ogg_file_accept, ffmpeg_binary)
     # @note Checks if a *.m4a file is present. Then it routes to Ripper.rip
-    puts 'Checking if transcoding is needed. Depends on ogg_file_accept.'\
-    .color(:green)
+    puts 'Checking if transcoding is needed. Depends on ogg_file_accept.'
     if File.exist?("#{filename}.m4a")
-      puts 'TRANSCODING TO MP3'.color(:green)
+      puts 'TRANSCODING TO MP3'
       ext = 'm4a'
       rip(filename, ext, ogg_file_accept, ffmpeg_binary)
     elsif File.exist?("#{filename}.ogg") && ogg_file_accept == 'false'
-      puts 'TRANSCODING TO MP3'.color(:green)
+      puts 'TRANSCODING TO MP3'
       ext = 'ogg'
       rip(filename, ext, ogg_file_accept, ffmpeg_binary)
     elsif File.exist?("#{filename}.ogg")
-      puts 'Already a ogg file. No transcoding needed'.color(:green)
+      puts 'Already a ogg file. No transcoding needed'
     else
-      puts 'No transcoding needed'.color(:green)
+      puts 'No transcoding needed'
     end
   end
 
+  # rubocop:disable Metrics/LineLength
   # Method for transcoding the *.m4a file to *.mp3. Output should be a valid MP3
   # file.
   # @param [String] filename The filename
@@ -59,22 +61,20 @@ module Ripper
     FFMPEG.ffmpeg_binary = ffmpeg_binary
     filenamein = "#{filename}.#{ext}"
     audio = FFMPEG::Movie.new(filenamein)
-    puts 'Initializing finished'.color(:green)
+    puts 'Initializing finished'
     # @note Checking if valid
-    puts 'Checking if the movie is valid.'.color(:green)
+    puts 'Checking if the movie is valid.'
     audio.valid?
-    puts 'Validated'.color(:green)
+    puts 'Validated'
     # @note Transcoding the file to MP3
     if ogg_file_accept == 'true'
-      system("#{ffmpeg_binary} -i #{filenamein} -acodec vorbis -vn -ac 2 -aq
-60 -strict -2 #{filename}.ogg")
+      system("#{ffmpeg_binary} -i #{filenamein} -acodec vorbis -vn -ac 2 -aq 60 -strict -2 #{filename}.ogg")
       ext = 'ogg'
     else
-      system("#{ffmpeg_binary} -i #{filenamein} -acodec libmp3lame -ac 2 -ab
- 192k #{filename}.mp3")
+      system("#{ffmpeg_binary} -i #{filenamein} -acodec libmp3lame -ac 2 -ab 192k #{filename}.mp3")
       ext = 'mp3'
     end
-    puts 'Transcoded'.color(:green)
+    puts 'Transcoded'
     [filename, ext]
   end
 end

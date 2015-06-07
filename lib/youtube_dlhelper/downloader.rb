@@ -36,30 +36,34 @@ module Downloader
     rename(url)
   end
 
+  # rubocop:disable Metrics/AbcSize
   # Method for renaming the orig file with blanks to underscores
   # @param [String] url Is the given URL to the Youtube file
   # @return [String] filenamenew The fixed filename with underscores
   def self.rename(url)
     file = ViddlRb.get_names(url)
     file.first
-    extn = File.extname  file.first.to_s #.mp4
-    #Culture Beat           Mr. Vain
+    extn = File.extname file.first.to_s # .mp4
+    # Culture Beat           Mr. Vain
     filename = File.basename file.first.to_s, extn
+    ext = file_exist_ogg_m4a(filename)
+    # @note Replacing blanks with underscrores and delete non standard chars in
+    # filename
+    filenamenew0 = filename.gsub(/ /, '_')
+    pattern = /[a-zA-Z0-9\-\s\_]/
+    # Culture_Beat___________Mr_Vain
+    filenamenew = filenamenew0.split(//).keep_if { |chr| chr =~ pattern }.join
+    puts 'Renaming the downloaded file'.color(:green)
+    FileUtils.mv("#{filename}.#{ext}", "#{filenamenew}.#{ext}")
+    return filenamenew
+  end
 
+  def self.file_exist_ogg_m4a(filename)
     if File.exist?("#{filename}.ogg")
       ext = 'ogg'
     elsif File.exist?("#{filename}.m4a")
       ext = 'm4a'
     end
-
-    # @note Replacing blanks with underscrores and delete non standard chars in
-    # filename
-    filenamenew0 = filename.gsub(/ /, '_')
-    pattern = /[a-zA-Z0-9\-\s\_]/
-    #Culture_Beat___________Mr_Vain
-    filenamenew = filenamenew0.split(//).keep_if{|chr| chr =~ pattern}.join
-    puts 'Renaming the downloaded file'.color(:green)
-    FileUtils.mv("#{filename}.#{ext}", "#{filenamenew}.#{ext}")
-    return filenamenew
+    return ext
   end
 end

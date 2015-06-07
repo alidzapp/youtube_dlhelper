@@ -2,5 +2,5 @@
 /coverage
 /doc
 /pkg
-/spec/coverage
+/test/coverage
 /Gemfile.lock

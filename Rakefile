@@ -23,15 +23,15 @@ require 'rake'
 require 'rspec/core'
 require 'rspec/core/rake_task'
 desc 'Does anything with RSpec'
-RSpec::Core::RakeTask.new(:spec) do |spec|
-  spec.pattern = FileList['spec/**/*_spec.rb']
+RSpec::Core::RakeTask.new(:test) do |spec|
+  spec.pattern = FileList['test/**/*_spec.rb']
 end
-task :default => :spec
+task :default => :test
 
 # Coveralls Task
 require 'coveralls/rake/task'
 Coveralls::RakeTask.new
-task :test_with_coveralls => [:spec, 'coveralls:push']
+task :test_with_coveralls => [:test, 'coveralls:push']
 
 # Yard Task
 require 'yard'

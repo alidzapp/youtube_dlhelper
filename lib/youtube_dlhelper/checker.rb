@@ -35,18 +35,40 @@ module Checker
   def self.external_url_is_valid?(url)
     puts 'Checking prefix'.color(:green)
     if url.include? 'https'
-      fail('Please use http:// instead of https://')
+      puts 'Checking if URL is valid'.color(:green)
+      https_url_valid?(url)
+      return url
     else
       puts 'Checking if URL is valid'.color(:green)
-      # @param [String] url Is the given URL to the Youtube file
-      uri = URI.parse(url)
-      response = Net::HTTP.start(uri.host, uri.port) {|http|
-        http.head(uri.path)}
-      response.is_a?(Net::HTTPSuccess) || response.is_a?(Net::HTTPRedirection)
+      http_url_valid?(url)
       return url
     end
   end
 
+  # Method to check https
+  # @param [String] url Is the given URL to the Youtube file
+  def self.https_url_valid?(url)
+    # @param [String] url Is the given URL to the Youtube file
+    uri = URI.parse(url)
+    response = Net::HTTP.start(uri.host, uri.port,
+                    :use_ssl => uri.scheme == 'https') do |http|
+      http.head(uri.path)
+    end
+    response.is_a?(Net::HTTPSuccess) || response.is_a?(Net::HTTPRedirection)
+  end
+
+  # Method to check http
+  # @param [String] url Is the given URL to the Youtube file
+  def self.http_url_valid?(url)
+    # @param [String] url Is the given URL to the Youtube file
+    uri = URI.parse(url)
+    response = Net::HTTP.start(uri.host, uri.port) do |http|
+      http.head(uri.path)
+    end
+    response.is_a?(Net::HTTPSuccess) || response.is_a?(Net::HTTPRedirection)
+  end
+
+  # rubocop:disable Metrics/LineLength
   # Ask for names, creates the folders and puts all into a $folder variable
   # @return [String] folder
   def self.check_target
@@ -54,18 +76,18 @@ module Checker
     entry = ask 'What kind of entry do you have? (Interpret or Group)'
 
     subdir = case entry
-               when 'Interpret'
-                 [
-                   ask('Whats the surname of your interpret?'),
-                   ask('Whats the first name of your interpret?')
-                 ].join('_')
+             when 'Interpret'
+               [
+                 ask('Whats the surname of your interpret?'),
+                 ask('Whats the first name of your interpret?')
+               ].join('_')
 
-               when 'Group'
-                 ask 'Whats the name of the group?'
+             when 'Group'
+               ask 'Whats the name of the group?'
 
-               else
-                 puts 'Just the entries "Interpret" or "Group" are allowed'.color(:red)
-                 abort('Aborted')
+             else
+               puts 'Just the entries "Interpret" or "Group" are allowed'.color(:red)
+               abort('Aborted')
              end
     subdir.gsub(/ /, '_')
     folder = "#{ subdir }/Youtube-Music"
@@ -96,15 +118,9 @@ module Checker
   def self.cleanup(filename)
     puts 'Cleaning up directory'.color(:green)
     # @note Cleanup the temp files
-    if File.exist?("#{filename}.mp4")
-      File.delete("#{filename}.mp4")
-    end
-    if File.exist?("#{filename}.m4a")
-      File.delete("#{filename}.m4a")
-    end
-    if File.exist?("#{filename}.webm")
-      File.delete("#{filename}.webm")
-    end
+    File.delete("#{filename}.mp4") if File.exist?("#{filename}.mp4")
+    File.delete("#{filename}.m4a") if File.exist?("#{filename}.m4a")
+    File.delete("#{filename}.webm") if File.exist?("#{filename}.webm")
     puts 'Finished cleaning up'.color(:green)
   end
 end

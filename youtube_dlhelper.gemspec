@@ -13,7 +13,7 @@ rips it to mp3 and placed it in a organized form'
   spec.homepage = 'https://github.com/saigkill/youtube_dlhelper'
   spec.licenses = ['GPL-3']
   spec.files = `git ls-files -z`.split("\x0").reject { |f|
-    f.match(%r{^(test|spec|features)/})
+    f.match(%r{^(test|test|features)/})
   }
   spec.bindir = 'bin'
   spec.executables = spec.files.grep(%w(youtube_dlhelper)) { |f|
@@ -22,7 +22,7 @@ rips it to mp3 and placed it in a organized form'
   spec.require_paths = ['lib']
   spec.platform = Gem::Platform::RUBY
   spec.date = ENV['from'] ? Date.parse(ENV['from']) : Date.today
-  spec.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
+  spec.test_files = `git ls-files -- {test,test,features}/*`.split("\n")
   spec.post_install_message = 'Please file bugreports and feature requests
 on: http://saigkill.ddns.net:8112/dashboard'
   spec.add_runtime_dependency 'highline', '~> 1.7', '>= 1.7.2'
@@ -45,5 +45,6 @@ on: http://saigkill.ddns.net:8112/dashboard'
   spec.add_development_dependency 'reek', '~> 2.2', '>= 2.2.1'
   spec.add_development_dependency 'ruby-lint', '~> 2.0', '>= 2.0.4'
   spec.add_development_dependency 'simplecov', '~> 0.10', '>= 0.10.0'
+  spec.add_development_dependency 'docbook_status', '~> 1.0', '>= 1.0.1'
 end
 
