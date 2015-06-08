@@ -2,3 +2,5 @@ bump:
    tag: true
    version: true
    bump: true
+
+release:

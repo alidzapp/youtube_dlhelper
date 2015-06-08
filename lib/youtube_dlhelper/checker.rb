@@ -113,6 +113,16 @@ module Checker
     end
   end
 
+  def self.which_decoder?
+    getavconv = `which avconv`
+    getffmpeg = `which ffmpeg`
+    avconv = p getavconv.chomp
+    ffmpeg = p getffmpeg.chomp
+    ffmpeg_binary = ffmpeg if ffmpeg != ''
+    ffmpeg_binary = avconv if avconv != ''
+    return ffmpeg_binary
+  end
+
   # Cleaner method for unneeded files
   # @param [String] filename The name of the new produced file
   def self.cleanup(filename)

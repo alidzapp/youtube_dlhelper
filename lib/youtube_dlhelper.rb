@@ -43,30 +43,10 @@ class YoutubeDlhelper
   # @note Command line aguments
   argv = ARGV[0].to_s
 
-  # @note Checks if the URL is valid
-  # @param [String] argv Given
-  url = Checker.external_url_is_valid?(argv)
-
-  # This method checks if a oldconfig is available
-  # @return [String] true or false
-  def self.oldconfig
-    home = Dir.home
-    if File.exist?("#{home}/.youtube_dlhelper.conf")
-      puts 'Found configuration file and using it...'.color(:yellow)
-    else
-      # @raise
-      puts 'Please run rake setup'.color(:red)
-      fail('Exiting now..').color(:red)
-    end
-  end
-
-  # @note Check oldconfig
-  oldconfig
-
   # @note Imports the configuration
   home = Dir.home
-  music_diri, ogg_file_accept, ffmpeg_binary = Import.import_config
-  music_dir = "#{home}/#{music_diri}"
+  music_get, ogg_file_accept = Import.import_config
+  music_dir = "#{home}/#{music_get}"
 
   puts "Script: #{my_name}".color(:yellow)
   puts "Version: #{version}".color(:yellow)
@@ -87,6 +67,29 @@ class YoutubeDlhelper
   puts 'GNU General Public License for more details.'
   puts 'You should have received a copy of the GNU General Public License'
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
+
+  # @note Checks if the URL is valid
+  # @param [String] argv Given
+  url = Checker.external_url_is_valid?(argv)
+
+  # This method checks if a oldconfig is available
+  # @return [String] true or false
+  def self.oldconfig_exists?
+    home = Dir.home
+    if File.exist?("#{home}/.youtube_dlhelper.conf")
+      puts 'Found configuration file and using it...'.color(:yellow)
+    else
+      # @raise
+      puts 'Please run rake setup'.color(:red)
+      fail('Exiting now..').color(:red)
+    end
+  end
+
+  # @note Check oldconfig
+  oldconfig_exists?
+
+  # Check which decoder should used
+  ffmpeg_binary = Checker.which_decoder?
 
   puts 'CHECKING TARGET'.color(:yellow)
   # @note Checks if target directory is present. Otherwise it creates one

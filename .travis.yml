@@ -1,8 +1,12 @@
 language: ruby
 rvm:
-  - 2.1.5
-  - 2.0.0
-  - 1.9.3
+  - 2.2.0
+  - 2.2.1
+
+dist: trusty
+
+os:
+  -linux
 
 env:
   global:
@@ -13,11 +17,13 @@ env:
     - LC_ALL=en_US.UTF-8
 
 before_install:
-  - sudo apt-get install ffmpeg
+  - gem install bundler
+  - sudo apt-get update
+  - sudo apt-get install ffmpeg || libav-tools
 
 after_success:
-    - CI=true TRAVIS=true coveralls --verbose
+  - CI=true TRAVIS=true coveralls --verbose
 
 notifications:
   email:
-    - Sascha.Manns@bdvb.de
+    - Sascha-Manns@web.de

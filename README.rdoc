@@ -11,7 +11,7 @@ code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhel
 code quality :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/quality-score.png?b=master" />}[https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper]
 dependency check :: {<img src="https://gemnasium.com/saigkill/youtube_dlhelper.png" alt="Dependency Status" />}[https://gemnasium.com/saigkill/youtube_dlhelper]
 still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Maintaining Status" /}[http://stillmaintained.com/saigkill/youtube_dlhelper]
-documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" />}[http://inch-ci.org/github/saigkill/PublicanCreators]
+documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" />}[http://inch-ci.org/github/saigkill/youtube_dlhelper]
 documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper
 bugs :: http://saigkill.ddns.net:8112/dashboard
 review code :: http://saigkill.ddns.net:8080/youtube_dlhelper/view

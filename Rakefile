@@ -37,7 +37,7 @@ task :test_with_coveralls => [:test, 'coveralls:push']
 require 'yard'
 desc 'Run yarddoc for the source'
 YARD::Rake::YardocTask.new do |t|
-  t.files   = %w(lib/**/*.rb ChangeLog.md LICENSE.rdoc) # optional
+  t.files   = %w(lib/**/*.rb, bin/youtube_dlhelper, CHANGELOG.md, CODE_OF_CONDUCT.md, LICENSE.md, README.rdoc)
 end
 
 # Rubocop

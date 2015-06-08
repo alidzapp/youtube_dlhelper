@@ -52,7 +52,9 @@ module Downloader
     filenamenew0 = filename.gsub(/ /, '_')
     pattern = /[a-zA-Z0-9\-\s\_]/
     # Culture_Beat___________Mr_Vain
-    filenamenew = filenamenew0.split(//).keep_if { |chr| chr =~ pattern }.join
+    filenamenew = filenamenew0.split(//).keep_if do |chr|
+      chr =~ pattern
+    end.join
     puts 'Renaming the downloaded file'.color(:green)
     FileUtils.mv("#{filename}.#{ext}", "#{filenamenew}.#{ext}")
     return filenamenew

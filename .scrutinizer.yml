@@ -1,3 +1,13 @@
+build:
+  environment:
+    ruby: '2.2.0'
+
+  dependencies:
+    before:
+      - gem update
+      - sudo apt-get update
+      - sudo apt-get install ffmpeg || libav-tools
+
 checks:
     ruby:
         code_rating: true
@@ -10,7 +20,7 @@ checks:
             enforced_style: exploded
         style_predicate_name: true
         style_comment_annotation: true
-        rails_output: true
+        rails_output: false
 
 filter:
     excluded_paths:

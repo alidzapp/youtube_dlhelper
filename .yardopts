@@ -1,1 +1,7 @@
+bin/youtube_dlhelper
 lib/**/*.rb
+-
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+LICENSE.md
+README.rdoc

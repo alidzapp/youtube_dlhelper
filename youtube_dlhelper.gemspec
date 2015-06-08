@@ -45,6 +45,5 @@ on: http://saigkill.ddns.net:8112/dashboard'
   spec.add_development_dependency 'reek', '~> 2.2', '>= 2.2.1'
   spec.add_development_dependency 'ruby-lint', '~> 2.0', '>= 2.0.4'
   spec.add_development_dependency 'simplecov', '~> 0.10', '>= 0.10.0'
-  spec.add_development_dependency 'docbook_status', '~> 1.0', '>= 1.0.1'
 end
 
