@@ -17,8 +17,6 @@ env:
     - LC_ALL=en_US.UTF-8
 
 before_install:
-  - gem install bundler
-  - sudo apt-get update
   - sudo apt-get install ffmpeg || libav-tools
 
 after_success:
