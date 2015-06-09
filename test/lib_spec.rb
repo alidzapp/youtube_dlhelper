@@ -76,7 +76,7 @@ end
 describe 'Checker' do
   describe '.cleanup' do
     it 'Cleansup all downloaded and generated files' do
-      Checker.cleanup(tempfile)
+      Checker.cleanup(tempfile, tempfile1)
       expect(File.exist?("#{tempfile}.mp4")).equal? 'false'
       expect(File.exist?("#{tempfile}.m4a")).equal? 'false'
       File.delete("#{tempfile1}.mp4") if File.exist?("#{tempfile1}.mp4")

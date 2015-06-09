@@ -1,7 +1,7 @@
 = \youtube_dlhelper
 
 home :: https://github.com/saigkill/youtube_dlhelper
-license :: http://opensource.org/licenses/GPL-3.0
+license :: {<img src="http://img.shields.io/:license-gpl3-blue.svg" alt="license">}[http://www.gnu.org/licenses/gpl-3.0.html]
 last public version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="version">}[http://rubygems.org/gems/youtube_dlhelper]
 continuous integration :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/build.png?b=master" alt="integration state">}[https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/]
 continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master" alt="integration state">}[https://travis-ci.org/saigkill/youtube_dlhelper]
@@ -12,10 +12,11 @@ code quality :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelpe
 dependency check :: {<img src="https://gemnasium.com/saigkill/youtube_dlhelper.png" alt="Dependency Status" />}[https://gemnasium.com/saigkill/youtube_dlhelper]
 still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Maintaining Status" /}[http://stillmaintained.com/saigkill/youtube_dlhelper]
 documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" />}[http://inch-ci.org/github/saigkill/youtube_dlhelper]
-documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper
+code documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper
 bugs :: http://saigkill.ddns.net:8112/dashboard
 review code :: http://saigkill.ddns.net:8080/youtube_dlhelper/view
 authors blog :: http://saigkill.github.io
+authors doings :: {<img src="http://githubbadge.appspot.com/saigkill" />[https://github.com/saigkill]
 ohloh :: https://www.ohloh.net/p/youtube_dlhelper
 openhatch :: http://openhatch.org/projects/youtube_dlhelper
 donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" />}[https://pledgie.com/campaigns/29423] Donations are welcome :-)
@@ -51,10 +52,11 @@ Bundler should solve the dependencies by itself.
 There are two important settings for you to set. Look into the lib/youtube_dlhelper.conf.
 
 === musicdir
-The musicdir actually points to my place: musicdir = '/home/sascha/Musik' So you have to replace it with your once.
+The musicdir points to your place (without /home/username): musicdir = 'Musik'.
 
 === ogg_file_accept
-In many cases Youtube gives out a *.mp4 file and then viddl extracts the audio to a *.m4a file. The ripper transcodes them to MP3. In some cases Yotube delivers a *.webm file and the extracted audio comes into a .ogg file. If you accepts that, youtube_dlhelper exits. If you change the setting from true to false youtube_dlhelper starts the ripper to transcode it to MP3.
+In many cases Youtube gives out a *.mp4 file and then viddl extracts the audio to a *.m4a file. The ripper transcodes them to OGG or MP3. In some cases
+Yotube delivers a *.webm file and the extracted audio comes into a .ogg file. If you accepts that, youtube_dlhelper exits. If you change the setting from true to false youtube_dlhelper starts the ripper to transcode it to MP3.
 
 == Usage
 

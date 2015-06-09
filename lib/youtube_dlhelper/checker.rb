@@ -3,6 +3,8 @@
 # it into a choosen folder
 # Module: Checker
 # Work: This Module provides different checker methods
+# Class Documentation:
+# http://www.rubydoc.info/github/saigkill/youtube_dlhelper/Checker
 #
 # Copyright (C) 2013-2015  Sascha Manns <Sascha-Manns@web.de>
 #
@@ -34,12 +36,13 @@ module Checker
   # @return [String] url
   def self.external_url_is_valid?(url)
     puts 'Checking prefix'.color(:green)
+    puts url
     if url.include? 'https'
-      puts 'Checking if URL is valid'.color(:green)
+      puts 'Checking if https URL is valid'.color(:green)
       https_url_valid?(url)
       return url
     else
-      puts 'Checking if URL is valid'.color(:green)
+      puts 'Checking if http URL is valid'.color(:green)
       http_url_valid?(url)
       return url
     end
@@ -113,6 +116,21 @@ module Checker
     end
   end
 
+  # This method checks if a oldconfig is available
+  # @return [String] true or false
+  def self.oldconfig_exists?
+    home = Dir.home
+    if File.exist?("#{home}/.youtube_dlhelper.conf")
+      puts 'Found configuration file and using it...'.color(:yellow)
+    else
+      # @raise
+      puts 'Please run rake setup'.color(:red)
+      fail('Exiting now..').color(:red)
+    end
+  end
+
+  # This method checks which decoder is available
+  # @return [String] ffmpeg_binary
   def self.which_decoder?
     getavconv = `which avconv`
     getffmpeg = `which ffmpeg`
@@ -125,12 +143,15 @@ module Checker
 
   # Cleaner method for unneeded files
   # @param [String] filename The name of the new produced file
-  def self.cleanup(filename)
+  def self.cleanup(filename, filenameold)
     puts 'Cleaning up directory'.color(:green)
     # @note Cleanup the temp files
     File.delete("#{filename}.mp4") if File.exist?("#{filename}.mp4")
     File.delete("#{filename}.m4a") if File.exist?("#{filename}.m4a")
     File.delete("#{filename}.webm") if File.exist?("#{filename}.webm")
+    File.delete("#{filenameold}.mp4") if File.exist?("#{filenameold}.mp4")
+    File.delete("#{filenameold}.m4a") if File.exist?("#{filenameold}.m4a")
+    File.delete("#{filenameold}.webm") if File.exist?("#{filenameold}.webm")
     puts 'Finished cleaning up'.color(:green)
   end
 end

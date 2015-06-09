@@ -3,7 +3,8 @@
 # it into a choosen folder
 # Module: Parses the configfile and imports the config
 # Work: This file contains some standard methods for YoutubeDlhelper
-#
+# Class Documentation:
+# http://www.rubydoc.info/github/saigkill/youtube_dlhelper/Import
 # Copyright (C) 2013-2015  Sascha Manns <Sascha-Manns@web.de>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -34,9 +35,7 @@ module Import
     music_dir = config['musicdir'].to_s
     # @note Saving the variable ogg_file_accept
     ogg_file_accept = config['ogg_file_accept'].to_s
-    # @note Saving path to ffmpeg
-    ffmpeg_binary = config['ffmpeg_binary'].to_s
     # @note It returns a array with music_dir, ogg_file_accept, ffmpeg_binary
-    [music_dir, ogg_file_accept, ffmpeg_binary]
+    [music_dir, ogg_file_accept]
   end
 end

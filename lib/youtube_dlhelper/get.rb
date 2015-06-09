@@ -1,3 +1,11 @@
+# Youtube Converter for Ruby
+# Description: Downloads a file from a YT URL transcodes them to MP3 or OGG and
+# places it into a choosen folder
+# Module: Downloader
+# Work: It downloads a *.mp4 file from Youtube, then extracts audio to *.m4a
+# Class Documentation:
+# http://www.rubydoc.info/github/saigkill/youtube_dlhelper/Downloader
+#
 # Copyright (C) 2013-2015  Sascha Manns <Sascha-Manns@web.de>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -14,7 +22,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Class for methods who getting informations
-class YoutubeDlhelperGet
+module YoutubeDlhelperGet
 
   # Method for getting the url
   # @return [String] urlchecked

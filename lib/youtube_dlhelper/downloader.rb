@@ -1,8 +1,10 @@
 # Youtube Converter for Ruby
-# Description: Downloads a file from a YT URL transcodes them to MP3 and places
-# it into a choosen folder
+# Description: Downloads a file from a YT URL transcodes them to MP3 or OGG and
+# places it into a choosen folder
 # Module: Downloader
 # Work: It downloads a *.mp4 file from Youtube, then extracts audio to *.m4a
+# Class Documentation:
+# http://www.rubydoc.info/github/saigkill/youtube_dlhelper/Downloader
 #
 # Copyright (C) 2013-2015  Sascha Manns <Sascha-Manns@web.de>
 #
@@ -57,14 +59,19 @@ module Downloader
     end.join
     puts 'Renaming the downloaded file'.color(:green)
     FileUtils.mv("#{filename}.#{ext}", "#{filenamenew}.#{ext}")
-    return filenamenew
+    [filenamenew, filename]
   end
 
+  # It checks what old file are available
+  # @param [String] filename
+  # @return ext
   def self.file_exist_ogg_m4a(filename)
     if File.exist?("#{filename}.ogg")
       ext = 'ogg'
     elsif File.exist?("#{filename}.m4a")
       ext = 'm4a'
+    elsif File.exist?("#{filename}.webm")
+      ext = 'webm'
     end
     return ext
   end

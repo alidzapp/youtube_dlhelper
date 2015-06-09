@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# Youtube Converter for Ruby
+# Youtube converter main class
 #
 # Copyright (C) 2013-2015  Sascha Manns <Sascha-Manns@web.de>
 #
@@ -17,11 +17,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Dependencies
-require 'youtube_dlhelper/version'
-require 'youtube_dlhelper/checker'
-require 'youtube_dlhelper/downloader'
-require 'youtube_dlhelper/import_config'
-require 'youtube_dlhelper/ripper'
+# rubocop:disable Metrics/LineLength
+require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/version'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/checker'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/downloader'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/import_config'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/ripper'))
 require 'highline/import'
 require 'dir'
 require 'fileutils'
@@ -33,21 +34,36 @@ require 'rainbow/ext/string'
 
 # The main class YoutubeDlhelper
 class YoutubeDlhelper
-
+  puts 'Running initialize process...'
+  puts 'Gets version...'
   # @note Version variable
   version = YoutubeDlhelperVersion::Version::STRING
 
+  puts 'Gets own process name...'
   # @note Name of the App
-  my_name = 'youtube_dlhelper.rb'
+  my_name = File.basename($PROGRAM_NAME)
 
+  puts 'Getting command line arguments...'
   # @note Command line aguments
   argv = ARGV[0].to_s
 
+  puts 'Checking parsed URL if its valid...'
+  # @note Checks if the URL is valid
+  # @param [String] argv Given
+  url = Checker.external_url_is_valid?(argv)
+
+  puts 'Checking if your .youtube_dlhelper.conf is available...'
+  # @note Check oldconfig
+  Checker.oldconfig_exists?
+
+  puts 'Getting variables from your .youtube_dlhelper.conf...'
   # @note Imports the configuration
   home = Dir.home
-  music_get, ogg_file_accept = Import.import_config
-  music_dir = "#{home}/#{music_get}"
+  music_dir_get, ogg_file_accept = Import.import_config
+  music_dir = "#{home}/#{music_dir_get}"
 
+  puts 'Initialized...'
+  puts 'Launching ...'
   puts "Script: #{my_name}".color(:yellow)
   puts "Version: #{version}".color(:yellow)
   puts
@@ -68,26 +84,6 @@ class YoutubeDlhelper
   puts 'You should have received a copy of the GNU General Public License'
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
 
-  # @note Checks if the URL is valid
-  # @param [String] argv Given
-  url = Checker.external_url_is_valid?(argv)
-
-  # This method checks if a oldconfig is available
-  # @return [String] true or false
-  def self.oldconfig_exists?
-    home = Dir.home
-    if File.exist?("#{home}/.youtube_dlhelper.conf")
-      puts 'Found configuration file and using it...'.color(:yellow)
-    else
-      # @raise
-      puts 'Please run rake setup'.color(:red)
-      fail('Exiting now..').color(:red)
-    end
-  end
-
-  # @note Check oldconfig
-  oldconfig_exists?
-
   # Check which decoder should used
   ffmpeg_binary = Checker.which_decoder?
 
@@ -106,13 +102,14 @@ class YoutubeDlhelper
 
   # @note Using FileUtils to enter the generated directory
   puts 'SWITCHING TO TARGETDIR'.color(:yellow)
-
+  # @param [String] music_dir Path to the music directory
+  # @param [String] folder Path to the targetfolder
   FileUtils.cd("#{music_dir}/#{folder}") do
     puts "Now we are switched to directory #{Dir.pwd}".color(:yellow)
     puts 'DOWNLOADING YOUR VIDEO'
 
     # @param [String] url Is the given URL to the Youtube file
-    filename = Downloader.get(url)
+    filename, filenameold = Downloader.get(url)
 
     # @param [String] filename The filename
     # @param [String] ogg_file_accept OGG file as end file accepted?
@@ -122,10 +119,9 @@ class YoutubeDlhelper
                                                 ffmpeg_binary)
 
     # @param [String] filenamenew The new produced filename
-    Checker.cleanup(filenamenew)
+    Checker.cleanup(filenamenew, filenameold)
 
-    puts "Now you can find your file in
-\#{music_dir}/#{folder}/#{filenamenew}.#{extension}".color(:yellow)
+    puts "Now you can find your file in #{music_dir}/#{folder}/#{filenamenew}.#{extension}".color(:yellow)
     puts "Thank you for using #{my_name} #{version}".color(:yellow)
   end
 end

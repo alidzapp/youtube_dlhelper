@@ -3,6 +3,8 @@
 # it into a choosen folder
 # Module: Ripper
 # Work: Checks if is a valid *.m4a file, then transcodes to *.mp3
+# Class Documentation:
+# http://www.rubydoc.info/github/saigkill/youtube_dlhelper/Ripper
 #
 # Copyright (C) 2013-2015  Sascha Manns <Sascha-Manns@web.de>
 #
