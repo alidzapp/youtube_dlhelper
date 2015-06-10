@@ -16,7 +16,7 @@ code documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper
 bugs :: http://saigkill.ddns.net:8112/dashboard
 review code :: http://saigkill.ddns.net:8080/youtube_dlhelper/view
 authors blog :: http://saigkill.github.io
-authors doings :: {<img src="http://githubbadge.appspot.com/saigkill" />}[https://github.com/saigkill]
+authors doings :: {<iframe src="http://githubbadge.appspot.com/saigkill?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0" />}[https://github.com/saigkill]
 ohloh :: https://www.ohloh.net/p/youtube_dlhelper
 openhatch :: http://openhatch.org/projects/youtube_dlhelper
 donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" />}[https://pledgie.com/campaigns/29423] Donations are welcome :-)
