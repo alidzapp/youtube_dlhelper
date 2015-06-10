@@ -1,6 +1,5 @@
 = \youtube_dlhelper
 
-home :: https://github.com/saigkill/youtube_dlhelper
 license :: {<img src="http://img.shields.io/:license-gpl3-blue.svg" alt="license">}[http://www.gnu.org/licenses/gpl-3.0.html]
 last public version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="version">}[http://rubygems.org/gems/youtube_dlhelper]
 continuous integration :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/build.png?b=master" alt="integration state">}[https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/]
@@ -16,7 +15,6 @@ code documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper
 bugs :: http://saigkill.ddns.net:8112/dashboard
 review code :: http://saigkill.ddns.net:8080/youtube_dlhelper/view
 authors blog :: http://saigkill.github.io
-authors doings :: {<iframe src="http://githubbadge.appspot.com/saigkill?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0" />}[https://github.com/saigkill]
 ohloh :: https://www.ohloh.net/p/youtube_dlhelper
 openhatch :: http://openhatch.org/projects/youtube_dlhelper
 donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" />}[https://pledgie.com/campaigns/29423] Donations are welcome :-)
