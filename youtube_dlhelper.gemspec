@@ -2,29 +2,28 @@
 # $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 require File.expand_path(File.join(File.dirname(__FILE__), 'lib',
                                    'youtube_dlhelper/version.rb'))
+# rubocop:disable Metrics/LineLength
 Gem::Specification.new do |spec|
   spec.name = 'youtube_dlhelper'
   spec.version = YoutubeDlhelperVersion::Version::STRING
   spec.authors = ['Sascha Manns']
   spec.email = 'Sascha.Manns@bdvb.de'
   spec.summary = 'Youtube Downloadhelper and Ripper'
-  spec.description = 'This is a Youtube Downloadhelper who downloads a file,
-rips it to mp3 and placed it in a organized form'
+  spec.description = 'This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form'
   spec.homepage = 'https://github.com/saigkill/youtube_dlhelper'
   spec.licenses = ['GPL-3']
-  spec.files = `git ls-files -z`.split("\x0").reject { |f|
+  spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|test|features)/})
-  }
+  end
   spec.bindir = 'bin'
-  spec.executables = spec.files.grep(%w(youtube_dlhelper)) { |f|
+  spec.executables = spec.files.grep(%w(youtube_dlhelper)) do |f|
     File.basename(f)
-  }
+  end
   spec.require_paths = ['lib']
   spec.platform = Gem::Platform::RUBY
   spec.date = ENV['from'] ? Date.parse(ENV['from']) : Date.today
   spec.test_files = `git ls-files -- {test,test,features}/*`.split("\n")
-  spec.post_install_message = 'Please file bugreports and feature requests
-on: http://saigkill.ddns.net:8112/dashboard'
+  spec.post_install_message = 'Please file bugreports and feature requests on: http://saigkill.ddns.net:8112/dashboard'
   spec.add_runtime_dependency 'highline', '~> 1.7', '>= 1.7.2'
   spec.add_runtime_dependency 'dir', '~> 0.1', '>= 0.1.2'
   spec.add_runtime_dependency 'parseconfig', '~> 1.0', '>= 1.0.6'

@@ -80,7 +80,9 @@ desc 'Install Config file'
 task :check_config do
   puts 'Checking Config file'.color(:yellow)
   home = Dir.home
-  configorig = File.expand_path(File.join(File.dirname(__FILE__), 'lib/PublicanCreators', 'youtube_dlhelper.conf'))
+  configorig = File.expand_path(File.join(File.dirname(__FILE__),
+                                          'lib/youtube_dlhelper',
+                                          'youtube_dlhelper.conf'))
   if File.exist?("#{home}/.youtube_dlhelper.conf")
     FileUtils.cp("#{configorig}", "#{home}/.youtube_dlhelper.conf.new")
     puts "The newest config file was placed in #{home}/.youtube_dlhelper.conf.new".color(:yellow)

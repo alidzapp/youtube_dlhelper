@@ -4,8 +4,8 @@ build:
 
   dependencies:
     before:
-      - gem update
       - sudo apt-get update
+      - gem update
       - sudo apt-get install ffmpeg || libav-tools
 
 checks:
