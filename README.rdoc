@@ -2,11 +2,10 @@
 
 license :: {<img src="http://img.shields.io/:license-gpl3-blue.svg" alt="license">}[http://www.gnu.org/licenses/gpl-3.0.html]
 last public version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="version">}[http://rubygems.org/gems/youtube_dlhelper]
-continuous integration :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/build.png?b=master" alt="integration state">}[https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/]
+continuous integration :: {<img src="https://api.shippable.com/projects/55772d47edd7f2c0520ebc2f/badge?branchName=master&no=1434050078562" alt="integration state">}[https://api.shippable.com/projects/55772d47edd7f2c0520ebc2f]
 continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master" alt="integration state">}[https://travis-ci.org/saigkill/youtube_dlhelper]
 test coverage :: {<img src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/saigkill/youtube_dlhelper?branch=master]
 code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhelper.png" />}[https://codeclimate.com/github/saigkill/youtube_dlhelper]
-code quality :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/quality-score.png?b=master" />}[https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper]
 dependency check :: {<img src="https://gemnasium.com/saigkill/youtube_dlhelper.png" alt="Dependency Status" />}[https://gemnasium.com/saigkill/youtube_dlhelper]
 still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Maintaining Status" /}[http://stillmaintained.com/saigkill/youtube_dlhelper]
 documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" />}[http://inch-ci.org/github/saigkill/youtube_dlhelper]
