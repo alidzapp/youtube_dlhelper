@@ -16,7 +16,7 @@ authors blog :: http://saigkill.github.io
 ohloh :: https://www.ohloh.net/p/youtube_dlhelper
 openhatch :: http://openhatch.org/projects/youtube_dlhelper
 donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" />}[https://pledgie.com/campaigns/29423]
-donations :: {<img src="//img.shields.io/gratipay/saigkill.svg">}[https://gratipay.com/~saigkill/]
+donations :: {<img src="http://img.shields.io/gratipay/saigkill.svg">}[https://gratipay.com/~saigkill/]
 
 == Description
 

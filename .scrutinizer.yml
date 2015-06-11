@@ -4,9 +4,9 @@ build:
 
   dependencies:
     before:
-      - sudo apt-get update
       - gem update
-      - sudo apt-get install ffmpeg
+      - sudo apt-get update
+      - sudo apt-get install libav-tools
 
 checks:
     ruby:
