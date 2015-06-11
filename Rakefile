@@ -2,8 +2,8 @@
 # $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 require 'bundler/gem_tasks'
 require 'rubygems'
-require 'rainbow/ext/string'
 
+# rubocop:disable Metrics/LineLength
 task :default do
   puts 'Using the default task'
 end
@@ -62,34 +62,35 @@ Reek::Rake::Task.new do |t|
   t.verbose       = true
 end
 
-# Setup procedure
+# Setup procedure /Codeship
+# dpkg -s ffmpeg 2>/dev/null >/dev/null && echo $?
 desc 'Launching the setup'
 task :setup_start do
   version = YoutubeDlhelperVersion::Version::STRING
-  puts '######################################################'.color(:yellow)
-  puts '#            youtube_dlhelper Setup                  #'.color(:yellow)
-  puts "#            Version: #{version}                        #".color(:yellow)
-  puts '#                                                    #'.color(:yellow)
-  puts '# Please file bugreports on:                         #'.color(:yellow)
-  puts '# http://saigkill.ddns.net:8112/dashboard            #'.color(:yellow)
-  puts '######################################################'.color(:yellow)
+  puts '######################################################'
+  puts '#            youtube_dlhelper Setup                  #'
+  puts "#            Version: #{version}                        #"
+  puts '#                                                    #'
+  puts '# Please file bugreports on:                         #'
+  puts '# http://saigkill.ddns.net:8112/dashboard            #'
+  puts '######################################################'
 end
 
 require 'fileutils'
 desc 'Install Config file'
 task :check_config do
-  puts 'Checking Config file'.color(:yellow)
+  puts 'Checking Config file'
   home = Dir.home
   configorig = File.expand_path(File.join(File.dirname(__FILE__),
                                           'lib/youtube_dlhelper',
                                           'youtube_dlhelper.conf'))
   if File.exist?("#{home}/.youtube_dlhelper.conf")
     FileUtils.cp("#{configorig}", "#{home}/.youtube_dlhelper.conf.new")
-    puts "The newest config file was placed in #{home}/.youtube_dlhelper.conf.new".color(:yellow)
-    puts "Please check if new parameters are shipped. If any are missed in your old config please add them into your file. Then remove #{home}/.youtube_dlhelper.conf.new".color(:blue)
+    puts "The newest config file was placed in #{home}/.youtube_dlhelper.conf.new"
+    puts "Please check if new parameters are shipped. If any are missed in your old config please add them into your file. Then remove #{home}/.youtube_dlhelper.conf.new"
   else
     FileUtils.cp("#{configorig}", "#{home}/.youtube_dlhelper.conf")
-    puts "Config file not found. Copying the newest for you to #{home}/.youtube_dlhelper.conf".color(:yellow)
+    puts "Config file not found. Copying the newest for you to #{home}/.youtube_dlhelper.conf"
     if File.exist?('/usr/bin/gedit')
       editor = 'gedit'
     elsif File.exist?('/usr/bin/kate')

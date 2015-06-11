@@ -4,7 +4,6 @@ license :: {<img src="http://img.shields.io/:license-gpl3-blue.svg" alt="license
 last public version :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="version">}[http://rubygems.org/gems/youtube_dlhelper]
 continuous integration :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/build.png?b=master" alt="integration state">}[https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/]
 continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master" alt="integration state">}[https://travis-ci.org/saigkill/youtube_dlhelper]
-continuous integration :: {<img src="http://saigkill.ddns.net:8111/app/rest/builds/buildType:%28id:YoutubeDlhelper_Build%29/statusIcon" />}[http://saigkill.ddns.net:8111]
 test coverage :: {<img src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/saigkill/youtube_dlhelper?branch=master]
 code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhelper.png" />}[https://codeclimate.com/github/saigkill/youtube_dlhelper]
 code quality :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/quality-score.png?b=master" />}[https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper]
@@ -13,11 +12,11 @@ still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhe
 documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" />}[http://inch-ci.org/github/saigkill/youtube_dlhelper]
 code documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper
 bugs :: http://saigkill.ddns.net:8112/dashboard
-review code :: http://saigkill.ddns.net:8080/youtube_dlhelper/view
 authors blog :: http://saigkill.github.io
 ohloh :: https://www.ohloh.net/p/youtube_dlhelper
 openhatch :: http://openhatch.org/projects/youtube_dlhelper
-donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" />}[https://pledgie.com/campaigns/29423] Donations are welcome :-)
+donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" />}[https://pledgie.com/campaigns/29423]
+donations :: {<img src="//img.shields.io/gratipay/saigkill.svg">}[https://gratipay.com/~saigkill/]
 
 == Description
 
@@ -29,6 +28,12 @@ group name or interpreters name. Now it creates a Subfolder inside your Musicdir
 The installation is very easy.
 
     gem install youtube_dlhelper
+
+== Tested Ruby versions
+
+* 2.1.2
+* 2.2.1
+* 2.2.2
 
 == Hard dependencies
 Just a preinstalled ffmpeg.
@@ -64,7 +69,7 @@ Yotube delivers a *.webm file and the extracted audio comes into a .ogg file. If
 Example:
 
     youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI
-    If a http:// URL doesn't work use http:// instead
+    If a https:// URL doesn't work use http:// instead
 
 Before running the program you have to open the youtube_dlhelper.conf and change the settings (See Configuration).
 

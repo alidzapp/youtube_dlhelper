@@ -46,7 +46,7 @@ end
 
 describe 'Downoader' do
   describe '.get' do
-    it 'downloads a file to youtube' do
+    it 'downloads a file from youtube' do
       Downloader.get('http://www.youtube.com/watch?v=aHjpOzsQ9YI')
       expect(File.exist?("#{tempfile}.m4a")).equal? 'true'
     end

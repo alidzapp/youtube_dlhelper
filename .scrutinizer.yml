@@ -6,13 +6,12 @@ build:
     before:
       - sudo apt-get update
       - gem update
-      - sudo apt-get install ffmpeg || libav-tools
+      - sudo apt-get install ffmpeg
 
 checks:
     ruby:
         code_rating: true
         duplicate_code: true
-        style_while_until_do: true
         style_signal_exception:
             enforced_style: semantic
         style_redundant_exception: true
