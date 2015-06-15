@@ -73,7 +73,7 @@ task :setup_start do
   puts "#            Version: #{version}                        #"
   puts '#                                                    #'
   puts '# Please file bugreports on:                         #'
-  puts '# http://saigkill.ddns.net:8112/dashboard            #'
+  puts '#http://saigkill-bugs.myjetbrains.com/youtrack/issues#'
   puts '######################################################'
 end
 

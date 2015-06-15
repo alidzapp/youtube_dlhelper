@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name = 'youtube_dlhelper'
   spec.version = YoutubeDlhelperVersion::Version::STRING
   spec.authors = ['Sascha Manns']
-  spec.email = 'Sascha.Manns@bdvb.de'
+  spec.email = 'samannsml@directbox.com'
   spec.summary = 'Youtube Downloadhelper and Ripper'
   spec.description = 'This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form'
   spec.homepage = 'https://github.com/saigkill/youtube_dlhelper'
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.platform = Gem::Platform::RUBY
   spec.date = ENV['from'] ? Date.parse(ENV['from']) : Date.today
   spec.test_files = `git ls-files -- {test,test,features}/*`.split("\n")
-  spec.post_install_message = 'Please file bugreports and feature requests on: http://saigkill.ddns.net:8112/dashboard'
+  spec.post_install_message = 'Please file bugreports and feature requests on: http://saigkill-bugs.myjetbrains.com/youtrack/issues'
   spec.add_runtime_dependency 'highline', '~> 1.7', '>= 1.7.2'
   spec.add_runtime_dependency 'dir', '~> 0.1', '>= 0.1.2'
   spec.add_runtime_dependency 'parseconfig', '~> 1.0', '>= 1.0.6'
