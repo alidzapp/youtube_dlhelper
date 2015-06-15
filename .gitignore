@@ -6,4 +6,6 @@
 /docs/trans_drop
 /docs/youtube_dlhelper.xpr
 /pkg
+/vendor
+/Gemfile.lock
 /test/coverage

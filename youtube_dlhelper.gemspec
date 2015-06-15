@@ -38,6 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'gem-release', '~> 0.7', '>= 0.7.3'
   spec.add_development_dependency 'coveralls', '~> 0.8', '>= 0.8.1'
   spec.add_development_dependency 'rspec', '~> 3.2', '>= 3.2.0'
+  spec.add_development_dependency 'rspec-core', '~> 3.2', '>= 3.2.3'
   spec.add_development_dependency 'rubocop', '~> 0.31', '>= 0.31.0'
   spec.add_development_dependency 'overcommit', '~> 0.24', '>= 0.24.0'
   spec.add_development_dependency 'travis', '~> 1.7', '>= 1.7.7'
