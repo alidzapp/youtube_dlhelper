@@ -3,7 +3,7 @@
 # Class: youtube_dlhelper
 # Work: This file contains a semantic version number
 #
-# Copyright (C) 2013-2015  Sascha Manns <Sascha-Manns@web.de>
+# Copyright (C) 2013-2015  Sascha Manns <samannsml@directbox.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

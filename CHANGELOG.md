@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.1.9.3 (2015-06-15)
+### New features
+* Using https is now allowed
+* Added option to use ffmpeg OR avconv (depends on os)
+### Other
+* Added user documentation
+* Extended automatic tests
+* Extended inline code commentation by yard
+
 ## 0.1.9 (2015-03-05)
 ### Improved recipes:
 * changed all File.exists? to File.exist?

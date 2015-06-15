@@ -26,4 +26,4 @@ after_success:
 
 notifications:
   email:
-    - Sascha-Manns@web.de
+    - samannsml@directbox.com

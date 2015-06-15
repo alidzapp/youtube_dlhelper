@@ -237,7 +237,7 @@ To run it you can type /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
   * Projects home: [https://github.com/saigkill/youtube_dlhelper](https://github.com/saigkill/youtube_dlhelper)
   * User documentation (en): [http://saigkill.github.io/docs/youtube_dlhelper/en-US/html](http://saigkill.github.io/docs/youtube_dlhelper/en-US/html)
   * User documentation (de): [http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html](http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html)
-  * Bug reports: [http://saigkill.ddns.net:8112/dashboard](http://saigkill.ddns.net:8112/dashboard)
+  * Bug reports: [http://saigkill-bugs.myjetbrains.com/youtrack/issues](http://saigkill-bugs.myjetbrains.com/youtrack/issues)
 
 # What has be done in this version #{version}?
   * Step 1
@@ -245,6 +245,7 @@ To run it you can type /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
 
 # Donations
 [![publicancreators](https://pledgie.com/campaigns/29423.png?skin_name=chrome)](https://pledgie.com/campaigns/29423)
+[![wishlist](http://tsv-neuss.de/cms/upload/News-Bilder/amazon1.png)](http://www.amazon.de/registry/wishlist/D75HOEQ00BDD)
 EOF
   end
   puts 'Prepared your Blogpost. Please add the changes of this release'
