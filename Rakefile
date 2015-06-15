@@ -37,7 +37,8 @@ task :test_with_coveralls => [:test, 'coveralls:push']
 require 'yard'
 desc 'Run yarddoc for the source'
 YARD::Rake::YardocTask.new do |t|
-  t.files   = %w(lib/**/*.rb, bin/youtube_dlhelper, CHANGELOG.md, CODE_OF_CONDUCT.md, LICENSE.md, README.rdoc)
+  t.files   = %w('lib/**/*.rb', 'bin/youtube_dlhelper', '-', 'CHANGELOG.md',
+'CODE_OF_CONDUCT.md', 'LICENSE.md', 'README.rdoc')
 end
 
 # Rubocop
@@ -105,3 +106,148 @@ task :check_config do
     system("#{editor} #{home}/.youtube_dlhelper.conf")
   end
 end
+
+desc 'Link binary'
+task :link_binary do
+  puts 'Linking binaries...'
+  ytdl = File.expand_path(File.join(File.dirname(__FILE__), 'bin',
+                                    'youtube_dlhelper'))
+  ytdlbin = '/usr/bin/youtube_dlhelper'
+  if File.exist?("#{ytdlbin}")
+    puts "File #{ytdlbin} exists. Removing it."
+    system("sudo rm #{ytdlbin}")
+    puts 'Relinking it'
+    system("sudo ln -s #{ytdl} #{ytdlbin}")
+    puts 'done'
+  else
+    puts 'Creating symlink'
+    system("sudo ln -s #{ytdl} #{ytdlbin}")
+    puts 'done'
+  end
+end
+
+desc 'Run setup'
+task :setup => [:setup_start, :check_config, :link_binary] do
+  puts 'Finished Setup'
+end
+
+require 'fileutils'
+desc 'Prepare Userdocs for translating'
+task :prepare_doc do
+  docs = './docs'
+  FileUtils.cd(docs) do
+    puts 'Running trans_drop'
+    system('publican trans_drop')
+    puts 'Preparing pot files'
+    system('publican update_pot')
+    puts 'Preparing po files for de-DE'
+    system('publican update_po --langs=de-DE')
+    puts 'All done. Please use a poeditor (like poedit) to translate'
+    puts 'For building docs use rake build_doc.'
+  end
+end
+
+require 'fileutils'
+desc 'Build Userdocs'
+task :build_doc do
+  docs = './docs'
+  FileUtils.cd(docs) do
+    puts 'Building all targets'
+    system('publican build --langs=en-US,de-DE --formats=html,pdf')
+    puts 'All done. Please use rake publish_doc for publishing.'
+  end
+end
+
+require 'fileutils'
+desc 'Publish Userdocs'
+task :publish_doc do
+  version = YoutubeDlhelperVersion::Version::STRING
+  home = Dir.home
+  srcde = 'docs/tmp/de-DE/html'
+  srcen = 'docs/tmp/en-US/html'
+  srcdepdf = 'docs/tmp/de-DE/pdf'
+  srcenpdf = 'docs/tmp/en-US/pdf'
+  target = "#{home}/RubymineProjects/saigkill.github.com"
+  targetde = "#{home}/RubymineProjects/saigkill.github.com/docs/youtube_dlhelper/de-DE/html"
+  targeten = "#{home}/RubymineProjects/saigkill.github.com/docs/youtube_dlhelper/en-US/html"
+  targetenpdf = "#{home}/RubymineProjects/saigkill.github.com/docs/youtube_dlhelper/en-US/pdf"
+  targetdepdf = "#{home}/RubymineProjects/saigkill.github.com/docs/youtube_dlhelper/de-DE/pdf"
+
+  puts 'Copying source html files to target git repository'
+  FileUtils.cp_r(Dir["#{srcde}/*"], "#{targetde}")
+  FileUtils.cp_r(Dir["#{srcen}/*"], "#{targeten}")
+  FileUtils.cp_r(Dir["#{srcdepdf}/*"], "#{targetdepdf}")
+  FileUtils.cp_r(Dir["#{srcenpdf}/*"], "#{targetenpdf}")
+
+  puts 'Checking in into repository'
+  FileUtils.cd(target) do
+    puts 'Adding missing files'
+    system('git add *')
+    puts 'Made commit'
+    system("git commit -m \"Updated docs for youtube_dlhelper #{version}\"")
+    puts 'Pushing it to origin'
+    system('git push')
+  end
+end
+
+require 'fileutils'
+desc 'Prepares for release'
+task :make_release do
+  version = YoutubeDlhelperVersion::Version::STRING
+  home = Dir.home
+  target = "#{home}/RubymineProjects/saigkill.github.com/_posts"
+  time = Time.new
+  date = time.strftime('%Y-%m-%d')
+
+  system('git add .idea/*')
+  system('git commit -m "Updated workspace"')
+  puts 'done'
+  system('rake release')
+
+  FileUtils.cd(target) do
+    FileUtils.touch "#{date}-youtube_dlhelper-#{version}-released.md"
+    File.write "#{date}-youtube_dlhelper-#{version}-released.md", <<EOF
+---
+layout: post
+title: "youtube_dlhelper #{version} - A Gem for Youtubers"
+description: "Yet another Youtube Downloader. But this one creates for you the right directories inside your Musicdir."
+category: "programming"
+tags: [Ruby]
+---
+{% include JB/setup %}
+
+# Introduction
+The youtube_dlhelper is a short tool for download and manage the downloaded files. You are running the program inside the command line with a Youtube URL. Then it aska for a group name or interpreters name. Now it creates a Subfolder inside your Musicdirectory. Then it makes a MP3 from the downloaded file and moves it to the folder.
+
+# Installation
+If you give it a try just follow the next steps (If you have already Ruby installed):
+
+  * gem install youtube_dlhelper
+  * gem install rake (If not installed yet)
+  * cd /path/to/gem
+  * rake setup
+
+# Dependencies
+You need to have ffmpeg or avconv installed. The soft dependencies will be solved by bundler.
+
+# Running the Gem
+To run it you can type /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
+
+# References
+  * Projects home: [https://github.com/saigkill/youtube_dlhelper](https://github.com/saigkill/youtube_dlhelper)
+  * User documentation (en): [http://saigkill.github.io/docs/youtube_dlhelper/en-US/html](http://saigkill.github.io/docs/youtube_dlhelper/en-US/html)
+  * User documentation (de): [http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html](http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html)
+  * Bug reports: [http://saigkill.ddns.net:8112/dashboard](http://saigkill.ddns.net:8112/dashboard)
+
+# What has be done in this version #{version}?
+  * Step 1
+  * Step2
+
+# Donations
+[![publicancreators](https://pledgie.com/campaigns/29423.png?skin_name=chrome)](https://pledgie.com/campaigns/29423)
+EOF
+  end
+  puts 'Prepared your Blogpost. Please add the changes of this release'
+end
+
+# vim: syntax=ruby

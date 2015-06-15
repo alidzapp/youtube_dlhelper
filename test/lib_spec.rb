@@ -30,16 +30,22 @@ describe 'Checker' do
       end
     end
   end
-end
 
+  describe '.which_decoder?' do
+    it 'checks what decoder can be used' do
+      ffmpeg_binary = Checker.which_decoder?
+      expect(ffmpeg_binary).equal? '/usr/local/bin/ffmpeg' || expect
+      (ffmpeg_binary).equal? '/usr/bin/avconv'
+    end
+  end
+end
 
 describe 'Import' do
   describe '.import_config' do
     it 'reads in some variables and fill them localy' do
-      music_dir, ogg_file_accept, ffmpeg_binary = Import.import_config
+      music_dir, ogg_file_accept = Import.import_config
       expect(music_dir).equal? 'Musik'
       expect(ogg_file_accept).equal? 'true'
-      expect(ffmpeg_binary).equal? '/usr/local/bin/ffmpeg'
     end
   end
 end

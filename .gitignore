@@ -1,5 +1,9 @@
 /.yardoc
 /coverage
 /doc
+/docs/pot
+/docs/tmp
+/docs/trans_drop
+/docs/youtube_dlhelper.xpr
 /pkg
 /test/coverage

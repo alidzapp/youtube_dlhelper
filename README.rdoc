@@ -10,11 +10,11 @@ dependency check :: {<img src="https://gemnasium.com/saigkill/youtube_dlhelper.p
 still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Maintaining Status" /}[http://stillmaintained.com/saigkill/youtube_dlhelper]
 documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" />}[http://inch-ci.org/github/saigkill/youtube_dlhelper]
 code documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper
-bugs :: http://saigkill.ddns.net:8112/dashboard
+bugs :: http://saigkill-bugs.myjetbrains.com/youtrack/issues
 authors blog :: http://saigkill.github.io
-ohloh :: https://www.ohloh.net/p/youtube_dlhelper
+openhub :: https://www.openhub.net/p/youtube_dlhelper
 openhatch :: http://openhatch.org/projects/youtube_dlhelper
-donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" />}[https://pledgie.com/campaigns/29423]
+donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" />}[https://pledgie.com/campaigns/29423] {<img src="http://tsv-neuss.de/cms/upload/News-Bilder/amazon1.png" />}[http://www.amazon.de/registry/wishlist/D75HOEQ00BDD]
 donations :: {<img src="http://img.shields.io/gratipay/saigkill.svg">}[https://gratipay.com/~saigkill/]
 
 == Description
@@ -30,7 +30,6 @@ The installation is very easy.
 
 == Tested Ruby versions
 
-* 2.1.2
 * 2.2.1
 * 2.2.2
 
@@ -42,7 +41,6 @@ I'm using:
 
 * highline
 * dir
-* fileutils2
 * parseconfig
 * viddl-rb
 * streamio-ffmpeg

@@ -29,7 +29,7 @@ class YoutubeDlhelperVersion
     # Patch version
     PATCH = 9
     # Build version
-    BUILD = 2
+    BUILD = 3
 
     # combined string with the full version
     STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join('.')
