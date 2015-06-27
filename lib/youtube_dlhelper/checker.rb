@@ -32,6 +32,7 @@ require 'uri'
 # The Checker module contains different methods to check anything
 module Checker
   # @note This method checks if a url is valid
+  # This method smells of :reek:TooManyStatements
   # @param [String] url Is the given URL to the Youtube file
   # @return [String] url
   def self.external_url_is_valid?(url)
@@ -72,6 +73,7 @@ module Checker
   end
 
   # rubocop:disable Metrics/LineLength
+  # This method smells of :reek:TooManyStatements
   # Ask for names, creates the folders and puts all into a $folder variable
   # @return [String] folder
   def self.check_target
@@ -130,6 +132,7 @@ module Checker
   end
 
   # This method checks which decoder is available
+  # This method smells of :reek:TooManyStatements
   # @return [String] ffmpeg_binary
   def self.which_decoder?
     getavconv = `which avconv`
@@ -142,6 +145,7 @@ module Checker
   end
 
   # Cleaner method for unneeded files
+  # This method smells of :reek:TooManyStatements
   # @param [String] filename The name of the new produced file
   def self.cleanup(filename, filenameold)
     puts 'Cleaning up directory'.color(:green)

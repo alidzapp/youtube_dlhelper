@@ -10,7 +10,7 @@ dependency check :: {<img src="https://gemnasium.com/saigkill/youtube_dlhelper.p
 still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Maintaining Status" /}[http://stillmaintained.com/saigkill/youtube_dlhelper]
 documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" />}[http://inch-ci.org/github/saigkill/youtube_dlhelper]
 code documentation :: http://rubydoc.info/github/saigkill/youtube_dlhelper
-bugs :: http://saigkill-bugs.myjetbrains.com/youtrack/issues
+bugs :: http://saigkill-bugs.myjetbrains.com/youtrack/issues?q=project%3A+youtube_dlhelper
 authors blog :: http://saigkill.github.io
 openhub :: https://www.openhub.net/p/youtube_dlhelper
 openhatch :: http://openhatch.org/projects/youtube_dlhelper

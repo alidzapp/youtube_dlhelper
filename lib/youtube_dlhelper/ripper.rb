@@ -28,6 +28,7 @@ require 'streamio-ffmpeg'
 # Module for all ripping methods
 module Ripper
   # rubocop:disable Metrics/AbcSize
+  # This method smells of :reek:TooManyStatements
   # Checking which fileformat is present
   # @param [String] filename The filename
   # @param [String] ogg_file_accept OGG file as end file accepted? (true/false)
@@ -51,6 +52,8 @@ module Ripper
   end
 
   # rubocop:disable Metrics/LineLength
+  # This method smells of :reek:TooManyStatements
+  # This method smells of :reek:LongParameterList
   # Method for transcoding the *.m4a file to *.mp3. Output should be a valid MP3
   # file.
   # @param [String] filename The filename
@@ -68,15 +71,30 @@ module Ripper
     puts 'Checking if the movie is valid.'
     audio.valid?
     puts 'Validated'
+    ext = convert(ogg_file_accept, ffmpeg_binary, filenamein, filename)
+    puts 'Transcoded'
+    [filename, ext]
+  end
+
+  # Method for converting stuff
+  # This method smells of :reek:TooManyStatements
+  # This method smells of :reek:LongParameterList
+  # @param [String] ogg_file_accept OGG file as result accepted?
+  # @param [String] ffmpeg_binary Path to the ffmpeg binary
+  # @param [String] filenamein The original file
+  # @param [String] filename The transcoded file
+  # @return [String] ext
+  def self.convert(ogg_file_accept, ffmpeg_binary, filenamein, filename)
     # @note Transcoding the file to MP3
     if ogg_file_accept == 'true'
       system("#{ffmpeg_binary} -i #{filenamein} -acodec vorbis -vn -ac 2 -aq 60 -strict -2 #{filename}.ogg")
       ext = 'ogg'
+      puts ext
     else
       system("#{ffmpeg_binary} -i #{filenamein} -acodec libmp3lame -ac 2 -ab 192k #{filename}.mp3")
       ext = 'mp3'
+      puts ext
     end
-    puts 'Transcoded'
-    [filename, ext]
+    return ext
   end
 end

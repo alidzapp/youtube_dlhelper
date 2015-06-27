@@ -39,6 +39,8 @@ module Downloader
   end
 
   # rubocop:disable Metrics/AbcSize
+  # This method smells of :reek:TooManyStatements
+  # This method smells of :reek:UncommunicativeVariableName
   # Method for renaming the orig file with blanks to underscores
   # @param [String] url Is the given URL to the Youtube file
   # @return [String] filenamenew The fixed filename with underscores

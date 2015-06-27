@@ -3,6 +3,7 @@
 require File.expand_path(File.join(File.dirname(__FILE__), 'lib',
                                    'youtube_dlhelper/version.rb'))
 # rubocop:disable Metrics/LineLength
+# rubocop:disable SpaceInsideHashLiteralBraces
 Gem::Specification.new do |spec|
   spec.name = 'youtube_dlhelper'
   spec.version = YoutubeDlhelperVersion::Version::STRING
@@ -12,6 +13,8 @@ Gem::Specification.new do |spec|
   spec.description = 'This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form'
   spec.homepage = 'https://github.com/saigkill/youtube_dlhelper'
   spec.licenses = ['GPL-3']
+  spec.metadata = {issue_tracker: 'http://saigkill-bugs.myjetbrains.com/youtrack/issues?q=project%3A+youtube_dlhelper'}
+  spec.extra_rdoc_files = %w(CHANGELOG.md CODE_OF_CONDUCT.md LICENSE.md docs/*)
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|test|features)/})
   end
@@ -23,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.platform = Gem::Platform::RUBY
   spec.date = ENV['from'] ? Date.parse(ENV['from']) : Date.today
   spec.test_files = `git ls-files -- {test,test,features}/*`.split("\n")
-  spec.post_install_message = 'Please file bugreports and feature requests on: http://saigkill-bugs.myjetbrains.com/youtrack/issues'
+  spec.post_install_message = 'Please file bugreports and feature requests on: http://saigkill-bugs.myjetbrains.com/youtrack/issues?q=project%3A+youtube_dlhelper'
   spec.add_runtime_dependency 'highline', '~> 1.7', '>= 1.7.2'
   spec.add_runtime_dependency 'dir', '~> 0.1', '>= 0.1.2'
   spec.add_runtime_dependency 'parseconfig', '~> 1.0', '>= 1.0.6'
