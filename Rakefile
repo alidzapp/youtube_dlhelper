@@ -38,7 +38,7 @@ require 'yard'
 desc 'Run yarddoc for the source'
 YARD::Rake::YardocTask.new do |t|
   t.files   = %w('lib/**/*.rb', 'bin/youtube_dlhelper', '-', 'CHANGELOG.md',
-'CODE_OF_CONDUCT.md', 'LICENSE.md', 'README.rdoc')
+'CODE_OF_CONDUCT.md', 'LICENSE.md', 'README.md')
 end
 
 # Rubocop

@@ -4,9 +4,9 @@ build:
 
   dependencies:
     before:
-      - gem update
       - sudo apt-get update
       - sudo apt-get install libav-tools -y
+      - bundle install
 
 checks:
     ruby:
