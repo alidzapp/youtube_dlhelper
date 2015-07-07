@@ -10,6 +10,7 @@
 | download latest deployed rpm  | [![Download](https://api.bintray.com/packages/saigkill/rpm/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/rpm/youtube_dlhelper/_latestVersion)
 | continuous integration        | [![travis](https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master)](https://secure.travis-ci.org/saigkill/youtube_dlhelper)                                     |
 | continuous integration        | [![scrutinizer](https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/build.png?b=master)](https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/build-status/master)   |
+| continuous integration        | [![teamcity](http://saigkill.ddns.net:8111/app/rest/builds/buildType:(id:YoutubeDlhelper_Build)/statusIcon)](http://saigkill.ddns.net:8111/viewType.html?buildTypeId=YoutubeDlhelper_Build&guest=1)   |
 | test coverage                 | [![coveralls](https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png?branch=master)](https://coveralls.io/r/saigkill/youtube_dlhelper?branch=master)                      |
 | code quality                  | [![codeclimate](https://codeclimate.com/github/saigkill/youtube_dlhelper.png)](https://codeclimate.com/github/saigkill/youtube_dlhelper)                                          |
 | code quality                  | [![scrutinizer](https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/?branch=master) |
@@ -19,8 +20,10 @@
 | documentation                 | http://www.rubydoc.info/gems/youtube_dlhelper                                                                                                                                    |
 | user documentation            | http://saigkill.github.io/docs/youtube_dlhelper/en-US/html/                                                                                                                                    |
 | Bugreports & Feature requests | http://saigkill-bugs.myjetbrains.com/youtrack/issues                                                                                                                              |
+| Mailinglist                   | https://groups.google.com/forum/#!forum/youtube_dlhelper |
 | authors blog                  | http://saigkill.github.io                                                                                                                                                         |
 | openhub statistics            | https://www.openhub.net/p/youtube_dlhelper                                                                                                                                       |
+| openhatch                     | http://openhatch.org/projects/youtube_dlhelper |
 | donations                     | [![pledgie](https://pledgie.com/campaigns/29423.png?skin_name=chrome)](https://pledgie.com/campaigns/29423)                                                                         |
 | donations                     | [![gratipay](http://img.shields.io/gratipay/saigkill.svg)](https://gratipay.com/~saigkill/)                                                                                         |
 | donations                     | [![amazon](http://tsv-neuss.de/cms/upload/News-Bilder/amazon1.png)](http://www.amazon.de/registry/wishlist/D75HOEQ00BDD)                                                            |
