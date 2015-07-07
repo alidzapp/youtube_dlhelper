@@ -227,6 +227,12 @@ If you give it a try just follow the next steps (If you have already Ruby instal
   * cd /path/to/gem
   * rake setup
 
+# Download last deployed Linux packages
+## deb
+[![Download](https://api.bintray.com/packages/saigkill/deb/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/deb/youtube_dlhelper/_latestVersion)
+##rpm
+[![Download](https://api.bintray.com/packages/saigkill/rpm/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/rpm/youtube_dlhelper/_latestVersion)
+
 # Dependencies
 You need to have ffmpeg or avconv installed. The soft dependencies will be solved by bundler.
 
@@ -249,6 +255,31 @@ To run it you can type /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
 EOF
   end
   puts 'Prepared your Blogpost. Please add the changes of this release'
+end
+
+desc 'Prepares deployment'
+task :deployment do
+  version = YoutubeDlhelperVersion::Version::STRING
+  puts version
+  appname = 'ruby-youtube-dlhelper'
+  FileUtils.cd('pkg') do
+    puts 'Building package'
+    system('rm -rf *')
+    system("gem2deb youtube_dlhelper")
+    system('fpm -s gem -t rpm youtube_dlhelper')
+
+    #FileUtils.mv("rubygem-PublicanCreators-#{version}-1.noarch.rpm", "rubygem-publicancreators-#{version}-1.noarch
+    # .rpm")
+
+    puts 'Uploading package'
+    system("curl -T #{appname}_#{version}-1_all.deb -usaigkill:c120ed9aebbb02ef79be5b2c00b60b539d82257f \"https://api.bintray.com/content/saigkill/deb/youtube_dlhelper/v#{version}/pool/main/r/#{appname}_#{version}-1_all.deb;deb_distribution=all;deb_component=main;deb_architecture=all;publish=1\"")
+    system("curl -T rubygem-youtube_dlhelper-#{version}-1.noarch.rpm -usaigkill:c120ed9aebbb02ef79be5b2c00b60b539d82257f \"https://api.bintray.com/content/saigkill/rpm/youtube_dlhelper/v#{version}/pool/main/r/rubygem-youtube_dlhelper_#{version}-1.noarch.rpm;publish=1\"")
+  end
+end
+
+desc 'Run release & deployment'
+task :rad => [:make_release, :deployment] do
+  puts 'Finished Setup'.color(:green)
 end
 
 # vim: syntax=ruby

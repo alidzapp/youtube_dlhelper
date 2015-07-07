@@ -6,6 +6,8 @@
 | last public version           | [![publicversion](https://badge.fury.io/rb/youtube_dlhelper.png)](http://rubygems.org/gems/youtube_dlhelper)                                                                      |
 | downloads latest              | [![downloads-latest](https://img.shields.io/gem/dtv/youtube_dlhelper.svg)](https://rubygems.org/gems/youtube_dlhelper)                                                            |
 | downloads all                 | [![downloads-all](https://img.shields.io/gem/dt/youtube_dlhelper.svg)](https://rubygems.org/gems/youtube_dlhelper)                                                                |
+| download latest deployed deb  | [![Download](https://api.bintray.com/packages/saigkill/deb/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/deb/youtube_dlhelper/_latestVersion)                          |
+| download latest deployed rpm  | [![Download](https://api.bintray.com/packages/saigkill/rpm/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/rpm/youtube_dlhelper/_latestVersion)
 | continuous integration        | [![travis](https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master)](https://secure.travis-ci.org/saigkill/youtube_dlhelper)                                     |
 | continuous integration        | [![scrutinizer](https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/build.png?b=master)](https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/build-status/master)   |
 | test coverage                 | [![coveralls](https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png?branch=master)](https://coveralls.io/r/saigkill/youtube_dlhelper?branch=master)                      |
