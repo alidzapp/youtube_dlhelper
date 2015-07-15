@@ -63,6 +63,29 @@ Reek::Rake::Task.new do |t|
   t.verbose       = true
 end
 
+require 'bundler/audit/cli'
+namespace :bundle_audit do
+  desc 'Update bundle-audit database'
+  task :update do
+    Bundler::Audit::CLI.new.update
+  end
+
+  desc 'Check gems for vulns using bundle-audit'
+  task :check do
+    Bundler::Audit::CLI.new.check
+  end
+
+  desc 'Update vulns database and check gems using bundle-audit'
+  task :run do
+    Rake::Task['bundle_audit:update'].invoke
+    Rake::Task['bundle_audit:check'].invoke
+  end
+end
+
+task :bundle_audit do
+  Rake::Task['bundle_audit:run'].invoke
+end
+
 # Setup procedure /Codeship
 # dpkg -s ffmpeg 2>/dev/null >/dev/null && echo $?
 desc 'Launching the setup'
@@ -267,9 +290,6 @@ task :deployment do
     system('rm -rf *')
     system("gem2deb youtube_dlhelper")
     system('fpm -s gem -t rpm youtube_dlhelper')
-
-    #FileUtils.mv("rubygem-PublicanCreators-#{version}-1.noarch.rpm", "rubygem-publicancreators-#{version}-1.noarch
-    # .rpm")
 
     puts 'Uploading package'
     system("curl -T #{appname}_#{version}-1_all.deb -usaigkill:c120ed9aebbb02ef79be5b2c00b60b539d82257f \"https://api.bintray.com/content/saigkill/deb/youtube_dlhelper/v#{version}/pool/main/r/#{appname}_#{version}-1_all.deb;deb_distribution=all;deb_component=main;deb_architecture=all;publish=1\"")

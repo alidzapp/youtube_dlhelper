@@ -24,7 +24,6 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/dow
 require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/import_config'))
 require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/ripper'))
 require 'highline/import'
-require 'dir'
 require 'fileutils'
 require 'parseconfig'
 require 'addressable/uri'

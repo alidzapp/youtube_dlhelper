@@ -25,7 +25,6 @@
 # Dependencies
 require 'rainbow/ext/string'
 require 'fileutils'
-require 'dir'
 require 'net/http'
 require 'uri'
 
