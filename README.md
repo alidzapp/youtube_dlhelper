@@ -54,7 +54,6 @@ Just a preinstalled ffmpeg.
 I'm using:
 
 * highline
-* dir
 * parseconfig
 * viddl-rb
 * streamio-ffmpeg
