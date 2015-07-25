@@ -1,5 +1,4 @@
 require 'rspec'
-require 'dir'
 require File.join(File.dirname(__FILE__), '..', '/test/spec_helper')
 
 # rubocop:disable Metrics/LineLength
@@ -34,8 +33,7 @@ describe 'Checker' do
   describe '.which_decoder?' do
     it 'checks what decoder can be used' do
       ffmpeg_binary = Checker.which_decoder?
-      expect(ffmpeg_binary).equal? '/usr/local/bin/ffmpeg' || expect
-      (ffmpeg_binary).equal? '/usr/bin/avconv'
+      expect(ffmpeg_binary).equal? '/usr/local/bin/ffmpeg' || '/usr/bin/avconv'
     end
   end
 end
