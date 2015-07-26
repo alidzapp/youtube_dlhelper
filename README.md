@@ -20,7 +20,6 @@
 | documentation                 | http://www.rubydoc.info/gems/youtube_dlhelper                                                                                                                                    |
 | user documentation            | http://saigkill.github.io/docs/youtube_dlhelper/en-US/html/                                                                                                                                    |
 | Bugreports & Feature requests | http://saigkill-bugs.myjetbrains.com/youtrack/issues                                                                                                                              |
-| Code comment & review         | http://saigkill.ddns.net:8080/youtube-dlhelper/view |
 | Mailinglist                   | https://groups.google.com/forum/#!forum/youtube_dlhelper |
 | authors blog                  | http://saigkill.github.io                                                                                                                                                         |
 | openhub statistics            | https://www.openhub.net/p/youtube_dlhelper                                                                                                                                       |

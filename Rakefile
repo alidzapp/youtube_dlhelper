@@ -285,16 +285,18 @@ task :deployment do
   version = YoutubeDlhelperVersion::Version::STRING
   puts version
   appname = 'ruby-youtube-dlhelper'
+  FileUtils.mkdir('pkg') if File.exist?('pkg').eq false
   FileUtils.cd('pkg') do
     puts 'Building package'
     system('rm -rf *')
-    system("gem2deb youtube_dlhelper")
+    system('gem2deb youtube_dlhelper')
     system('fpm -s gem -t rpm youtube_dlhelper')
 
     puts 'Uploading package'
     system("curl -T #{appname}_#{version}-1_all.deb -usaigkill:c120ed9aebbb02ef79be5b2c00b60b539d82257f \"https://api.bintray.com/content/saigkill/deb/youtube_dlhelper/v#{version}/pool/main/r/#{appname}_#{version}-1_all.deb;deb_distribution=all;deb_component=main;deb_architecture=all;publish=1\"")
     system("curl -T rubygem-youtube_dlhelper-#{version}-1.noarch.rpm -usaigkill:c120ed9aebbb02ef79be5b2c00b60b539d82257f \"https://api.bintray.com/content/saigkill/rpm/youtube_dlhelper/v#{version}/pool/main/r/rubygem-youtube_dlhelper_#{version}-1.noarch.rpm;publish=1\"")
   end
+  FileUtils.rm_rf('pkg')
 end
 
 desc 'Run release & deployment'
