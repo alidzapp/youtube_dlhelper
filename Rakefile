@@ -285,7 +285,7 @@ task :deployment do
   version = YoutubeDlhelperVersion::Version::STRING
   puts version
   appname = 'ruby-youtube-dlhelper'
-  FileUtils.mkdir('pkg') if File.exist?('pkg').eq false
+  FileUtils.mkdir('pkg') if File.exist?('pkg') == false
   FileUtils.cd('pkg') do
     puts 'Building package'
     system('rm -rf *')
