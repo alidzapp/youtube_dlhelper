@@ -228,14 +228,14 @@ task :make_release do
   system('rake release')
 
   FileUtils.cd(target) do
-    FileUtils.touch "#{date}-youtube_dlhelper-#{version}-released.md"
-    File.write "#{date}-youtube_dlhelper-#{version}-released.md", <<EOF
+    FileUtils.touch "#{date}-youtube_dlhelper-#{version}-released-en.md"
+    File.write "#{date}-youtube_dlhelper-#{version}-released-en.md", <<EOF
 ---
 layout: post
 title: "youtube_dlhelper #{version} - A Gem for Youtubers"
 description: "Yet another Youtube Downloader. But this one creates for you the right directories inside your Musicdir."
 category: "programming"
-tags: [Ruby]
+tags: [ruby, opensource, youtube, en-US]
 ---
 {% include JB/setup %}
 
@@ -277,31 +277,57 @@ To run it you can type /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
 [![wishlist](http://tsv-neuss.de/cms/upload/News-Bilder/amazon1.png)](http://www.amazon.de/registry/wishlist/D75HOEQ00BDD)
 EOF
   end
-  puts 'Prepared your Blogpost. Please add the changes of this release'
-end
+  FileUtils.cd(target) do
+    FileUtils.touch "#{date}-youtube_dlhelper-#{version}-released-de.md"
+    File.write "#{date}-youtube_dlhelper-#{version}-released-de.md", <<EOF
+---
+layout: post
+title: "youtube_dlhelper #{version} - A Gem für Youtubers"
+description: "Ein anderer YouTube Downloader und Konverter. Dieser erstellt automatisch die benötigten Verzeichnisse im Musicdir"
+category: "programming"
+tags: [ruby, opensource, youtube, de-DE]
+---
+{% include JB/setup %}
 
-desc 'Prepares deployment'
-task :deployment do
-  version = YoutubeDlhelperVersion::Version::STRING
-  puts version
-  appname = 'ruby-youtube-dlhelper'
-  FileUtils.mkdir('pkg') if File.exist?('pkg') == false
-  FileUtils.cd('pkg') do
-    puts 'Building package'
-    system('rm -rf *')
-    system('gem2deb youtube_dlhelper')
-    system('fpm -s gem -t rpm youtube_dlhelper')
+# Einführung
+youtube_dlhelper ist ein kleines Tool zum Download und Konvertierung der files. Sie starten das Programm in der Kommandozeile mit der gewünschten Youtube URL. Das Programm fragt nun nach Parametern, wie der Name des Interpreten oder der Gruppe und erstellt innerhalb Ihres festgelegten Musikverzeichnis die benötigten Unterverzeichnisse.
 
-    puts 'Uploading package'
-    system("curl -T #{appname}_#{version}-1_all.deb -usaigkill:c120ed9aebbb02ef79be5b2c00b60b539d82257f \"https://api.bintray.com/content/saigkill/deb/youtube_dlhelper/v#{version}/pool/main/r/#{appname}_#{version}_%system.build.number%-1_all.deb;deb_distribution=all;deb_component=main;deb_architecture=all;publish=1\"")
-    system("curl -T rubygem-youtube_dlhelper-#{version}-1.noarch.rpm -usaigkill:c120ed9aebbb02ef79be5b2c00b60b539d82257f \"https://api.bintray.com/content/saigkill/rpm/youtube_dlhelper/v#{version}/pool/main/r/rubygem-youtube_dlhelper_#{version}_%system.build.number%-1.noarch.rpm;publish=1\"")
+# Installation
+Wenn Ruby bereits installiert ist, können Sie youtube_dlhelper wie folgt installieren:
+
+  * gem install youtube_dlhelper
+  * gem install rake (falls noch nicht installiert)
+  * cd /path/to/gem
+  * rake setup
+
+# Zuletzt veröffentlichte Linux packages
+## deb
+[![Download](https://api.bintray.com/packages/saigkill/deb/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/deb/youtube_dlhelper/_latestVersion)
+##rpm
+[![Download](https://api.bintray.com/packages/saigkill/rpm/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/rpm/youtube_dlhelper/_latestVersion)
+
+# Abhängigkeiten
+Sie benötigen ein installiertes ffmpeg oder avconv.
+
+# Das Gem starten
+Um das Gem zu starten geben sie folgendes ein: /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
+
+# Referenzen
+  * Projekt Home: [https://github.com/saigkill/youtube_dlhelper](https://github.com/saigkill/youtube_dlhelper)
+  * User Dokumentation (en): [http://saigkill.github.io/docs/youtube_dlhelper/en-US/html](http://saigkill.github.io/docs/youtube_dlhelper/en-US/html)
+  * User Dokumentation (de): [http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html](http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html)
+  * Bugreports: [http://saigkill-bugs.myjetbrains.com/youtrack/issues](http://saigkill-bugs.myjetbrains.com/youtrack/issues)
+
+# Was ist neu in version #{version}?
+  * Step 1
+  * Step2
+
+# Donations
+[![publicancreators](https://pledgie.com/campaigns/29423.png?skin_name=chrome)](https://pledgie.com/campaigns/29423)
+[![wishlist](http://tsv-neuss.de/cms/upload/News-Bilder/amazon1.png)](http://www.amazon.de/registry/wishlist/D75HOEQ00BDD)
+EOF
   end
-  FileUtils.rm_rf('pkg')
-end
-
-desc 'Run release & deployment'
-task :rad => [:make_release, :deployment] do
-  puts 'Finished Setup'.color(:green)
+  puts 'Prepared your Blogpost. Please add the changes of this release'
 end
 
 # vim: syntax=ruby
