@@ -36,37 +36,22 @@ group name or interpreters name. Now it creates a Subfolder inside your Musicdir
 The installation is very easy.
 
     gem install youtube_dlhelper
-
-## Tested Ruby versions
-
-* 2.2.1
-* 2.2.2
+    cd /path/to/gem (Falls RVM benutzt wird z.B. ~/.rvm/gems/ruby-2.2.1/gems/latex_curriculum_vitae)   
+    rake setup
 
 ## Hard dependencies
 Just a preinstalled ffmpeg.
 
-## Soft dependencies
-I'm using:
-
-* highline
-* parseconfig
-* viddl-rb
-* streamio-ffmpeg
-* rainbow
-
-Bundler should solve the dependencies by itself.
-
 ## Usage
 
-    bin/youtube_dlhelper YoutubeURL
-
+    youtube_dlhelper YoutubeURL
 
 Example:
 
     youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI
     If a https:// URL doesn't work use http:// instead
 
-Before running the program you have to open the youtube_dlhelper.conf and change the settings (See Configuration).
+Before running the program you have to open the youtube_dlhelper.conf and change the settings (It is placed in HOME/.youtube_dlhelper).
 
 ## Feature Requests & Bug Reports
 You can file Requests and Reports on the Github Repository: http://saigkill-bugs.myjetbrains.com/youtrack/issues
@@ -78,3 +63,5 @@ You can file Requests and Reports on the Github Repository: http://saigkill-bugs
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+Read https://github.com/saigkill/youtube_dlhelper/blob/master/CONTRIBUTING.md

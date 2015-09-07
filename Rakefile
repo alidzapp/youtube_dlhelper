@@ -215,8 +215,7 @@ The youtube_dlhelper is a short tool for download and manage the downloaded file
 If you give it a try just follow the next steps (If you have already Ruby installed):
 
   * gem install youtube_dlhelper
-  * gem install rake (If not installed yet)
-  * cd /path/to/gem
+  * cd /path/to/gem (Falls RVM benutzt wird z.B. ~/.rvm/gems/ruby-2.2.1/gems/latex_curriculum_vitae)
   * rake setup
 
 # Dependencies
@@ -259,8 +258,7 @@ youtube_dlhelper ist ein kleines Tool zum Download und Konvertierung der files. 
 Wenn Ruby bereits installiert ist, können Sie youtube_dlhelper wie folgt installieren:
 
   * gem install youtube_dlhelper
-  * gem install rake (falls noch nicht installiert)
-  * cd /path/to/gem
+  * cd /path/to/gem (Falls RVM benutzt wird z.B. ~/.rvm/gems/ruby-2.2.1/gems/latex_curriculum_vitae)
   * rake setup
 
 # Abhängigkeiten
