@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter [
+        <!ENTITY % sgml.features "IGNORE">
+        <!ENTITY % xml.features "INCLUDE">
+        <!ENTITY % BOOK_ENTS SYSTEM "youtube_dlhelper.ent">
+        %BOOK_ENTS;
+        <!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "/usr/share/xml/docbook/schema/dtd/4.5/dbcentx.mod">
+        %DOCBOOK_ENTS;
+        ]>
+<?xml-model href="/usr/share/xml/docbook/schema/rng/5.0/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <info>
+    <title>Using &BOOKID;</title>
+  </info>
+  <indexterm>
+    <primary>Using youtube_dlhelper</primary>
+  </indexterm>
+  <section>
+    <info>
+      <title>Launching &BOOKID;</title>
+    </info>
+    <indexterm>
+      <primary>Using &BOOKID;</primary>
+      <secondary>Launching &BOOKID;</secondary>
+    </indexterm>
+    <para>For launching &BOOKID; just open your shell and type: <command>&BOOKID;
+          <replaceable>https://www.youtube.com/watch?v=qM5W7Xn7FiA</replaceable></command>. </para>
+    <para>On the second place you can add all your favorite Youtube URLs. </para>
+    <para>
+      <note>
+        <para>In all test cases the program accepts https URLs. If you find any URL that the program
+          doesn't accepts, try out using http:// instead of https://.</para>
+      </note>
+    </para>
+    <section>
+      <info>
+        <title>What it does?</title>
+      </info>
+      <orderedlist>
+        <listitem>
+          <para>First &BOOKID; gives the (ARGV*) to the main <classname>YoutubeDlhelper</classname>
+            Class.</para>
+        </listitem>
+        <listitem>
+          <para>The method <classname>Checker.external_url_is_valid?</classname> checks the present
+            validation of your URL.</para>
+        </listitem>
+        <listitem>
+          <para>It runs the method <classname>oldconfig</classname> to check if a users
+            configuration file is available. If not, it will break and suggest to run <quote>rake
+              setup_start</quote>.</para>
+        </listitem>
+        <listitem>
+          <para>The <classname>Import.import_config</classname> method will be launched. The method
+            returns a array which will splitted into the used variables <quote>music_dir_get</quote>
+            and <quote>ogg_file_accept</quote>.</para>
+        </listitem>
+        <listitem>
+          <para><classname>Checker.which_decoder?</classname> checks which decoder (ffmpeg or
+            avconv) is available on your operating system.</para>
+        </listitem>
+        <listitem>
+          <para><classname>Checker.check_target</classname> asks you if its a <quote>group</quote>
+            or a <quote>interpret</quote>. In case of <quote>group</quote> you can type the groups
+            name. Otherwise it asks for <quote>firstname</quote> and <quote>surname</quote> of the
+            interpret.</para>
+          <para>
+            <note>
+              <para><quote>group</quote> produces the path:
+                  <filename>YourMusicdir/groupname/Youtube-Musik/YourMusic</filename></para>
+              <para><quote>interpret</quote> produces the path:
+                  <filename>YourMusicdir/surname_firstname/Youtube-Musik/YourMusic</filename></para>
+            </note>
+          </para>
+        </listitem>
+        <listitem>
+          <para><classname>Checker.check_dir</classname> checks if the target directory is
+            available, otherwise it creates it.</para>
+        </listitem>
+        <listitem>
+          <para><classname>Downloader.get</classname> gets the movie from the given url and extracts
+            the audio content.</para>
+        </listitem>
+        <listitem>
+          <para><classname>Ripper.rip_prepare</classname> converts the audio track to ogg or
+            mp3.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+</chapter>

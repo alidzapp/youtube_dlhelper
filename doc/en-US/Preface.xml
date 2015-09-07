@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE preface [
+        <!ENTITY % sgml.features "IGNORE">
+        <!ENTITY % xml.features "INCLUDE">
+        <!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "/usr/share/xml/docbook/schema/dtd/4.5/dbcentx.mod">
+        %DOCBOOK_ENTS;
+        <!ENTITY % BOOK_ENTS SYSTEM "youtube_dlhelper.ent">
+        %BOOK_ENTS;
+        ]>
+<preface version="5.0" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Preface</title>
+  <para>Welcome to the guide for &BOOKID;. In this documentation you will find how to get,
+    setup and use &BOOKID;. </para>
+  <para>&BOOKID; was launched to help people who downloading, converting and saving stuff
+    from Youtube. </para>
+  <para>I'm thanking the Ruby guys and the guys on stackoverflow who helped me a lot of times. </para>
+  <xi:include href="Common_Content/Conventions.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <xi:include href="Feedback.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+  </xi:include>
+</preface>

@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2015-06-13 15:06+0200\n"
+"PO-Revision-Date: 2015-06-15 14:44+0100\n"
+"Last-Translator: Sascha Manns <samanns@directbox.com>\n"
+"Language-Team: None\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Using &BOOKID;"
+msgstr ""
+
+msgid "<primary>Using youtube_dlhelper</primary>"
+msgstr "<primary>youtube_dlhelper benutzen</primary>"
+
+msgid "Launching &BOOKID;"
+msgstr ""
+
+msgid "<primary>Using &BOOKID;</primary> <secondary>Launching &BOOKID;</secondary>"
+msgstr ""
+
+msgid "For launching &BOOKID; just open your shell and type: <command>&BOOKID; <replaceable>https://www.youtube.com/watch?v=qM5W7Xn7FiA</replaceable></command>."
+msgstr "Um &BOOKID; zu starten, geben Sie folgendes in der Konsole ein: <command>&BOOKID; <replaceable>https://www.youtube.com/watch?v=qM5W7Xn7FiA</replaceable></command>."
+
+msgid "On the second place you can add all your favorite Youtube URLs."
+msgstr ""
+
+msgid "In all test cases the program accepts https URLs. If you find any URL that the program doesn't accepts, try out using http:// instead of https://."
+msgstr "An den zweiten Platz des Aufrufs können Sie jede Youtube URL eingeben. In allen Testfällen funktionierten auch URLs, die mit https:// beginnen. Sollten Sie auf eine solche URL stossen, die nicht funktioniert, probieren Sie den Präfix http://."
+
+msgid "What it does?"
+msgstr "Was passiert?"
+
+msgid "First &BOOKID; gives the (ARGV*) to the main <classname>YoutubeDlhelper</classname> Class."
+msgstr ""
+
+msgid "The method <classname>Checker.external_url_is_valid?</classname> checks the present validation of your URL."
+msgstr "Die Methode <classname>Checker.external_url_is_valid?</classname>  überprüft die Gültigkeit der eingegebenen URL."
+
+msgid "It runs the method <classname>oldconfig</classname> to check if a users configuration file is available. If not, it will break and suggest to run <quote>rake setup_start</quote>."
+msgstr "Die nächste Methode <classname>.oldconfig</classname> überprüft das Vorhandensein einer alten Konfiguration. Falls keine vorhanden ist, bricht das Programm ab, mit dem Hinweis <quote>rake setup_start</quote> zu starten."
+
+msgid "The <classname>Import.import_config</classname> method will be launched. The method returns a array which will splitted into the used variables <quote>music_dir_get</quote> and <quote>ogg_file_accept</quote>."
+msgstr "Die <classname>Import.import_config</classname>  Methode liest die Konfiguration aus, und gibt ein Array der Variablen  <quote>music_dir_get</quote> und <quote>ogg_file_accept</quote> zurück."
+
+msgid "<classname>Checker.which_decoder?</classname> checks which decoder (ffmpeg or avconv) is available on your operating system."
+msgstr "Die nächste Methode <classname>Checker.which_decoder?</classname> prüft, welcher Decoder (ffmpeg oder avconv) bei Ihnen vorhanden ist."
+
+msgid "<classname>Checker.check_target</classname> asks you if its a <quote>group</quote> or a <quote>interpret</quote>. In case of <quote>group</quote> you can type the groups name. Otherwise it asks for <quote>firstname</quote> and <quote>surname</quote> of the interpret."
+msgstr ""
+
+msgid "<quote>group</quote> produces the path: <filename>YourMusicdir/groupname/Youtube-Musik/YourMusic</filename>"
+msgstr ""
+
+msgid "<quote>interpret</quote> produces the path: <filename>YourMusicdir/surname_firstname/Youtube-Musik/YourMusic</filename>"
+msgstr ""
+
+msgid "<classname>Checker.check_dir</classname> checks if the target directory is available, otherwise it creates it."
+msgstr "<classname>Checker.check_dir</classname> überprüft, ob das Zielverzeichnis vorhanden ist. Falls nicht, wird es erstellt."
+
+msgid "<classname>Downloader.get</classname> gets the movie from the given url and extracts the audio content."
+msgstr "<classname>Downloader.get</classname> lädt das Musikvideo herunter und extrahiert die Audiospur."
+
+msgid "<classname>Ripper.rip_prepare</classname> converts the audio track to ogg or mp3."
+msgstr "<classname>Ripper.rip_prepare</classname>  konvertiert die Audiospur nach OGG oder MP3."
+
+#~ msgid "Using youtube_dlhelper"
+#~ msgstr "youtube_dlhelper benutzen"
+
+#~ msgid "Launching youtube_dlhelper"
+#~ msgstr "youtube_dlhelper starten"
+
+#~ msgid "Checker.check_target asks you if its a \"group\" or a \"interpret\". In case of \"group\" you can type the groups name. Otherwise it asks for \"firstname\" and \"surname\" of the interpret."
+#~ msgstr "Checker.check_target fragt Sie, ob Sie eine \"group\" oder einen \"interpret\" anlegen möchten. Falls Sie \"group\" auswählen, geben Sie im nächsten Schritt den Gruppennamen ein. Falls es ein Interpret ist, fragt die Methode nach  \"firstname\" und \"surname\" des Interpreten."
+
+#~ msgid "<primary>Using youtube_dlhelper</primary> <secondary>Launching youtube_dlhelper</secondary>"
+#~ msgstr "<primary>youtube_dlhelper benutzen</primary> <secondary> youtube_dlhelper starten</secondary>"
+
+#~ msgid "First youtube_dlhelper gives the (ARGV*) to the main YoutubeDlhelper Class."
+#~ msgstr "Nach dem Start von youtube_dlhelper übergibt das binary die Argumente (ARGV*) an die Klasse YoutubeDlhelper."
+
+#~ msgid "\"group\" produces: YourMusicdir/groupname/Youtube-Musik/YourMusic"
+#~ msgstr "\"group\" produziert: YourMusicdir/groupname/Youtube-Musik/YourMusic"
+
+#~ msgid "\"interpret\" produces: YourMusicdir/surname_firstname/Youtube-Musik/YourMusic"
+#~ msgstr "\"interpret\" produziert: YourMusicdir/surname_firstname/Youtube-Musik/YourMusic"
+

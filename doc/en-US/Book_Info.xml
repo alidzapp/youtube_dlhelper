@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE info [
+<!ENTITY % BOOK_ENTITIES SYSTEM "youtube_dlhelper.ent">
+%BOOK_ENTITIES;
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "/usr/share/xml/docbook/schema/dtd/4.5/dbcentx.mod">
+%DOCBOOK_ENTS;
+]>
+<info version="5.0" xml:id="info-Documentation-youtube_dlhelper-youtube_dlhelper" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>youtube dlhelper</title>
+	<subtitle>Yet another Youtube Downloader. But this one creates for you the right directories inside your Musicdir</subtitle>
+	<productname>Documentation</productname>
+	<productnumber>0.1</productnumber>
+	<edition>0</edition>
+	<abstract>
+		<para>
+			youtube_dlhelper is a small tool for people who downloading often from Youtube, converting it to OGG or MP3 and placing it into your Music directory. youtube_dlheper automates all these steps and assists you by creating the right target music folder.
+		</para>
+	</abstract>
+	<orgname>
+	<inlinemediaobject>
+		<imageobject>
+			<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" />
+		</imageobject>
+	</inlinemediaobject>
+	</orgname>
+	<xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</info>
+

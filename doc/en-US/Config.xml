@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter [
+        <!ENTITY % sgml.features "IGNORE">
+        <!ENTITY % xml.features "INCLUDE">
+        <!ENTITY % BOOK_ENTS SYSTEM "youtube_dlhelper.ent">
+        %BOOK_ENTS;
+        <!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "/usr/share/xml/docbook/schema/dtd/4.5/dbcentx.mod">
+        %DOCBOOK_ENTS;
+        ]>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <info>
+    <title>The config file</title>
+  </info>
+  <indexterm>
+    <primary>The config file</primary>
+  </indexterm>
+  <para>The config file gives you options to customize it to your needs. </para>
+  <section>
+    <info>
+      <title>Global settings</title>
+    </info>
+    <indexterm>
+      <primary>The config file</primary>
+      <secondary>Global settings</secondary>
+    </indexterm>
+    <para>
+      <table frame="all">
+        <title>Global variables</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+          <thead>
+            <row>
+              <entry>Variable name</entry>
+              <entry>Default value</entry>
+              <entry>Explaining</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>musicdir</entry>
+              <entry>Musik</entry>
+              <entry>Your Musicdirpath without "/home/<replaceable>yourname</replaceable>"</entry>
+            </row>
+            <row>
+              <entry>ogg_file_accept</entry>
+              <entry>true</entry>
+              <entry>Accept MP3 instead of OGG?</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </para>
+  </section>
+
+</chapter>
