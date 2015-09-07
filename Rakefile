@@ -155,10 +155,10 @@ task :setup => [:setup_start, :check_config, :link_binary] do
 end
 
 require 'fileutils'
-desc 'Prepare Userdocs for translating'
+desc 'Prepare Userdoc for translating'
 task :prepare_doc do
-  docs = './docs'
-  FileUtils.cd(docs) do
+  doc = './doc'
+  FileUtils.cd(doc) do
     puts 'Running trans_drop'
     system('publican trans_drop')
     puts 'Preparing pot files'
@@ -166,15 +166,15 @@ task :prepare_doc do
     puts 'Preparing po files for de-DE'
     system('publican update_po --langs=de-DE')
     puts 'All done. Please use a poeditor (like poedit) to translate'
-    puts 'For building docs use rake build_doc.'
+    puts 'For building doc use rake build_doc.'
   end
 end
 
 require 'fileutils'
-desc 'Build Userdocs'
+desc 'Build Userdoc'
 task :build_doc do
-  docs = './docs'
-  FileUtils.cd(docs) do
+  doc = './doc'
+  FileUtils.cd(doc) do
     puts 'Building all targets'
     system('publican build --langs=en-US,de-DE --formats=html,pdf')
     puts 'All done. Please use rake publish_doc for publishing.'
@@ -182,19 +182,19 @@ task :build_doc do
 end
 
 require 'fileutils'
-desc 'Publish Userdocs'
+desc 'Publish Userdoc'
 task :publish_doc do
   version = YoutubeDlhelperVersion::Version::STRING
   home = Dir.home
-  srcde = 'docs/tmp/de-DE/html'
-  srcen = 'docs/tmp/en-US/html'
-  srcdepdf = 'docs/tmp/de-DE/pdf'
-  srcenpdf = 'docs/tmp/en-US/pdf'
+  srcde = 'doc/tmp/de-DE/html'
+  srcen = 'doc/tmp/en-US/html'
+  srcdepdf = 'doc/tmp/de-DE/pdf'
+  srcenpdf = 'doc/tmp/en-US/pdf'
   target = "#{home}/RubymineProjects/saigkill.github.com"
-  targetde = "#{home}/RubymineProjects/saigkill.github.com/docs/youtube_dlhelper/de-DE/html"
-  targeten = "#{home}/RubymineProjects/saigkill.github.com/docs/youtube_dlhelper/en-US/html"
-  targetenpdf = "#{home}/RubymineProjects/saigkill.github.com/docs/youtube_dlhelper/en-US/pdf"
-  targetdepdf = "#{home}/RubymineProjects/saigkill.github.com/docs/youtube_dlhelper/de-DE/pdf"
+  targetde = "#{home}/RubymineProjects/saigkill.github.com/doc/youtube_dlhelper/de-DE/html"
+  targeten = "#{home}/RubymineProjects/saigkill.github.com/doc/youtube_dlhelper/en-US/html"
+  targetenpdf = "#{home}/RubymineProjects/saigkill.github.com/doc/youtube_dlhelper/en-US/pdf"
+  targetdepdf = "#{home}/RubymineProjects/saigkill.github.com/doc/youtube_dlhelper/de-DE/pdf"
 
   puts 'Copying source html files to target git repository'
   FileUtils.cp_r(Dir["#{srcde}/*"], "#{targetde}")
@@ -207,7 +207,7 @@ task :publish_doc do
     puts 'Adding missing files'
     system('git add *')
     puts 'Made commit'
-    system("git commit -m \"Updated docs for youtube_dlhelper #{version}\"")
+    system("git commit -m \"Updated doc for youtube_dlhelper #{version}\"")
     puts 'Pushing it to origin'
     system('git push')
   end
@@ -264,8 +264,8 @@ To run it you can type /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
 
 # References
   * Projects home: [https://github.com/saigkill/youtube_dlhelper](https://github.com/saigkill/youtube_dlhelper)
-  * User documentation (en): [http://saigkill.github.io/docs/youtube_dlhelper/en-US/html](http://saigkill.github.io/docs/youtube_dlhelper/en-US/html)
-  * User documentation (de): [http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html](http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html)
+  * User documentation (en): [http://saigkill.github.io/doc/youtube_dlhelper/en-US/html](http://saigkill.github.io/doc/youtube_dlhelper/en-US/html)
+  * User documentation (de): [http://saigkill.github.io/doc/youtube_dlhelper/de-DE/html](http://saigkill.github.io/doc/youtube_dlhelper/de-DE/html)
   * Bug reports: [http://saigkill-bugs.myjetbrains.com/youtrack/issues](http://saigkill-bugs.myjetbrains.com/youtrack/issues)
 
 # What has be done in this version #{version}?
@@ -314,8 +314,8 @@ Um das Gem zu starten geben sie folgendes ein: /path/to/gem/bin/youtube_dlhelper
 
 # Referenzen
   * Projekt Home: [https://github.com/saigkill/youtube_dlhelper](https://github.com/saigkill/youtube_dlhelper)
-  * User Dokumentation (en): [http://saigkill.github.io/docs/youtube_dlhelper/en-US/html](http://saigkill.github.io/docs/youtube_dlhelper/en-US/html)
-  * User Dokumentation (de): [http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html](http://saigkill.github.io/docs/youtube_dlhelper/de-DE/html)
+  * User Dokumentation (en): [http://saigkill.github.io/doc/youtube_dlhelper/en-US/html](http://saigkill.github.io/doc/youtube_dlhelper/en-US/html)
+  * User Dokumentation (de): [http://saigkill.github.io/doc/youtube_dlhelper/de-DE/html](http://saigkill.github.io/doc/youtube_dlhelper/de-DE/html)
   * Bugreports: [http://saigkill-bugs.myjetbrains.com/youtrack/issues](http://saigkill-bugs.myjetbrains.com/youtrack/issues)
 
 # Was ist neu in version #{version}?

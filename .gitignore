@@ -1,10 +1,9 @@
 /.yardoc
 /coverage
-/doc
-/docs/pot
-/docs/tmp
-/docs/trans_drop
-/docs/youtube_dlhelper.xpr
+/doc/pot
+/doc/tmp
+/doc/trans_drop
+/doc/youtube_dlhelper.xpr
 /pkg
 /vendor
 /Gemfile.lock
