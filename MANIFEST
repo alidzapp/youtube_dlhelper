@@ -11,6 +11,7 @@ Gemfile
 Index.yml
 Rakefile
 ruby-lint.yml
+CONTRIBUTING.md
 lib/youtube_dlhelper/checker.rb
 lib/youtube_dlhelper/downloader.rb
 lib/youtube_dlhelper/get.rb
