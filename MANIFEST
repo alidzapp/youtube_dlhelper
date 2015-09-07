@@ -5,6 +5,7 @@ test/lib_spec.rb
 test/spec_helper.rb
 CODE_OF_CONDUCT.md
 bin/youtube_dlhelper
+SetupConfig
 circle.yml
 Gemfile
 Index.yml
