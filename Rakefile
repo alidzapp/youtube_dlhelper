@@ -98,59 +98,22 @@ task :setup_start do
   puts '# Please file bugreports on:                         #'
   puts '#http://saigkill-bugs.myjetbrains.com/youtrack/issues#'
   puts '######################################################'
-end
 
-require 'fileutils'
-desc 'Install Config file'
-task :check_config do
-  puts 'Checking Config file'
-  home = Dir.home
-  configorig = File.expand_path(File.join(File.dirname(__FILE__),
-                                          'lib/youtube_dlhelper',
-                                          'youtube_dlhelper.conf'))
-  if File.exist?("#{home}/.youtube_dlhelper.conf")
-    FileUtils.cp("#{configorig}", "#{home}/.youtube_dlhelper.conf.new")
-    puts "The newest config file was placed in #{home}/.youtube_dlhelper.conf.new"
-    puts "Please check if new parameters are shipped. If any are missed in your old config please add them into your file. Then remove #{home}/.youtube_dlhelper.conf.new"
-  else
-    FileUtils.cp("#{configorig}", "#{home}/.youtube_dlhelper.conf")
-    puts "Config file not found. Copying the newest for you to #{home}/.youtube_dlhelper.conf"
-    if File.exist?('/usr/bin/gedit')
-      editor = 'gedit'
-    elsif File.exist?('/usr/bin/kate')
-      editor = 'kate'
-    elsif File.exist?('/usr/bin/moudepad')
-      editor = 'mousepad'
-    elsif File.exist?('/usr/bin/geany')
-      editor = 'geany'
-    elsif File.exist?('/usr/bin/jedit')
-      editor = 'jedit'
-    end
-    system("#{editor} #{home}/.youtube_dlhelper.conf")
-  end
+  system('setup uninstall --force')
+  system('setup.rb config --sysconfdir=$HOME/.youtube_dlhelper')
+  system('setup.rb install')
 end
 
 desc 'Link binary'
 task :link_binary do
-  puts 'Linking binaries...'
-  ytdl = File.expand_path(File.join(File.dirname(__FILE__), 'bin',
-                                    'youtube_dlhelper'))
+  # removing /usr/bin/youtube_dlhelper because setup.rb installs in PATH
+  puts 'Removing binaries from /usr/bin ...'
   ytdlbin = '/usr/bin/youtube_dlhelper'
-  if File.exist?("#{ytdlbin}")
-    puts "File #{ytdlbin} exists. Removing it."
-    system("sudo rm #{ytdlbin}")
-    puts 'Relinking it'
-    system("sudo ln -s #{ytdl} #{ytdlbin}")
-    puts 'done'
-  else
-    puts 'Creating symlink'
-    system("sudo ln -s #{ytdl} #{ytdlbin}")
-    puts 'done'
-  end
+  system("sudo rm #{ytdlbin}") if File.exist?(ytdlbin)
 end
 
 desc 'Run setup'
-task :setup => [:setup_start, :check_config, :link_binary] do
+task :setup => [:setup_start, :link_binary] do
   puts 'Finished Setup'
 end
 
@@ -222,9 +185,15 @@ task :make_release do
   time = Time.new
   date = time.strftime('%Y-%m-%d')
 
+  puts 'Updating MANIFEST'
+  system('mast -u && mast -u')
+  system('git add MANIFEST')
+  puts 'done'
+  puts 'Updating workspace'
   system('git add .idea/*')
   system('git commit -m "Updated workspace"')
   puts 'done'
+  puts 'Making release'
   system('rake release')
 
   FileUtils.cd(target) do
@@ -250,17 +219,11 @@ If you give it a try just follow the next steps (If you have already Ruby instal
   * cd /path/to/gem
   * rake setup
 
-# Download last deployed Linux packages
-## deb
-[![Download](https://api.bintray.com/packages/saigkill/deb/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/deb/youtube_dlhelper/_latestVersion)
-##rpm
-[![Download](https://api.bintray.com/packages/saigkill/rpm/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/rpm/youtube_dlhelper/_latestVersion)
-
 # Dependencies
 You need to have ffmpeg or avconv installed. The soft dependencies will be solved by bundler.
 
 # Running the Gem
-To run it you can type /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
+   youtube_dlhelper https://yourYoutubeURL
 
 # References
   * Projects home: [https://github.com/saigkill/youtube_dlhelper](https://github.com/saigkill/youtube_dlhelper)
@@ -300,17 +263,11 @@ Wenn Ruby bereits installiert ist, können Sie youtube_dlhelper wie folgt instal
   * cd /path/to/gem
   * rake setup
 
-# Zuletzt veröffentlichte Linux packages
-## deb
-[![Download](https://api.bintray.com/packages/saigkill/deb/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/deb/youtube_dlhelper/_latestVersion)
-##rpm
-[![Download](https://api.bintray.com/packages/saigkill/rpm/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/rpm/youtube_dlhelper/_latestVersion)
-
 # Abhängigkeiten
 Sie benötigen ein installiertes ffmpeg oder avconv.
 
 # Das Gem starten
-Um das Gem zu starten geben sie folgendes ein: /path/to/gem/bin/youtube_dlhelper https://yourYoutubeURL
+  youtube_dlhelper https://yourYoutubeURL
 
 # Referenzen
   * Projekt Home: [https://github.com/saigkill/youtube_dlhelper](https://github.com/saigkill/youtube_dlhelper)
@@ -328,6 +285,36 @@ Um das Gem zu starten geben sie folgendes ein: /path/to/gem/bin/youtube_dlhelper
 EOF
   end
   puts 'Prepared your Blogpost. Please add the changes of this release'
+  puts 'Now ready for social media posting'
+
+  # Create email to ruby-talk
+  space = '%20'
+  crlf = '%0D%0A'
+  subject = "latex_curriculum_vitae #{version} released"
+  subject.gsub!(/ /, "#{space}")
+  body = 'Hello Ruby list,' + "#{crlf}" + "#{crlf}" +
+      "i would like to announce the youtube_dlhelper gem in version #{version}." + "#{crlf}" + "#{crlf}" +
+      "What happend in version #{version}?" + "#{crlf}" +
+      '* Its the initial release' + "#{crlf}" +
+      '* Fixed LCV 1-4' + "#{crlf}" + "#{crlf}" +
+      'What is youtube_dlhelper?' + "#{crlf}" + "#{crlf}" +
+      'The youtube_dlhelper is a short tool for download and manage the downloaded files. You are running the program inside the command line with a Youtube URL. Then it aska for a group name or interpreters name. Now it creates a Subfolder inside your Musicdirectory. Then it makes a MP3 from the downloaded file and moves it to the folder.' + "#{crlf}" + "#{crlf}" +
+      'Installation:'+ "#{crlf}" + "#{crlf}" +
+      '    gem install youtube_dlhelper' + "#{crlf}" +
+      '    cd /path/to/gem \(In case of using RVM anything like ~/.rvm/gems/ruby-2.2.1/gems/latex_curriculum_vitae\)' + "#{crlf}" + "#{crlf}" +
+      '    rake setup' + "#{crlf}" + "#{crlf}" +
+      'Dependencies:'+ "#{crlf}" + "#{crlf}" +
+      'You need to have ffmpeg or avconv installed. The soft dependencies will be solved by bundler.' + "#{crlf}" + "#{crlf}" +
+      'Using the gem' + "#{crlf}" + "#{crlf}" +
+      'To use the gem just type in the console:' + "#{crlf}" + "#{crlf}" +
+      '    youtube_dlhelper https://yourYoutubeURL' + "#{crlf}" + "#{crlf}" +
+      'References:' + "#{crlf}" +
+      'Issue tracker: http://saigkill-bugs.myjetbrains.com/youtrack/issues' + "#{crlf}" +
+      'Home: https://github.com/saigkill/youtube_dlhelper' + "#{crlf}" +
+      'Greetings Sascha'
+  body.gsub!(/ /, "#{space}")
+  system("thunderbird mailto:ruby-talk@ruby-lang.org?subject=#{subject}\\&body=#{body}")
+  system('rm pkg/*')
 end
 
 # vim: syntax=ruby

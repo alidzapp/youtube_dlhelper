@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.9.4 (2015-09-07)
+## Improvements
+* Changed setup procedure to setup.rb
+* Removing /usr/bin/youtube_dlhelper because setup.rb installs in PATH
+
 ## 0.1.9.3 (2015-06-15)
 ### New features
 * Using https is now allowed

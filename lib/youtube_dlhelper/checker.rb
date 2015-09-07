@@ -121,7 +121,7 @@ module Checker
   # @return [String] true or false
   def self.oldconfig_exists?
     home = Dir.home
-    if File.exist?("#{home}/.youtube_dlhelper.conf")
+    if File.exist?("#{home}/.youtube_dlhelper/youtube_dlhelper.conf")
       puts 'Found configuration file and using it...'.color(:yellow)
     else
       # @raise

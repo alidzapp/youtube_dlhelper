@@ -1,0 +1,121 @@
+---
+revision: 2013
+type: ruby
+sources:
+- VERSION
+- Index.yml
+authors:
+- name: Sascha Manns
+  email: samannsml@directbox.com
+organizations: []
+requirements:
+- name: highline
+- name: parseconfig
+- name: viddl-rb
+- name: streamio-ffmpeg
+- name: rainbow
+- name: addressable
+- name: setup
+- name: notifier
+- groups:
+  - build
+  development: true
+  name: rake
+- groups:
+  - build
+  development: true
+  name: rdoc
+- groups:
+  - build
+  development: true
+  name: bundler
+- groups:
+  - build
+  development: true
+  name: yard
+- groups:
+  - build
+  development: true
+  name: gem-release
+- groups:
+  - build
+  development: true
+  name: rubocop
+- groups:
+  - build
+  development: true
+  name: travis
+- groups:
+  - build
+  development: true
+  name: reek
+- groups:
+  - build
+  development: true
+  name: ruby-lint
+- groups:
+  - build
+  development: true
+  name: bundler-audit
+- groups:
+  - build
+  development: true
+  name: indexer
+- groups:
+  - build
+  development: true
+  name: mast
+- groups:
+  - test
+  development: true
+  name: simplecov
+- groups:
+  - test
+  development: true
+  name: coveralls
+- groups:
+  - test
+  development: true
+  name: rspec
+- groups:
+  - test
+  development: true
+  name: rspec-core
+conflicts: []
+alternatives: []
+resources:
+- type: home
+  uri: http://saigkill.github.io
+  label: Homepage
+- type: code
+  uri: https://github.com/saigkill/youtube_dlhelper
+  label: Source Code
+- type: bugs
+  uri: http://saigkill-bugs.myjetbrains.com/youtrack
+  label: Issue Tracker
+- type: issues
+  uri: http://saigkill-bugs.myjetbrains.com/youtrack
+  label: Issue Tracker
+repositories:
+- name: upstream
+  scm: git
+  uri: https://github.com/saigkill/youtube_dlhelper.git
+categories:
+- youtube
+- ruby
+- music
+copyrights:
+- holder: Sascha Manns
+  year: '2015'
+  license: GPL3
+customs: []
+paths:
+  lib:
+  - lib
+version: 0.1.9.4
+name: youtube_dlhelper
+title: Youtube_dlhelper
+summary: Youtube Downloadhelper and Ripper
+description: This is a Youtube Downloadhelper who downloads a file, rips it to mp3
+  and placed it in a organized form
+date: '2015-09-07'

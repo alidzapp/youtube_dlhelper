@@ -83,7 +83,7 @@ class YoutubeDlhelper
   puts 'You should have received a copy of the GNU General Public License'
   puts 'along with this program.  If not, see <http://www.gnu.org/licenses/>.'
   puts 'File bugreports and feature requests there:'
-  puts 'http://saigkill-bugs.myjetbrains.com/youtrack/issues?q=project%3A+youtube_dlhelper'
+  puts 'http://saigkill-bugs.myjetbrains.com/youtrack/issues'
 
   # Check which decoder should used
   ffmpeg_binary = Checker.which_decoder?

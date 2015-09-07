@@ -34,10 +34,10 @@ module YoutubeDlhelperGet
   end
 
   # Method for getting the type of the musicans
-  def self.type
-    # @note Put the yad input
-    type = `yad --title="Create documentation" --center --on-top --text="Is it a group or a single interpret" --button="Group" --button="Interpret"`
-    puts type
-
-  end
+  # def self.type
+  #   # @note Put the yad input
+  #   type = `yad --title="Create documentation" --center --on-top --text="Is it a group or a single interpret" --button="Group" --button="Interpret"`
+  #   puts type
+  #
+  # end
 end

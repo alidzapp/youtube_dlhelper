@@ -6,8 +6,6 @@
 | last public version           | [![publicversion](https://badge.fury.io/rb/youtube_dlhelper.png)](http://rubygems.org/gems/youtube_dlhelper)                                                                      |
 | downloads latest              | [![downloads-latest](https://img.shields.io/gem/dtv/youtube_dlhelper.svg)](https://rubygems.org/gems/youtube_dlhelper)                                                            |
 | downloads all                 | [![downloads-all](https://img.shields.io/gem/dt/youtube_dlhelper.svg)](https://rubygems.org/gems/youtube_dlhelper)                                                                |
-| download latest deployed deb  | [![Download](https://api.bintray.com/packages/saigkill/deb/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/deb/youtube_dlhelper/_latestVersion)                          |
-| download latest deployed rpm  | [![Download](https://api.bintray.com/packages/saigkill/rpm/youtube_dlhelper/images/download.svg) ](https://bintray.com/saigkill/rpm/youtube_dlhelper/_latestVersion)
 | continuous integration        | [![travis](https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master)](https://secure.travis-ci.org/saigkill/youtube_dlhelper)                                     |
 | continuous integration        | [![scrutinizer](https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/badges/build.png?b=master)](https://scrutinizer-ci.com/g/saigkill/youtube_dlhelper/build-status/master)   |
 | continuous integration        | [![teamcity](http://saigkill.ddns.net:8111/app/rest/builds/buildType:(id:YoutubeDlhelper_Build)/statusIcon)](http://saigkill.ddns.net:8111/viewType.html?buildTypeId=YoutubeDlhelper_Build&guest=1)   |
@@ -24,8 +22,6 @@
 | authors blog                  | http://saigkill.github.io                                                                                                                                                         |
 | openhub statistics            | https://www.openhub.net/p/youtube_dlhelper                                                                                                                                       |
 | openhatch                     | http://openhatch.org/projects/youtube_dlhelper |
-| version notification deb      | [![bintray](https://www.bintray.com/docs/images/bintray_badge_color.png)](https://bintray.com/saigkill/deb/youtube_dlhelper/view?source=watch)                                           |
-| version notification rpm      | [![bintray](https://www.bintray.com/docs/images/bintray_badge_color.png)](https://bintray.com/saigkill/rpm/youtube_dlhelper/view?source=watch)                              |
 | donations                     | [![pledgie](https://pledgie.com/campaigns/29423.png?skin_name=chrome)](https://pledgie.com/campaigns/29423)                                                                         |
 | donations                     | [![gratipay](http://img.shields.io/gratipay/saigkill.svg)](https://gratipay.com/~saigkill/)                                                                                         |
 | donations                     | [![amazon](http://tsv-neuss.de/cms/upload/News-Bilder/amazon1.png)](http://www.amazon.de/registry/wishlist/D75HOEQ00BDD)                                                            |

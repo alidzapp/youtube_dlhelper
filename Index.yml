@@ -1,0 +1,54 @@
+--- 
+name:    youtube_dlhelper
+version: 0.1.9.4
+title:   Youtube_dlhelper
+summary: Youtube Downloadhelper and Ripper
+
+description:
+  This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form
+
+authors:
+  - Sascha Manns <samannsml@directbox.com>
+
+requirements:
+- highline
+- parseconfig
+- viddl-rb
+- streamio-ffmpeg
+- rainbow
+- addressable
+- setup
+- notifier
+- rake (build)
+- rdoc (build)
+- bundler (build)
+- yard (build)
+- gem-release (build)
+- rubocop (build)
+- travis (build)
+- reek (build)
+- ruby-lint (build)
+- bundler-audit (build)
+- indexer (build)
+- mast (build)
+- simplecov (test)
+- coveralls (test)
+- rspec (test)
+- rspec-core (test)
+
+repositories:
+  upstream: https://github.com/saigkill/youtube_dlhelper.git
+
+resources:
+  home: http://saigkill.github.io
+  code: https://github.com/saigkill/youtube_dlhelper
+  bugs: http://saigkill-bugs.myjetbrains.com/youtrack
+  issues: http://saigkill-bugs.myjetbrains.com/youtrack
+
+categories:
+  - youtube
+  - ruby
+  - music
+
+copyrights:
+  - 2015 Sascha Manns (GPL3)
