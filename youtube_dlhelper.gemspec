@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
   spec.description = 'This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form'
   spec.homepage = 'https://github.com/saigkill/youtube_dlhelper'
   spec.licenses = ['GPL-3']
-  spec.metadata = {issue_tracker: 'http://saigkill-bugs.myjetbrains.com/youtrack/issues'}
-  spec.extra_rdoc_files = %w(CHANGELOG.md CODE_OF_CONDUCT.md LICENSE.md doc/*)
+  spec.metadata = { 'issue_tracker' => 'http://saigkill-bugs.myjetbrains.com/youtrack/issues' }
+  spec.extra_rdoc_files = %w(CHANGELOG.md CODE_OF_CONDUCT.md LICENSE.md)
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|test|features)/})
   end

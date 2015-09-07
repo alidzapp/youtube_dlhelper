@@ -1,10 +1,8 @@
-/.yardoc
-/coverage
 /doc/pot
 /doc/tmp
 /doc/trans_drop
 /doc/youtube_dlhelper.xpr
 /pkg
-/vendor
 /Gemfile.lock
 /test/coverage
+SetupConfig
