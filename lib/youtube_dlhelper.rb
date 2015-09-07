@@ -23,6 +23,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/che
 require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/downloader'))
 require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/import_config'))
 require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/ripper'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'youtube_dlhelper/notifier'))
 require 'highline/import'
 require 'fileutils'
 require 'parseconfig'
@@ -124,5 +125,7 @@ class YoutubeDlhelper
 
     puts "Now you can find your file in #{music_dir}/#{folder}/#{filenamenew}.#{extension}".color(:yellow)
     puts "Thank you for using #{my_name} #{version}".color(:yellow)
+
+    Notifier.run
   end
 end
