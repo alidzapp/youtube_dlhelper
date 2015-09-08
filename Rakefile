@@ -296,6 +296,7 @@ EOF
   body.gsub!(/ /, "#{space}")
   system("thunderbird mailto:ruby-talk@ruby-lang.org?subject=#{subject}\\&body=#{body}")
   system('rm pkg/*')
+  system('git add .idea/workspace && git commit -m "workspace" && git push')
 end
 
 # vim: syntax=ruby
