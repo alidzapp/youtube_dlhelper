@@ -26,13 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a36ce071-d5c7-4773-a902-03ffb47b3c23" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/youtube_dlhelper/import_config.rb" afterPath="$PROJECT_DIR$/lib/youtube_dlhelper/import_config.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/youtube_dlhelper.iml" afterPath="$PROJECT_DIR$/.idea/youtube_dlhelper.iml" />
     </list>
     <ignored path="youtube_dlhelper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -834,7 +828,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441727202080</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="fixed config path">
+      <created>1441736875102</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1441736875102</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers>
       <YouTrack shared="false" url="http://saigkill-bugs.myjetbrains.com/youtrack">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -928,7 +928,8 @@
     <MESSAGE value="preparing for develop" />
     <MESSAGE value="integrated notifier" />
     <MESSAGE value="fixed yaml" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed yaml" />
+    <MESSAGE value="fixed config path" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed config path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
