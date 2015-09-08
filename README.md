@@ -40,7 +40,7 @@ The installation is very easy.
     rake setup
 
 ## Hard dependencies
-Just a preinstalled ffmpeg.
+Just a preinstalled ffmpeg or avconf.
 
 ## Usage
 
@@ -52,6 +52,8 @@ Example:
     If a https:// URL doesn't work use http:// instead
 
 Before running the program you have to open the youtube_dlhelper.conf and change the settings (It is placed in HOME/.youtube_dlhelper).
+
+If you like this little program so don't forget to give this GitHub repository a star :-)
 
 ## Feature Requests & Bug Reports
 You can file Requests and Reports on the Github Repository: http://saigkill-bugs.myjetbrains.com/youtrack/issues
