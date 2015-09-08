@@ -112,10 +112,10 @@ customs: []
 paths:
   lib:
   - lib
-version: 0.1.9.4
+version: 0.1.9.5
 name: youtube_dlhelper
 title: Youtube_dlhelper
 summary: Youtube Downloadhelper and Ripper
 description: This is a Youtube Downloadhelper who downloads a file, rips it to mp3
   and placed it in a organized form
-date: '2015-09-07'
+date: '2015-09-08'

@@ -30,8 +30,7 @@ module Import
   # @return [Array] music_dir, ogg_file_accept, ffmpeg_binary
   def self.import_config
     home = Dir.home
-    config = ParseConfig.new(File.join(File.dirname(home),
-                                       '.youtube_dlhelper/youtube_dlhelper.conf'))
+    config = ParseConfig.new(File.join("#{home}/.youtube_dlhelper/youtube_dlhelper.conf"))
     # @note Saving the variable musiddir
     music_dir = config['musicdir'].to_s
     # @note Saving the variable ogg_file_accept

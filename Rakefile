@@ -63,31 +63,6 @@ Reek::Rake::Task.new do |t|
   t.verbose       = true
 end
 
-require 'bundler/audit/cli'
-namespace :bundle_audit do
-  desc 'Update bundle-audit database'
-  task :update do
-    Bundler::Audit::CLI.new.update
-  end
-
-  desc 'Check gems for vulns using bundle-audit'
-  task :check do
-    Bundler::Audit::CLI.new.check
-  end
-
-  desc 'Update vulns database and check gems using bundle-audit'
-  task :run do
-    Rake::Task['bundle_audit:update'].invoke
-    Rake::Task['bundle_audit:check'].invoke
-  end
-end
-
-task :bundle_audit do
-  Rake::Task['bundle_audit:run'].invoke
-end
-
-# Setup procedure /Codeship
-# dpkg -s ffmpeg 2>/dev/null >/dev/null && echo $?
 desc 'Launching the setup'
 task :setup_start do
   version = YoutubeDlhelperVersion::Version::STRING
@@ -176,6 +151,8 @@ task :publish_doc do
   end
 end
 
+require 'yaml'
+require 'MannsShared'
 require 'fileutils'
 desc 'Prepares for release'
 task :make_release do
@@ -184,7 +161,13 @@ task :make_release do
   target = "#{home}/RubymineProjects/saigkill.github.com/_posts"
   time = Time.new
   date = time.strftime('%Y-%m-%d')
+  config = YAML.load_file('Index.yml')
+  oldversion = config['version']
 
+  puts('Updating index')
+  MannsShared.search_replace(oldversion, version, 'Index.yml')
+  MannsShared.search_replace(oldversion, version, 'VERSION')
+  system('index --using VERSION Index.yml')
   puts 'Updating MANIFEST'
   system('mast -u && mast -u')
   system('git add MANIFEST')
@@ -288,7 +271,7 @@ EOF
   # Create email to ruby-talk
   space = '%20'
   crlf = '%0D%0A'
-  subject = "latex_curriculum_vitae #{version} released"
+  subject = "youtube_dlhelper #{version} released"
   subject.gsub!(/ /, "#{space}")
   body = 'Hello Ruby list,' + "#{crlf}" + "#{crlf}" +
       "i would like to announce the youtube_dlhelper gem in version #{version}." + "#{crlf}" + "#{crlf}" +
@@ -299,7 +282,7 @@ EOF
       'The youtube_dlhelper is a short tool for download and manage the downloaded files. You are running the program inside the command line with a Youtube URL. Then it aska for a group name or interpreters name. Now it creates a Subfolder inside your Musicdirectory. Then it makes a MP3 from the downloaded file and moves it to the folder.' + "#{crlf}" + "#{crlf}" +
       'Installation:'+ "#{crlf}" + "#{crlf}" +
       '    gem install youtube_dlhelper' + "#{crlf}" +
-      '    cd /path/to/gem \(In case of using RVM anything like ~/.rvm/gems/ruby-2.2.1/gems/latex_curriculum_vitae\)' + "#{crlf}" + "#{crlf}" +
+      '    cd /path/to/gem \(In case of using RVM anything like ~/.rvm/gems/ruby-2.2.1/gems/youtube_dlhelper\)' + "#{crlf}" + "#{crlf}" +
       '    rake setup' + "#{crlf}" + "#{crlf}" +
       'Dependencies:'+ "#{crlf}" + "#{crlf}" +
       'You need to have ffmpeg or avconv installed. The soft dependencies will be solved by bundler.' + "#{crlf}" + "#{crlf}" +
@@ -313,6 +296,7 @@ EOF
   body.gsub!(/ /, "#{space}")
   system("thunderbird mailto:ruby-talk@ruby-lang.org?subject=#{subject}\\&body=#{body}")
   system('rm pkg/*')
+  system('git add .idea/workspace && git commit -m "workspace" && git push')
 end
 
 # vim: syntax=ruby
