@@ -79,8 +79,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5237069">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.46551725">
+              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -601,12 +601,6 @@
       <option name="number" value="Default" />
       <updated>1433772995831</updated>
     </task>
-    <task id="LOCAL-00002" summary="small fixes">
-      <created>1433621135843</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1433621135843</updated>
-    </task>
     <task id="LOCAL-00003" summary="small fixes">
       <created>1433696420184</created>
       <option name="number" value="00003" />
@@ -895,7 +889,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441824462267</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Added project logo, updated dependencies">
+      <created>1441825260815</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1441825260815</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers>
       <YouTrack shared="false" url="http://saigkill-bugs.myjetbrains.com/youtrack">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -1408,8 +1408,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5237069">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.46551725">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
           <folding />
         </state>
       </provider>

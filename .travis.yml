@@ -7,7 +7,7 @@ language: ruby
 
 rvm:
   - 2.2.1
-  - 2.2.2
+  #- 2.2.2
 
 env:
   global:
@@ -22,10 +22,7 @@ before_install:
   - sudo apt-get install ffmpeg
 
 install:
-  - cd .rvm/gems/ruby-2.2.1/gems/youtube_dlhelper-0.1.9.4
-  - rake setup
-  - cd .rvm/gems/ruby-2.2.2/gems/youtube_dlhelper-0.1.9.4
-  - rake setup
+  - ls .rvm
 
 after_success:
   - CI=true TRAVIS=true coveralls --verbose
