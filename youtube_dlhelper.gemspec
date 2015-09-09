@@ -36,6 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'setup', '~> 5.2', '>= 5.2.0'
   spec.add_runtime_dependency 'notifier', '~> 0.5', '>= 0.5.1'
   spec.add_development_dependency 'MannsShared', '~> 0.2', '>= 0.2.0'
+  spec.add_development_dependency 'scrutinizer-ocular', '~> 1.0', '>= 1.0.1'
   spec.add_development_dependency 'rake', '~> 10.4', '>= 10.4.2'
   spec.add_development_dependency 'rdoc', '~> 4.2', '>= 4.2.0'
   spec.add_development_dependency 'bundler', '~> 1.9', '>= 1.9.6'
