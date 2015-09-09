@@ -55,7 +55,6 @@ module Downloader
     # filename
     filenamenew0 = filename.gsub(/ /, '_')
     pattern = /[a-zA-Z0-9\-\s\_]/
-    # Culture_Beat___________Mr_Vain
     filenamenew = filenamenew0.split(//).keep_if do |chr|
       chr =~ pattern
     end.join

@@ -92,65 +92,6 @@ task :setup => [:setup_start, :link_binary] do
   puts 'Finished Setup'
 end
 
-require 'fileutils'
-desc 'Prepare Userdoc for translating'
-task :prepare_doc do
-  doc = './doc'
-  FileUtils.cd(doc) do
-    puts 'Running trans_drop'
-    system('publican trans_drop')
-    puts 'Preparing pot files'
-    system('publican update_pot')
-    puts 'Preparing po files for de-DE'
-    system('publican update_po --langs=de-DE')
-    puts 'All done. Please use a poeditor (like poedit) to translate'
-    puts 'For building doc use rake build_doc.'
-  end
-end
-
-require 'fileutils'
-desc 'Build Userdoc'
-task :build_doc do
-  doc = './doc'
-  FileUtils.cd(doc) do
-    puts 'Building all targets'
-    system('publican build --langs=en-US,de-DE --formats=html,pdf')
-    puts 'All done. Please use rake publish_doc for publishing.'
-  end
-end
-
-require 'fileutils'
-desc 'Publish Userdoc'
-task :publish_doc do
-  version = YoutubeDlhelperVersion::Version::STRING
-  home = Dir.home
-  srcde = 'doc/tmp/de-DE/html'
-  srcen = 'doc/tmp/en-US/html'
-  srcdepdf = 'doc/tmp/de-DE/pdf'
-  srcenpdf = 'doc/tmp/en-US/pdf'
-  target = "#{home}/RubymineProjects/saigkill.github.com"
-  targetde = "#{home}/RubymineProjects/saigkill.github.com/doc/youtube_dlhelper/de-DE/html"
-  targeten = "#{home}/RubymineProjects/saigkill.github.com/doc/youtube_dlhelper/en-US/html"
-  targetenpdf = "#{home}/RubymineProjects/saigkill.github.com/doc/youtube_dlhelper/en-US/pdf"
-  targetdepdf = "#{home}/RubymineProjects/saigkill.github.com/doc/youtube_dlhelper/de-DE/pdf"
-
-  puts 'Copying source html files to target git repository'
-  FileUtils.cp_r(Dir["#{srcde}/*"], "#{targetde}")
-  FileUtils.cp_r(Dir["#{srcen}/*"], "#{targeten}")
-  FileUtils.cp_r(Dir["#{srcdepdf}/*"], "#{targetdepdf}")
-  FileUtils.cp_r(Dir["#{srcenpdf}/*"], "#{targetenpdf}")
-
-  puts 'Checking in into repository'
-  FileUtils.cd(target) do
-    puts 'Adding missing files'
-    system('git add *')
-    puts 'Made commit'
-    system("git commit -m \"Updated doc for youtube_dlhelper #{version}\"")
-    puts 'Pushing it to origin'
-    system('git push')
-  end
-end
-
 require 'yaml'
 require 'MannsShared'
 require 'fileutils'
@@ -191,6 +132,7 @@ tags: [ruby, opensource, youtube, en-US]
 ---
 {% include JB/setup %}
 
+[![youtube_dlhelper](http://saigkill.github.io/img/myprojects/100px-youtube_dlhelper.png)](https://github.com/saigkill/youtube_dlhelper)
 # Introduction
 The youtube_dlhelper is a short tool for download and manage the downloaded files. You are running the program inside the command line with a Youtube URL. Then it aska for a group name or interpreters name. Now it creates a Subfolder inside your Musicdirectory. Then it makes a MP3 from the downloaded file and moves it to the folder.
 
@@ -218,7 +160,7 @@ You need to have ffmpeg or avconv installed. The soft dependencies will be solve
   * Step2
 
 # Donations
-[![publicancreators](https://pledgie.com/campaigns/29423.png?skin_name=chrome)](https://pledgie.com/campaigns/29423)
+[![youtube_dlhelper](https://pledgie.com/campaigns/29423.png?skin_name=chrome)](https://pledgie.com/campaigns/29423)
 [![wishlist](http://tsv-neuss.de/cms/upload/News-Bilder/amazon1.png)](http://www.amazon.de/registry/wishlist/D75HOEQ00BDD)
 EOF
   end
@@ -234,6 +176,7 @@ tags: [ruby, opensource, youtube, de-DE]
 ---
 {% include JB/setup %}
 
+[![youtube_dlhelper](http://saigkill.github.io/img/myprojects/100px-youtube_dlhelper.png)](https://github.com/saigkill/youtube_dlhelper)
 # Einführung
 youtube_dlhelper ist ein kleines Tool zum Download und Konvertierung der files. Sie starten das Programm in der Kommandozeile mit der gewünschten Youtube URL. Das Programm fragt nun nach Parametern, wie der Name des Interpreten oder der Gruppe und erstellt innerhalb Ihres festgelegten Musikverzeichnis die benötigten Unterverzeichnisse.
 
@@ -268,6 +211,7 @@ EOF
   puts 'Prepared your Blogpost. Please add the changes of this release'
   puts 'Now ready for social media posting'
 
+  # rubocop:disable Style/MultilineOperationIndentation
   # Create email to ruby-talk
   space = '%20'
   crlf = '%0D%0A'
