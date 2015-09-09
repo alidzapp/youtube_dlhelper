@@ -93,7 +93,7 @@ task :setup => [:setup_start, :link_binary] do
 end
 
 require 'yaml'
-require File.join(File.dirname(__FILE__), '/lib/youtube_dlhelper/notifier')
+require 'MannsShared/change'
 require 'fileutils'
 desc 'Prepares for release'
 task :make_release do
@@ -106,8 +106,8 @@ task :make_release do
   oldversion = config['version']
 
   puts('Updating index')
-  YoutubeDlhelper.search_replace(oldversion, version, 'Index.yml')
-  YoutubeDlhelper.search_replace(oldversion, version, 'VERSION')
+  MannsShared.search_replace(oldversion, version, 'Index.yml')
+  MannsShared.search_replace(oldversion, version, 'VERSION')
   system('index --using VERSION Index.yml')
   puts 'Updating MANIFEST'
   system('mast -u && mast -u')
