@@ -242,5 +242,3 @@ EOF
   system('rm pkg/*')
   system('git add .idea/workspace && git commit -m "workspace" && git push')
 end
-
-# vim: syntax=ruby
