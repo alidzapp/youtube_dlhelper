@@ -35,7 +35,7 @@ group name or interpreters name. Now it creates a Subfolder inside your Musicdir
 The installation is very easy.
 
     gem install youtube_dlhelper
-    cd /path/to/gem (Falls RVM benutzt wird z.B. ~/.rvm/gems/ruby-2.2.1/gems/latex_curriculum_vitae)   
+    cd /path/to/gem (Falls RVM benutzt wird z.B. ~/.rvm/gems/ruby-2.2.1/gems/youtube_dlhelper)   
     rake setup
 
 ## Hard dependencies
