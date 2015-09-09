@@ -21,6 +21,12 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install ffmpeg
 
+install:
+  - cd .rvm/gems/ruby-2.2.1/gems/youtube_dlhelper-0.1.9.4
+  - rake setup
+  - cd .rvm/gems/ruby-2.2.2/gems/youtube_dlhelper-0.1.9.4
+  - rake setup
+
 after_success:
   - CI=true TRAVIS=true coveralls --verbose
 
