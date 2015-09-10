@@ -40,15 +40,15 @@ describe 'Checker' do
   end
 end
 
-describe 'Import' do
-  describe '.import_config' do
-    it 'reads in some variables and fill them localy' do
-      music_dir, ogg_file_accept = Import.import_config
-      expect(music_dir).equal? 'Musik'
-      expect(ogg_file_accept).equal? 'true'
-    end
-  end
-end
+# describe 'Import' do
+#   describe '.import_config' do
+#     it 'reads in some variables and fill them localy' do
+#       music_dir, ogg_file_accept = Import.import_config
+#       expect(music_dir).equal? 'Musik'
+#       expect(ogg_file_accept).equal? 'true'
+#     end
+#   end
+# end
 
 describe 'Downoader' do
   describe '.get' do
