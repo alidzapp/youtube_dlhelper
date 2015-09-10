@@ -93,7 +93,7 @@ task :setup => [:setup_start, :link_binary] do
 end
 
 require 'yaml'
-#require 'MannsShared/change'
+##require 'MannsShared/change'
 require File.expand_path(File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/change'))
 require 'fileutils'
 desc 'Prepares for release'
