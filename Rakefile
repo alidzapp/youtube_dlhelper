@@ -112,7 +112,7 @@ task :make_release do
   system('index --using VERSION Index.yml')
   puts 'Updating MANIFEST'
   system('mast -u && mast -u')
-  system('git add MANIFEST')
+  system('git add MANIFEST .index')
   puts 'done'
   puts 'Updating workspace'
   system('git add .idea/*')
