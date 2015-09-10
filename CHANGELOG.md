@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.9.6 (unpublished)
+### Improvements
+* Fixed layout problem by creating a blogpost
+
 ## 0.1.9.5 (2015-09-12)
 ### Improvements
 * Added a project logo for using in blogposts and notifier.

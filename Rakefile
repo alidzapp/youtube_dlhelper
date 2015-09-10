@@ -93,7 +93,6 @@ task :setup => [:setup_start, :link_binary] do
 end
 
 require 'yaml'
-##require 'MannsShared/change'
 require File.expand_path(File.join(File.dirname(__FILE__), 'lib/youtube_dlhelper/change'))
 require 'fileutils'
 desc 'Prepares for release'
@@ -134,6 +133,7 @@ tags: [ruby, opensource, youtube, en-US]
 {% include JB/setup %}
 
 [![youtube_dlhelper](http://saigkill.github.io/img/myprojects/100px-youtube_dlhelper.png)](https://github.com/saigkill/youtube_dlhelper)
+
 # Introduction
 The youtube_dlhelper is a short tool for download and manage the downloaded files. You are running the program inside the command line with a Youtube URL. Then it aska for a group name or interpreters name. Now it creates a Subfolder inside your Musicdirectory. Then it makes a MP3 from the downloaded file and moves it to the folder.
 
@@ -178,6 +178,7 @@ tags: [ruby, opensource, youtube, de-DE]
 {% include JB/setup %}
 
 [![youtube_dlhelper](http://saigkill.github.io/img/myprojects/100px-youtube_dlhelper.png)](https://github.com/saigkill/youtube_dlhelper)
+
 # Einführung
 youtube_dlhelper ist ein kleines Tool zum Download und Konvertierung der files. Sie starten das Programm in der Kommandozeile mit der gewünschten Youtube URL. Das Programm fragt nun nach Parametern, wie der Name des Interpreten oder der Gruppe und erstellt innerhalb Ihres festgelegten Musikverzeichnis die benötigten Unterverzeichnisse.
 
