@@ -97,8 +97,6 @@ GEM
       parser (~> 2.2)
       slop (~> 3.4, >= 3.4.7)
     ruby-progressbar (1.7.5)
-    scrutinizer-ocular (1.0.1)
-      simplecov (>= 0.7)
     setup (5.2.0)
     simplecov (0.10.0)
       docile (~> 1.1.0)
@@ -147,7 +145,6 @@ DEPENDENCIES
   rspec-core (~> 3.3, >= 3.3.2)
   rubocop (~> 0.33, >= 0.34.0)
   ruby-lint (~> 2.0, >= 2.0.4)
-  scrutinizer-ocular (~> 1.0, >= 1.0.1)
   simplecov (~> 0.10, >= 0.10.0)
   yard (~> 0.8, >= 0.8.7.6)
   youtube_dlhelper!
