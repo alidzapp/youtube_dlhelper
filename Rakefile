@@ -141,7 +141,7 @@ The youtube_dlhelper is a short tool for download and manage the downloaded file
 If you give it a try just follow the next steps (If you have already Ruby installed):
 
   * gem install youtube_dlhelper
-  * cd /path/to/gem (Falls RVM benutzt wird z.B. ~/.rvm/gems/ruby-2.2.1/gems/youtube_dlhelper-#{version})
+  * cd /path/to/gem (By using RVM it can be ~/.rvm/gems/ruby-2.2.1/gems/youtube_dlhelper-#{version})
   * rake setup
 
 # Dependencies
