@@ -215,7 +215,7 @@ EOF
   # Create email to ruby-talk
   space = '%20'
   crlf = '%0D%0A'
-  subject = "youtube_dlhelper #{version} released"
+  subject = "[ANN] youtube_dlhelper #{version} released"
   subject.gsub!(/ /, "#{space}")
   body = 'Hello Ruby list,' + "#{crlf}" + "#{crlf}" +
       "i would like to announce the youtube_dlhelper gem in version #{version}." + "#{crlf}" + "#{crlf}" +

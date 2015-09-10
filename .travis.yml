@@ -22,9 +22,7 @@ before_install:
   - sudo apt-get install ffmpeg
 
 before_script:
-  - cd $GEM_HOME/gems
-  - ls
-  #- rake setup
+  - rake setup
 
 after_success:
   - CI=true TRAVIS=true coveralls --verbose
