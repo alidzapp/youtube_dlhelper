@@ -79,6 +79,7 @@ module Ripper
   # Method for converting stuff
   # This method smells of :reek:TooManyStatements
   # This method smells of :reek:LongParameterList
+  # This method smells of :reek:ControlParameter
   # @param [String] ogg_file_accept OGG file as result accepted?
   # @param [String] ffmpeg_binary Path to the ffmpeg binary
   # @param [String] filenamein The original file

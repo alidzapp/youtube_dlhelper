@@ -1,7 +1,12 @@
 # CHANGELOG
 
+## 0.1.9.5 (2015-09-12)
+### Improvements
+* Added a project logo for using in blogposts and notifier.
+* Updated dependencies triggered by gemnasium
+
 ## 0.1.9.4 (2015-09-07)
-## Improvements
+### Improvements
 * Changed setup procedure to setup.rb
 * Removing /usr/bin/youtube_dlhelper because setup.rb installs in PATH
 

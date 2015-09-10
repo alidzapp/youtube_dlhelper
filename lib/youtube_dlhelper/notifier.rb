@@ -11,16 +11,18 @@
 # Module for notify the user
 require 'notifier'
 
+# Module for notifying the user
 module Notifier
+  # Method for notifying the user
   def self.run
     home = Dir.home
     prefix = "#{home}/.rvm/rubies/default"
     datadir = "#{prefix}/share"
-    img = "#{datadir}/latex_curriculum_vitae/Pictures/arbeitsagentur.png"
+    img = "#{datadir}/youtube_dlhelper/100px-youtube_dlhelper.png"
     Notifier.notify(
-        #:image => "#{img}",
-        :title => "Your YouTube video",
-        :message => "Your transcoding is finished."
+        :image => "#{img}",
+        :title => 'Your YouTube video',
+        :message => 'Your transcoding is finished.'
     )
   end
 end

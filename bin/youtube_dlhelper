@@ -7,6 +7,3 @@ when 1
 else
   abort('Syntax Error: Please check if you have given a URL')
 end
-
-
-exit YoutubeDlhelper.run!(*ARGV)

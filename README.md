@@ -16,7 +16,6 @@
 | still maintained?             | [![stillmaintained](http://stillmaintained.com/saigkill/youtube_dlhelper.png)](http://stillmaintained.com/saigkill/youtube_dlhelper)                                              |
 | documentation quality         | [![documentationquality](http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master)](http://inch-ci.org/github/saigkill/youtube_dlhelper)                             |
 | documentation                 | http://www.rubydoc.info/gems/youtube_dlhelper                                                                                                                                    |
-| user documentation            | http://saigkill.github.io/docs/youtube_dlhelper/en-US/html/                                                                                                                                    |
 | Bugreports & Feature requests | http://saigkill-bugs.myjetbrains.com/youtrack/issues                                                                                                                              |
 | Mailinglist                   | https://groups.google.com/forum/#!forum/youtube_dlhelper |
 | authors blog                  | http://saigkill.github.io                                                                                                                                                         |
@@ -36,7 +35,7 @@ group name or interpreters name. Now it creates a Subfolder inside your Musicdir
 The installation is very easy.
 
     gem install youtube_dlhelper
-    cd /path/to/gem (Falls RVM benutzt wird z.B. ~/.rvm/gems/ruby-2.2.1/gems/latex_curriculum_vitae)   
+    cd /path/to/gem (Falls RVM benutzt wird z.B. ~/.rvm/gems/ruby-2.2.1/gems/youtube_dlhelper)   
     rake setup
 
 ## Hard dependencies
@@ -51,9 +50,17 @@ Example:
     youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI
     If a https:// URL doesn't work use http:// instead
 
+Now the program asks you if the artist is an Interpret or a Group. If you choose Interpret it aks you for the firstname and
+the surname. So it creates a directory in your MUSICDIR/surname_firstname/Youtube. If you choose Group it uses the Groupname
+for creating the directory.
+
 Before running the program you have to open the youtube_dlhelper.conf and change the settings (It is placed in HOME/.youtube_dlhelper).
 
 If you like this little program so don't forget to give this GitHub repository a star :-)
+
+## Known Issues
+Sometimes it happens a 403 FORBIDDEN feedback from Google. It looks like it depends on country restrictions mostly on
+VEVO Videos. More [there](https://github.com/rb2k/viddl-rb/issues/117).
 
 ## Feature Requests & Bug Reports
 You can file Requests and Reports on the Github Repository: http://saigkill-bugs.myjetbrains.com/youtrack/issues

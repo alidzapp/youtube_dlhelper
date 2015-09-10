@@ -12,7 +12,7 @@ The develop branch is the current edge of development.
 
 ## Pull requests
 
-* https://github.com/saigkill/latex_curriculum_vitae/pulls
+* https://github.com/saigkill/youtube_dlhelper/pulls
 
 Please base all pull requests off the `develop` branch. Merges to
 `master` only occur through the `develop` branch. Pull requests

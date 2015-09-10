@@ -93,7 +93,7 @@ module Checker
                puts 'Just the entries "Interpret" or "Group" are allowed'.color(:red)
                abort('Aborted')
              end
-    subdir.gsub(/ /, '_')
+    subdir.gsub!(/ /, '_')
     folder = "#{ subdir }/Youtube-Music"
     return folder
   end

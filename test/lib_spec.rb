@@ -7,6 +7,7 @@ require File.join(File.dirname(__FILE__), '..', '/lib/youtube_dlhelper/checker')
 require File.join(File.dirname(__FILE__), '..', '/lib/youtube_dlhelper/downloader')
 require File.join(File.dirname(__FILE__), '..', '/lib/youtube_dlhelper/import_config')
 require File.join(File.dirname(__FILE__), '..', '/lib/youtube_dlhelper/ripper')
+require File.join(File.dirname(__FILE__), '..', '/lib/youtube_dlhelper/notifier')
 
 tempfile = 'Crystallize_-_Lindsey_Stirling_Dubstep_Violin_Original_Song'
 tempfile1 = 'Crystallize - Lindsey Stirling (Dubstep Violin Original Song)'
@@ -14,6 +15,7 @@ ffmpeg_binary = '/usr/local/bin/ffmpeg'
 
 describe 'Checker' do
   describe '.external_url_is_valid?' do
+
     context 'using http url' do
       it 'get an url, test it and give back when valid' do
         # rubocop:disable Metrics/LineLength
@@ -23,7 +25,7 @@ describe 'Checker' do
     end
 
     context 'using https url' do
-      it 'get the url, test and fails' do
+      it 'get the url, test and give back when valid' do
         url = Checker.external_url_is_valid?('https://www.youtube.com/watch?v=aHjpOzsQ9YI')
         expect(url).equal? 'true'
       end
@@ -38,15 +40,15 @@ describe 'Checker' do
   end
 end
 
-describe 'Import' do
-  describe '.import_config' do
-    it 'reads in some variables and fill them localy' do
-      music_dir, ogg_file_accept = Import.import_config
-      expect(music_dir).equal? 'Musik'
-      expect(ogg_file_accept).equal? 'true'
-    end
-  end
-end
+# describe 'Import' do
+#   describe '.import_config' do
+#     it 'reads in some variables and fill them localy' do
+#       music_dir, ogg_file_accept = Import.import_config
+#       expect(music_dir).equal? 'Musik'
+#       expect(ogg_file_accept).equal? 'true'
+#     end
+#   end
+# end
 
 describe 'Downoader' do
   describe '.get' do
@@ -86,6 +88,14 @@ describe 'Checker' do
       File.delete("#{tempfile1}.mp4") if File.exist?("#{tempfile1}.mp4")
       File.delete("#{tempfile}.mp3") if File.exist?("#{tempfile}.mp3")
       File.delete("#{tempfile}.ogg") if File.exist?("#{tempfile}.ogg")
+    end
+  end
+end
+
+describe 'Notifier' do
+  describe '.run' do
+    it 'Gives a Notify' do
+      Notifier.run
     end
   end
 end
