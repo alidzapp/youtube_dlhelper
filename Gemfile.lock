@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    youtube_dlhelper (0.1.9.5)
+    youtube_dlhelper (0.1.9.6)
       addressable (~> 2.3, >= 2.3.8)
       highline (~> 1.7, >= 1.7.3)
       notifier (~> 0.5, >= 0.5.1)

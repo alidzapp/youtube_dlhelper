@@ -74,7 +74,7 @@ task :setup_start do
   puts '#http://saigkill-bugs.myjetbrains.com/youtrack/issues#'
   puts '######################################################'
 
-  system('setup uninstall --force')
+  system('setup.rb uninstall --force')
   system('setup.rb config --sysconfdir=$HOME/.youtube_dlhelper')
   system('setup.rb install')
 end
