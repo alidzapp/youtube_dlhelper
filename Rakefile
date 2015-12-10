@@ -12,11 +12,12 @@ require 'rubygems'
 require 'hoe'
 
 Hoe.plugin :bundler
-Hoe.plugin :deveiate # Enable deveiate plugin for generating manuals
+#Hoe.plugin :deveiate # Enable deveiate plugin for generating manuals
 Hoe.plugin :doofus
 Hoe.plugin :email
 Hoe.plugin :gemspec
 # Hoe.plugin :gem_prelude_sucks
+#Hoe.plugins.delete :git
 Hoe.plugin :git
 Hoe.plugin :history
 Hoe.plugin :highline
@@ -27,14 +28,15 @@ Hoe.plugin :manns
 # Hoe.plugin :racc
 # Hoe.plugin :rcov
 Hoe.plugin :reek
-#Hoe.plugin :rdoc
+Hoe.plugin :rdoc
+Hoe.plugin :packaging
 Hoe.plugin :rubocop
-# Hoe.plugin :rubygems
+Hoe.plugin :rubygems
 #Hoe.plugin :seattlerb
 Hoe.plugin :travis
 Hoe.plugin :version
 Hoe.plugin :website
-#Hoe.plugin :yard
+Hoe.plugin :yard
 
 ###########################################DEVELOPING ZONE##############################################################
 # rubocop:disable Metrics/LineLength
@@ -69,6 +71,7 @@ Hoe.spec "youtube_dlhelper" do
   extra_dev_deps << ['hoe-git', '~> 1.6']
   extra_dev_deps << ['hoe-highline', '~> 0.2']
   extra_dev_deps << ['hoe-manns', '~> 1.4.3']
+  extra_dev_deps << ['hoe-packaging', '~> 1.1.0']
   extra_dev_deps << ['hoe-reek', '~> 1.1']
   extra_dev_deps << ['hoe-rubocop', '~> 1.0.1']
   extra_dev_deps << ['hoe-rubygems', '~> 1.0']
