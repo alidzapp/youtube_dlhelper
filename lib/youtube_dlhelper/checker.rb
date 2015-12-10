@@ -38,11 +38,11 @@ module Checker
     puts 'Checking prefix'.color(:green)
     puts url
     if url.include? 'https'
-      puts 'Checking if https URL is valid'.color(:green)
+      puts 'Checking if https URL is valid'.colour(:green)
       https_url_valid?(url)
       return url
     else
-      puts 'Checking if http URL is valid'.color(:green)
+      puts 'Checking if http URL is valid'.colour(:green)
       http_url_valid?(url)
       return url
     end
@@ -90,7 +90,7 @@ module Checker
                ask 'Whats the name of the group?'
 
              else
-               puts 'Just the entries "Interpret" or "Group" are allowed'.color(:red)
+               puts 'Just the entries "Interpret" or "Group" are allowed'.colour(:red)
                abort('Aborted')
              end
     subdir.gsub!(/ /, '_')
@@ -104,13 +104,13 @@ module Checker
   def self.check_dir(music_dir, folder)
     # @note Checking if musicdir exists
     if Dir.exist?("#{music_dir}/#{folder}")
-      puts 'Found directory. Im using it.'.color(:green)
+      puts 'Found directory. Im using it.'.colour(:green)
     else
-      puts 'No directory found. Im creating it.'.color(:green)
+      puts 'No directory found. Im creating it.'.colour(:green)
       # @note Creates the new directory in $music_dir/$folder
       FileUtils.mkdir_p("#{music_dir}/#{folder}")
       if Dir.exist?("#{music_dir}/#{folder}")
-        puts 'Created new directory...'.color(:green)
+        puts 'Created new directory...'.colour(:green)
       else
         fail('Cant create directory')
       end
@@ -122,11 +122,11 @@ module Checker
   def self.oldconfig_exists?
     home = Dir.home
     if File.exist?("#{home}/.youtube_dlhelper/youtube_dlhelper.conf")
-      puts 'Found configuration file and using it...'.color(:yellow)
+      puts 'Found configuration file and using it...'.colour(:yellow)
     else
       # @raise
-      puts 'Please run rake setup'.color(:red)
-      fail('Exiting now..').color(:red)
+      puts 'Please run rake setup'.colour(:red)
+      fail('Exiting now..').colour(:red)
     end
   end
 
@@ -149,12 +149,13 @@ module Checker
   def self.cleanup(filename, filenameold)
     puts 'Cleaning up directory'.color(:green)
     # @note Cleanup the temp files
-    File.delete("#{filename}.mp4") if File.exist?("#{filename}.mp4")
-    File.delete("#{filename}.m4a") if File.exist?("#{filename}.m4a")
-    File.delete("#{filename}.webm") if File.exist?("#{filename}.webm")
-    File.delete("#{filenameold}.mp4") if File.exist?("#{filenameold}.mp4")
-    File.delete("#{filenameold}.m4a") if File.exist?("#{filenameold}.m4a")
-    File.delete("#{filenameold}.webm") if File.exist?("#{filenameold}.webm")
+    Dir.glob("#{filename}*.mp4").each { |f| File.delete(f) if File.exist?(f) }
+    Dir.glob("#{filename}*.m4a").each { |f| File.delete(f) if File.exist?(f) }
+    Dir.glob("#{filename}*.webm").each { |f| File.delete(f) if File.exist?(f) }
+    Dir.glob("#{filenameold}*.mp4").each { |f| File.delete(f) if File.exist?(f) }
+    Dir.glob("#{filenameold}*.m4a").each { |f| File.delete(f) if File.exist?(f) }
+    Dir.glob("#{filenameold}*.webm").each { |f| File.delete(f) if File.exist?(f) }
+
     puts 'Finished cleaning up'.color(:green)
   end
 end

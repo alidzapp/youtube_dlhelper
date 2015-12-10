@@ -1,0 +1,118 @@
+= youtube_dlhelper
+
+home  :: http://saigkill.github.io
+code  :: http://gitlab.com/saigkill/youtube_dlhelper
+rdoc  :: http://www.rubydoc.info/gems/youtube_dlhelper
+bugs  :: https://gitlab.com/saigkill/youtube_dlhelper/issues
+openhub statistics :: https://www.openhub.net/p/youtube_dlhelper
+openhatch :: http://www.openhatch.org/projects/youtube_dlhelper
+license :: {<img src="http://img.shields.io/:license-mit-blue.svg" />}[https://gitlab.com/saigkill/youtube_dlhelper/blob/master/LICENSE.rdoc]
+last public version  :: {<img src="https://badge.fury.io/rb/youtube_dlhelper.png" alt="Last Version" />}[http://rubygems.org/gems/youtube_dlhelper]
+downloads latest :: {<img src="https://img.shields.io/gem/dtv/youtube_dlhelper.svg" alt="Downloads latest version" />}[http://rubygems.org/gems/youtube_dlhelper]
+downloads all :: {<img src="https://img.shields.io/gem/dt/youtube_dlhelper.svg" alt="Downloads all versions" />}[http://rubygems.org/gems/youtube_dlhelper]
+continuous integration :: {<img src="https://secure.travis-ci.org/saigkill/youtube_dlhelper.png?branch=master" alt="Build Status" />}[https://secure.travis-ci.org/saigkill/youtube_dlhelper]
+continuous integration :: {<img src="https://scrutinizer-ci.com/gp/youtube_dlhelper/badges/quality-score.png?b=master&s=e271fc82847fef5ac81c40ad6f71b5857a237287" />}[https://scrutinizer-ci.com/gp/youtube_dlhelper/]
+code quality :: {<img src="https://scrutinizer-ci.com/gp/youtube_dlhelper/badges/build.png?b=master&s=8f007db2fd69273676cded1a10ec1baa3333767a" />}[https://scrutinizer-ci.com/gp/youtube_dlhelper/]
+code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhelper/badges/gpa.svg" alt="Code Quality" />}[https://codeclimate.com/github/saigkill/youtube_dlhelper]
+security :: {<img src="https://hakiri.io/github/saigkill/youtube_dlhelper/master.svg" alt="security" />}[https://hakiri.io/github/saigkill/youtube_dlhelper/master]
+test coverage :: {<img src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png?branch=master" alt="Test Coverage" />}[https://coveralls.io/r/saigkill/youtube_dlhelper?branch=master]
+dependency check :: {<img src="https://gemnasium.com/30fa9e5a05d551923777e372c8dbb834.svg" alt="Build Status" />}[https://gemnasium.com/4ed576a6572ae68437b5a8f09120850b/settings]
+still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Still maintained?" />}[http://stillmaintained.com/saigkill/youtube_dlhelper]
+documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" alt="Documentation Quality" />}[http://inch-ci.org/github/saigkill/youtube_dlhelper]
+donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" alt="Donations" />}[https://pledgie.com/campaigns/29423]
+donations :: {<img src="http://img.shields.io/gratipay/saigkill.svg" alt="Donations" />}[https://gratipay.com/~saigkill/]
+donations :: {<img src="http://tsv-neuss.de/cms/upload/News-Bilder/amazon1.png" alt="Donations" />}[http://www.amazon.de/registry/wishlist/D75HOEQ00BDD]
+
+
+== DESCRIPTION:
+
+The youtube_dlhelper is a short tool for download and manage the downloaded files. You are running the program inside the command line with a Youtube URL. Then it aska for a
+group name or interpreters name. Now it creates a Subfolder inside your Musicdirectory. Then it makes a MP3 from the downloaded file and moves it to the folder.
+
+== FEATURES/PROBLEMS:
+
+* downloads a video from a url
+* extracts audio
+* converts them into mp3 or ogg
+* Sometimes it happens a 403 FORBIDDEN feedback from Google. It looks like it depends on country restrictions mostly on VEVO Videos. More [there](https://github.com/rb2k/viddl-rb/issues/117).
+
+== SYNOPSIS:
+
+    $ youtube_dlhelper YoutubeURL
+
+Example:
+
+    youtube_dlhelper http://www.youtube.com/watch?v=aHjpOzsQ9YI
+    If a https:// URL doesn't work use http:// instead
+
+Now the program asks you if the artist is an Interpret or a Group. If you choose Interpret it aks you for the firstname and
+the surname. So it creates a directory in your MUSICDIR/surname_firstname/Youtube. If you choose Group it uses the Groupname
+for creating the directory.
+
+Before running the program you have to open the youtube_dlhelper.conf and change the settings (It is placed in HOME/.youtube_dlhelper).
+
+If you like this little program so don't forget to give this GitLab repository a star :-)
+
+Read the documentation at: https://gitlab.com/saigkill/youtube_dlhelper/wikis/home
+
+== REQUIREMENTS:
+
+* nokogiri
+* setup
+* highline
+* parseconfig
+* youtube-dl.rb
+* steamio-ffmpeg
+* rainbow
+* addressable
+* notifier
+
+== INSTALL:
+
+The installation is very easy.
+
+    gem install youtube_dlhelper
+    cd /path/to/gem (In case of using RVM ~/.rvm/gems/ruby-2.2.1/gems/youtube_dlhelper)
+    rake setup
+
+Read the documentation at: https://gitlab.com/saigkill/youtube_dlhelper/wikis/home
+
+You have to run the setup after each gem update.
+
+If you like this gem, don't forget to give the GitLab repo a star :-)
+
+== DEVELOPERS:
+
+After checking out the source, run:
+
+  $ rake newb
+
+This task will install any missing dependencies, run the tests/specs,
+and generate the RDoc.
+
+Read https://gitlab.com/saigkill/youtube_dlhelper/blob/master/CONTRIBUTING.md
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2015 Sascha Manns <samannsml@directbox.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

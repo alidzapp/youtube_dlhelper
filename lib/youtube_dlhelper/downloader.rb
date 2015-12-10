@@ -23,19 +23,29 @@
 
 
 # Dependencies
-require 'viddl-rb'
+require 'youtube-dl.rb'
 require 'rainbow/ext/string'
 require 'fileutils'
 
 # Module for all Downloading things
 module Downloader
-  # Accessing the url with get(url) via viddl-rb
+  # Accessing the url with get(url) via youtube-dl.rb
   # @param [String] url Is the given URL to the Youtube file
   def self.get(url)
-    puts 'Downloading file...'.color(:green)
-    system('viddl-rb', '-e', "#{url}")
-    puts 'Downloading done...'.color(:green)
-    rename(url)
+    puts 'Downloading file...'.colour(:green)
+    # Thanks for the gist https://gist.github.com/sapslaj/edb51218357fa33b6c4c
+    video = YoutubeDL.download(url)
+    video.filename # => "Adele - Hello-YQHsXMglC9A.f137.mp4"
+
+    video_with_title = YoutubeDL.download(url, extract_audio: true, audio_format: 'best', audio_quality: 0, output: '%(title)s.%(ext)s')
+    video_with_title.filename # => "Adele - Hello.mp4"
+
+    title = YoutubeDL::Runner.new(url, get_title: true).run
+    title # => "Adele - Hello"
+    puts 'Downloading done...'.colour(:green)
+    filename = video_with_title.filename
+
+    rename(filename)
   end
 
   # rubocop:disable Metrics/AbcSize
@@ -44,12 +54,9 @@ module Downloader
   # Method for renaming the orig file with blanks to underscores
   # @param [String] url Is the given URL to the Youtube file
   # @return [String] filenamenew The fixed filename with underscores
-  def self.rename(url)
-    file = ViddlRb.get_names(url)
-    file.first
-    extn = File.extname file.first.to_s # .mp4
-    # Culture Beat           Mr. Vain
-    filename = File.basename file.first.to_s, extn
+  def self.rename(filenameorig)
+    extn = File.extname filenameorig # .mp4
+    filename = File.basename filenameorig, extn
     ext = file_exist_ogg_m4a(filename)
     # @note Replacing blanks with underscrores and delete non standard chars in
     # filename
@@ -58,13 +65,13 @@ module Downloader
     filenamenew = filenamenew0.split(//).keep_if do |chr|
       chr =~ pattern
     end.join
-    puts 'Renaming the downloaded file'.color(:green)
+    puts 'Renaming the downloaded file'.colour(:green)
     FileUtils.mv("#{filename}.#{ext}", "#{filenamenew}.#{ext}")
     [filenamenew, filename]
   end
 
   # It checks what old file are available
-  # @param [String] filename
+  # @param [String] title
   # @return ext
   def self.file_exist_ogg_m4a(filename)
     if File.exist?("#{filename}.ogg")

@@ -1,54 +1,64 @@
 --- 
-name:    youtube_dlhelper
-version: 0.1.9.5
-title:   Youtube_dlhelper
-summary: Youtube Downloadhelper and Ripper
+name:    manns_shared
+version: 1.0.0
+title:   Manns_shared
+summary: Small collection of methods for standard tasks
 
 description:
-  This is a Youtube Downloadhelper who downloads a file, rips it to mp3 and placed it in a organized form
+  manns_shared is a small collection of methods for standard tasks like search and replace content in a file, checking if a targetdirectory or a configuration file is available or remove a special node from a XML file.
 
 authors:
-  - Sascha Manns <samannsml@directbox.com>
+  - Sascha Manns <samanns@directbox.com>
 
 requirements:
-- highline
-- parseconfig
-- viddl-rb
-- streamio-ffmpeg
-- rainbow
-- addressable
+- nokogiri
 - setup
-- notifier
-- rake (build)
-- rdoc (build)
 - bundler (build)
+- rake (build)
+- bundler (build)
+- rdoc (build)
 - yard (build)
 - gem-release (build)
-- rubocop (build)
 - travis (build)
-- reek (build)
-- ruby-lint (build)
 - bundler-audit (build)
 - indexer (build)
-- mast (build)
-- simplecov (test)
+- fpm (build)
+- hoe-highline (build)
+- hoe-bundler (build)
+- hoe-deveiate (build)
+- hoe-gemspec (build)
+- hoe-doofus (build)
+- hoe-git (build)
+- hoe-rubygems (build)
+- hoe-manns (build)
+- hoe-reek (build)
+- hoe-rubocop (build)
+- hoe-travis (build)
+- hoe-version (build)
+- hoe-yard (build)
+- hoe-seattlerb (build)
+- hoe-manualgen (build)
+- hoe (build)
 - coveralls (test)
-- rspec (test)
-- rspec-core (test)
+- shoulda (test)
+- simplecov (test)
+- rubocop (test)
+- reek (test)
+- ZenTest (test)
+- minitest (test)
 
 repositories:
-  upstream: https://github.com/saigkill/youtube_dlhelper.git
+  upstream: https://github.com/saigkill/manns_shared.git
 
 resources:
   home: http://saigkill.github.io
-  code: https://github.com/saigkill/youtube_dlhelper
-  bugs: http://saigkill-bugs.myjetbrains.com/youtrack
-  issues: http://saigkill-bugs.myjetbrains.com/youtrack
+  code: https://gitlab.com/saigkill/manns_shared
+  bugs: https://gitlab.com/saigkill/manns_shared/issues
 
 categories:
-  - youtube
+  - libraries
   - ruby
-  - music
 
 copyrights:
   - 2015 Sascha Manns (GPL3)
+

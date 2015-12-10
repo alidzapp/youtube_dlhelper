@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'youtube_dlhelper'
+#require '../lib/youtube_dlhelper'
 
 case ARGV.length
 when 1

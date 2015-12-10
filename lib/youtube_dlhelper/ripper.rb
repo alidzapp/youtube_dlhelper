@@ -24,6 +24,7 @@
 
 # Dependencies
 require 'streamio-ffmpeg'
+require 'rainbow/ext/string'
 
 # Module for all ripping methods
 module Ripper
@@ -35,19 +36,19 @@ module Ripper
   # @param [String] ffmpeg_binary Path to the ffmpeg binary
   def self.rip_prepare(filename, ogg_file_accept, ffmpeg_binary)
     # @note Checks if a *.m4a file is present. Then it routes to Ripper.rip
-    puts 'Checking if transcoding is needed. Depends on ogg_file_accept.'
+    puts 'Checking if transcoding is needed. Depends on ogg_file_accept.'.colour(:yellow)
     if File.exist?("#{filename}.m4a")
-      puts 'TRANSCODING TO MP3'
+      puts 'TRANSCODING TO MP3'.colour(:yellow)
       ext = 'm4a'
       rip(filename, ext, ogg_file_accept, ffmpeg_binary)
     elsif File.exist?("#{filename}.ogg") && ogg_file_accept == 'false'
-      puts 'TRANSCODING TO MP3'
+      puts 'TRANSCODING TO MP3'.colour(:yellow)
       ext = 'ogg'
       rip(filename, ext, ogg_file_accept, ffmpeg_binary)
     elsif File.exist?("#{filename}.ogg")
-      puts 'Already a ogg file. No transcoding needed'
+      puts 'Already a ogg file. No transcoding needed'.colour(:green)
     else
-      puts 'No transcoding needed'
+      puts 'No transcoding needed'.colour(:green)
     end
   end
 
@@ -66,13 +67,13 @@ module Ripper
     FFMPEG.ffmpeg_binary = ffmpeg_binary
     filenamein = "#{filename}.#{ext}"
     audio = FFMPEG::Movie.new(filenamein)
-    puts 'Initializing finished'
+    puts 'Initializing finished'.colour(:green)
     # @note Checking if valid
-    puts 'Checking if the movie is valid.'
+    puts 'Checking if the movie is valid.'.colour(:yellow)
     audio.valid?
-    puts 'Validated'
+    puts 'Validated'.colour(:green)
     ext = convert(ogg_file_accept, ffmpeg_binary, filenamein, filename)
-    puts 'Transcoded'
+    puts 'Transcoded'.colour(:green)
     [filename, ext]
   end
 
@@ -90,11 +91,11 @@ module Ripper
     if ogg_file_accept == 'true'
       system("#{ffmpeg_binary} -i #{filenamein} -acodec vorbis -vn -ac 2 -aq 60 -strict -2 #{filename}.ogg")
       ext = 'ogg'
-      puts ext
+      #puts ext
     else
       system("#{ffmpeg_binary} -i #{filenamein} -acodec libmp3lame -ac 2 -ab 192k #{filename}.mp3")
       ext = 'mp3'
-      puts ext
+      #puts ext
     end
     return ext
   end
