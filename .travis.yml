@@ -21,7 +21,7 @@ env:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get install libav-tools libavcodec-extra-54
+  - sudo apt-get install libav-tools libavcodec-extra-54 -y
 
 before_script:
   - rake setup
