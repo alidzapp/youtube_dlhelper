@@ -33,4 +33,3 @@ lib/youtube_dlhelper/ripper.rb
 ruby-lint.yml
 test/lib_spec.rb
 test/spec_helper.rb
-youtube_dlhelper.gemspec
