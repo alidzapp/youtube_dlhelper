@@ -16,7 +16,7 @@ code quality :: {<img src="https://scrutinizer-ci.com/g/saigkill/youtube_dlhelpe
 code quality :: {<img src="https://codeclimate.com/github/saigkill/youtube_dlhelper/badges/gpa.svg" alt="Code Quality" />}[https://codeclimate.com/github/saigkill/youtube_dlhelper]
 security :: {<img src="https://hakiri.io/github/saigkill/youtube_dlhelper/master.svg" alt="security" />}[https://hakiri.io/github/saigkill/youtube_dlhelper/master]
 test coverage :: {<img src="https://coveralls.io/repos/saigkill/youtube_dlhelper/badge.png?branch=master" alt="Test Coverage" />}[https://coveralls.io/r/saigkill/youtube_dlhelper?branch=master]
-dependency check :: {<img src="https://gemnasium.com/30fa9e5a05d551923777e372c8dbb834.svg" alt="Build Status" />}[https://gemnasium.com/4ed576a6572ae68437b5a8f09120850b/settings]
+dependency check :: {<img src="https://gemnasium.com/saigkill/youtube_dlhelper.svg" alt="Dependency Status" />}[https://gemnasium.com/saigkill/youtube_dlhelper]
 still maintained? :: {<img src="http://stillmaintained.com/saigkill/youtube_dlhelper.png" alt="Still maintained?" />}[http://stillmaintained.com/saigkill/youtube_dlhelper]
 documentation quality :: {<img src="http://inch-ci.org/github/saigkill/youtube_dlhelper.svg?branch=master" alt="Documentation Quality" />}[http://inch-ci.org/github/saigkill/youtube_dlhelper]
 donations :: {<img src="https://pledgie.com/campaigns/29423.png?skin_name=chrome" alt="Donations" />}[https://pledgie.com/campaigns/29423]
