@@ -60,7 +60,7 @@ Hoe.spec "youtube_dlhelper" do
   dependency 'rainbow', '~> 2.0.0'
   dependency 'addressable', '~> 2.4.0'
   dependency 'notifier', '~> 0.5.1'
-  dependency 'youtube-dl.rb', '~> 0.2.5.2015.11.27.1'
+  dependency 'youtube-dl.rb', '~> 0.2.5.2015.12.10.1'
 
   extra_dev_deps << ['coveralls', '~> 0.8']
   extra_dev_deps << ['gem-release', '~> 0.7']
@@ -73,7 +73,7 @@ Hoe.spec "youtube_dlhelper" do
   extra_dev_deps << ['hoe-manns', '~> 1.4.3']
   extra_dev_deps << ['hoe-packaging', '~> 1.1.1']
   extra_dev_deps << ['hoe-reek', '~> 1.1']
-  extra_dev_deps << ['hoe-rubocop', '~> 1.0.2']
+  extra_dev_deps << ['hoe-rubocop', '~> 1.0.3']
   extra_dev_deps << ['hoe-rubygems', '~> 1.0']
   extra_dev_deps << ['hoe-seattlerb', '~> 1.3']
   extra_dev_deps << ['hoe-travis', '~> 1.2']
