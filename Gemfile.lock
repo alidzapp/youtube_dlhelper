@@ -276,7 +276,7 @@ DEPENDENCIES
   streamio-ffmpeg (~> 1.0.0)
   test (~> 1.0.0)
   test-unit (~> 3.1.4)
-  youtube-dl.rb (~> 0.2.5.2015.12.10.1)
+  youtube-dl.rb (~> 0.2.5.2015.12.10)
 
 BUNDLED WITH
    1.10.6

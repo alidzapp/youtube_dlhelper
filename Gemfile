@@ -12,7 +12,7 @@ gem "streamio-ffmpeg", "~>1.0.0"
 gem "rainbow", "~>2.0.0"
 gem "addressable", "~>2.4.0"
 gem "notifier", "~>0.5.1"
-gem "youtube-dl.rb", "~>0.2.5.2015.12.10.1"
+gem "youtube-dl.rb", "~>0.2.5.2015.12.10"
 
 gem "hoe-highline", "~>0.2", :group => [:development, :test]
 gem "hoe-yard", ">=0.1.2", :group => [:development, :test]
