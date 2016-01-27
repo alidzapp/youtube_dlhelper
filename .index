@@ -177,4 +177,4 @@ summary: Small collection of methods for standard tasks
 description: manns_shared is a small collection of methods for standard tasks like
   search and replace content in a file, checking if a targetdirectory or a configuration
   file is available or remove a special node from a XML file.
-date: '2015-12-11'
+date: '2016-01-27'
