@@ -41,11 +41,11 @@ Hoe.spec "youtube_dlhelper" do
   dependency 'bundler', '~> 1.11'
   dependency 'setup', '~> 5.2'
   dependency 'parseconfig', '~> 1.0'
-  dependency 'streamio-ffmpeg', '~> 2.0'
-  dependency 'rainbow', '~> 2.1'
+  dependency 'streamio-ffmpeg', '~> 1.0.0'
+  dependency 'rainbow', '~> 2.0.0'
   dependency 'addressable', '~> 2.4.0'
   dependency 'notifier', '~> 0.5'
-  dependency 'youtube-dl.rb', '~> 0.2.5.2016'
+  dependency 'youtube-dl.rb', '~> 0.2.5.2015'
 
   extra_dev_deps << ['coveralls', '~> 0.8']
   extra_dev_deps << ['gem-release', '~> 0.7']

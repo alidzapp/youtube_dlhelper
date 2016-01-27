@@ -7,11 +7,11 @@ source "https://rubygems.org/"
 gem "bundler", "~>1.11"
 gem "setup", "~>5.2"
 gem "parseconfig", "~>1.0"
-gem "streamio-ffmpeg", "~>2.0"
-gem "rainbow", "~>2.1"
+gem "streamio-ffmpeg", "~>1.0.0"
+gem "rainbow", "~>2.0.0"
 gem "addressable", "~>2.4.0"
 gem "notifier", "~>0.5"
-gem "youtube-dl.rb", "~>0.2.5.2016"
+gem "youtube-dl.rb", "~>0.2.5.2015"
 
 gem "rdoc", "~>4.0", :group => [:development, :test]
 gem "coveralls", "~>0.8", :group => [:development, :test]

@@ -1,3 +1,9 @@
+=== 2.0.1 / 2016-01-27
+
+* 1 minor enhancement
+
+  * updated dependencies by gemnasium
+
 === 2.0.0 / 2015-12-10
 
 * 1 major enhancement

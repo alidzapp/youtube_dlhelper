@@ -35,7 +35,7 @@ class YoutubeDlhelper
   puts 'Running initialize process...'
   puts 'Gets version...'
   # @note Version variable
-  VERSION = '2.0.0'
+  VERSION = '2.0.1'
 
   puts 'Gets own process name...'
   # @note Name of the App
