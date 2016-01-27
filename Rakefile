@@ -41,8 +41,8 @@ Hoe.spec "youtube_dlhelper" do
   dependency 'bundler', '~> 1.11'
   dependency 'setup', '~> 5.2'
   dependency 'parseconfig', '~> 1.0'
-  dependency 'streamio-ffmpeg', '~> 1.0.0'
-  dependency 'rainbow', '~> 2.0.0'
+  dependency 'streamio-ffmpeg', '~> 2.0'
+  dependency 'rainbow', '~> 2.1'
   dependency 'addressable', '~> 2.4.0'
   dependency 'notifier', '~> 0.5'
   dependency 'youtube-dl.rb', '~> 0.2.5.2015'
@@ -65,7 +65,7 @@ Hoe.spec "youtube_dlhelper" do
   extra_dev_deps << ['simplecov', '~> 0.11']
   extra_dev_deps << ['bundler-audit', '~> 0.4']
   extra_dev_deps << ['manns_shared', '~> 1.0']
-  extra_dev_deps << ['mini_portile2', '~> 2.0']
+  #extra_dev_deps << ['mini_portile2', '~> 2.1']
 end
 
 ##################################################SETUP ZONE############################################################

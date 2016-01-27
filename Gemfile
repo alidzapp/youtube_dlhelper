@@ -7,8 +7,8 @@ source "https://rubygems.org/"
 gem "bundler", "~>1.11"
 gem "setup", "~>5.2"
 gem "parseconfig", "~>1.0"
-gem "streamio-ffmpeg", "~>1.0.0"
-gem "rainbow", "~>2.0.0"
+gem "streamio-ffmpeg", "~>2.0"
+gem "rainbow", "~>2.1"
 gem "addressable", "~>2.4.0"
 gem "notifier", "~>0.5"
 gem "youtube-dl.rb", "~>0.2.5.2015"
@@ -32,7 +32,6 @@ gem "rubocop", "~>0.35", :group => [:development, :test]
 gem "simplecov", "~>0.11", :group => [:development, :test]
 gem "bundler-audit", "~>0.4", :group => [:development, :test]
 gem "manns_shared", "~>1.0", :group => [:development, :test]
-gem "mini_portile2", "~>2.0", :group => [:development, :test]
 gem "hoe", "~>3.14", :group => [:development, :test]
 
 # vim: syntax=ruby
